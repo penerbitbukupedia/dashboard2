@@ -4,7 +4,7 @@ import {folderPath} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js
 //never use slash in front of file or directory
 //u might change croot parameter based on your path
 
-const baseURL="https://api.do.my.id"
+const baseURL="https://asia-southeast2-awangga.cloudfunctions.net/bukupedia"
 
 export const backend={
     user:{
@@ -14,18 +14,18 @@ export const backend={
         done:baseURL+"/data/user/task/done",
     },
     wa:{
-        text:baseURL+"https://api.wa.my.id/api/v2/send/message/text",
-        device:baseURL+"https://api.wa.my.id/api/device/",
+        text:"https://api.wa.my.id/api/v2/send/message/text",
+        device:"https://api.wa.my.id/api/device/",
     },
     project:{
-        data:baseURL+"https://api.do.my.id/data/proyek",
-        anggota:baseURL+"https://api.do.my.id/data/proyek/anggota",
+        data:baseURL+"/data/proyek",
+        anggota:baseURL+"/data/proyek/anggota",
     },
     ux:{
-        feedback:baseURL+"https://api.do.my.id/notif/ux/postfeedback",
-        laporan:baseURL+"https://api.do.my.id/notif/ux/postlaporan",
-        rating:baseURL+"https://api.do.my.id/notif/ux/rating",
-        meeting:baseURL+"https://api.do.my.id/notif/ux/postmeeting",
+        feedback:baseURL+"/notif/ux/postfeedback",
+        laporan:baseURL+"/notif/ux/postlaporan",
+        rating:baseURL+"/notif/ux/rating",
+        meeting:baseURL+"/notif/ux/postmeeting",
     }
 }
 
