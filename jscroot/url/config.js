@@ -4,26 +4,28 @@ import {folderPath} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js
 //never use slash in front of file or directory
 //u might change croot parameter based on your path
 
+const baseURL="https://api.do.my.id"
+
 export const backend={
     user:{
-        data:"https://api.do.my.id/data/user",
-        todo:"https://api.do.my.id/data/user/task/todo",
-        doing:"https://api.do.my.id/data/user/task/doing",
-        done:"https://api.do.my.id/data/user/task/done",
+        data:baseURL+"/data/user",
+        todo:baseURL+"/data/user/task/todo",
+        doing:baseURL+"/data/user/task/doing",
+        done:baseURL+"/data/user/task/done",
     },
     wa:{
-        text:"https://api.wa.my.id/api/v2/send/message/text",
-        device:"https://api.wa.my.id/api/device/",
+        text:baseURL+"https://api.wa.my.id/api/v2/send/message/text",
+        device:baseURL+"https://api.wa.my.id/api/device/",
     },
     project:{
-        data:"https://api.do.my.id/data/proyek",
-        anggota:"https://api.do.my.id/data/proyek/anggota",
+        data:baseURL+"https://api.do.my.id/data/proyek",
+        anggota:baseURL+"https://api.do.my.id/data/proyek/anggota",
     },
     ux:{
-        feedback:"https://api.do.my.id/notif/ux/postfeedback",
-        laporan:"https://api.do.my.id/notif/ux/postlaporan",
-        rating:"https://api.do.my.id/notif/ux/rating",
-        meeting:"https://api.do.my.id/notif/ux/postmeeting",
+        feedback:baseURL+"https://api.do.my.id/notif/ux/postfeedback",
+        laporan:baseURL+"https://api.do.my.id/notif/ux/postlaporan",
+        rating:baseURL+"https://api.do.my.id/notif/ux/rating",
+        meeting:baseURL+"https://api.do.my.id/notif/ux/postmeeting",
     }
 }
 
