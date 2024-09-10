@@ -481,24 +481,24 @@ function addEditProjectButtonListeners() {
         confirmButtonText: "Update",
         cancelButtonText: "Cancel",
         preConfirm: () => {
-          const repoOrg = Swal.getPopup().querySelector("#repoorg").value;
-          const repoLogName =
-            Swal.getPopup().querySelector("#repologname").value;
+          const kalimatpromosi = Swal.getPopup().querySelector("#kalimatpromosi").value;
+          const title =
+            Swal.getPopup().querySelector("#title").value;
           const description =
             Swal.getPopup().querySelector("#description").value;
-          if (!repoOrg || !repoLogName || !description) {
+          if (!title || !kalimatpromosi || !description) {
             Swal.showValidationMessage(`Please enter all fields`);
           }
-          return { repoOrg, repoLogName, description };
+          return { title, kalimatpromosi, description };
         },
       });
 
       if (formValues) {
-        const { repoOrg, repoLogName, description } = formValues;
+        const { title, kalimatpromosi, description } = formValues;
         const updatedProject = {
           _id: projectId,
-          repoorg: repoOrg,
-          repologname: repoLogName,
+          title: title,
+          kalimatpromosi: kalimatpromosi,
           description: description,
         };
         putJSON(
