@@ -220,13 +220,11 @@ document.getElementById("addButton").addEventListener("click", () => {
     cancelButtonText: "Cancel",
     preConfirm: () => {
       const name = Swal.getPopup().querySelector("#name").value;
-      const wagroupid = Swal.getPopup().querySelector("#wagroupid").value;
+      const title = Swal.getPopup().querySelector("#title").value;
       const description = Swal.getPopup().querySelector("#description").value;
-      const repoOrg = Swal.getPopup().querySelector("#repoorg").value;
-      const repoLogName = Swal.getPopup().querySelector("#repologname").value;
 
       const namePattern = /^[a-z0-9_-]+$/;
-      if (!name || !wagroupid || !description || !repoOrg || !repoLogName) {
+      if (!name || !title || !description) {
         Swal.showValidationMessage(`Please enter all fields`);
       } else if (!namePattern.test(name)) {
         Swal.showValidationMessage(
@@ -235,10 +233,8 @@ document.getElementById("addButton").addEventListener("click", () => {
       } else {
         return {
           name: name,
-          wagroupid: wagroupid,
+          title: title,
           description: description,
-          repoorg: repoOrg,
-          repologname: repoLogName,
         };
       }
     },
@@ -246,10 +242,8 @@ document.getElementById("addButton").addEventListener("click", () => {
     if (result.isConfirmed) {
       let resultData = {
         name: getValue("name"),
-        wagroupid: getValue("wagroupid"),
+        title: getValue("title"),
         description: getValue("description"),
-        repoorg: getValue("repoorg"),
-        repologname: getValue("repologname"),
       };
       if (getCookie("login") === "") {
         redirect("/signin");
@@ -281,7 +275,7 @@ function responseFunction(result) {
         " dan Secret: " +
         result.data.secret,
       footer:
-        '<a href="https://wa.me/62895601060000?text=' +
+        '<a href="https://wa.me/6287752000300?text=' +
         katakata +
         '" target="_blank">Verifikasi Proyek</a>',
       didClose: () => {
