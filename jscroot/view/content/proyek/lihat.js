@@ -1,10 +1,7 @@
-import {
-  getValue,
-  onInput,
-} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.7/croot.js";
+import {getValue,onInput,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.7/croot.js";
 import { validatePhoneNumber } from "https://cdn.jsdelivr.net/gh/jscroot/validate@0.0.2/croot.js";
 import { postJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
-import { deleteJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
+import { deleteJSON,postFileWithHeader } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
 import { putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
 import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
@@ -574,6 +571,11 @@ function addEditdocumentButtonListeners() {
         showCancelButton: true,
         confirmButtonText: "Update",
         cancelButtonText: "Cancel",
+        didOpen: () => {
+          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
+          // onInput("phonenumber", validatePhoneNumber);
+          onClick('uploadButton',uploadCoverBuku);
+        },
         preConfirm: () => {
           const kalimatpromosi = Swal.getPopup().querySelector("#kalimatpromosi").value;
           const title =
@@ -605,4 +607,13 @@ function addEditdocumentButtonListeners() {
       }
     });
   });
+}
+
+
+
+function uploadCoverBuku(){
+  const targetUrl = backend.project.coverbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
+  const fileInputId = 'fileInput';
+  const formDataName = 'coverbuku'; // Sesuaikan dengan nama form-data di backend
+  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadFileMenu);
 }
