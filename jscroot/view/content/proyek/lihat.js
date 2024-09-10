@@ -545,7 +545,7 @@ function addEditdocumentButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
       const { value: formValues } = await Swal.fire({
-        title: "Edit Document",
+        title: "Edit Cover Buku",
         html: `
          <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
           <div class="field">
