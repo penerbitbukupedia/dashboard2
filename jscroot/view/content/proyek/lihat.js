@@ -96,7 +96,7 @@ function getResponseFunction(result) {
             <span class="full-text" style="display:none;">${project.description}</span>
           </td>
           <td class="has-text-centered">
-            <button class="button is-success documentButton" data-project-id="${project._id} data-project-name="${project.name}">
+            <button class="button is-success documentButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-file"></i>
             </button>
             <button class="button is-danger removeProjectButton" data-project-name="${project.name}">
