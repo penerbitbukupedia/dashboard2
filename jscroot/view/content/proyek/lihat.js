@@ -134,6 +134,7 @@ function getResponseFunction(result) {
       addEditProjectButtonListeners(); //  event listener edit project
       addEditdocumentButtonListeners(); //  event listener edit document project
       addEditDraftButtonListeners();//draft doc
+      addEditDraftPDFButtonListeners();//draft pdf
     } else {
       Swal.fire({
         icon: "error",
@@ -629,7 +630,7 @@ function addEditDraftButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
       Swal.fire({
-        title: "Edit Cover Buku",
+        title: "Edit Draft Buku",
         html: `
          <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
           <div class="field">
@@ -639,7 +640,7 @@ function addEditDraftButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Gambar Cover Buku</label>
+            <label class="label">Docx Draft Buku</label>
             <div class="control">
                 <input class="input" type="file" id="fileInput" name="file" required>
             </div>
@@ -674,12 +675,157 @@ function addEditDraftButtonListeners() {
 
 function uploadDraftBuku(){
   const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
-  const fileInputId = 'fileInput';
-  const formDataName = 'coverbuku'; // Sesuaikan dengan nama form-data di backend
+  const fileInputId = 'draftbuku';
+  const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftBuku);
 }
 
 function runafterUploadDraftBuku(result){
+  //setValue('id',result.info);
+  //setValue('image',result.location);
+  document.getElementById('fileInput').style.display = 'none';
+  document.getElementById('uploadButton').style.display = 'none';
+  const imageField = document.getElementById('imageField');
+  const uploadedImage = document.getElementById('uploadedImage');
+  uploadedImage.src = result.location;
+  imageField.style.display = 'block';
+  console.log(result);
+
+}
+
+
+//upload draft pdf
+
+
+function addEditDraftPDFButtonListeners() {
+  document.querySelectorAll(".pdfButton").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const projectId = button.getAttribute("data-project-id");
+      const projectName = button.getAttribute("data-project-name");
+      Swal.fire({
+        title: "Edit Draft Buku",
+        html: `
+         <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
+          <div class="field">
+            <label class="label">Project Name</label>
+            <div class="control">
+              <input class="input" type="text" id="name" value="${projectName}" disabled>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Docx Draft Buku</label>
+            <div class="control">
+                <input class="input" type="file" id="fileInput" name="file" required>
+            </div>
+          </div>
+          <div class="field">
+              <div class="control">
+                  <button class="button is-primary" id="uploadButton">Upload</button>
+              </div>
+          </div>
+          <div class="field" id="imageField" style="display: none;">
+              <div class="control">
+                  <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%;">
+              </div>
+          </div>
+        `,
+        didOpen: () => {
+          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
+          // onInput("phonenumber", validatePhoneNumber);
+          onClick('uploadButton',uploadDraftPDFBuku);
+        },
+        didClose: () => {
+          reloadDataTable();
+        },
+      });
+
+
+    });
+  });
+}
+
+
+
+function uploadDraftPDFBuku(){
+  const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
+  const fileInputId = 'draftpdfbuku';
+  const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
+  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftPDFBuku);
+}
+
+function runafterUploadDraftPDFBuku(result){
+  //setValue('id',result.info);
+  //setValue('image',result.location);
+  document.getElementById('fileInput').style.display = 'none';
+  document.getElementById('uploadButton').style.display = 'none';
+  const imageField = document.getElementById('imageField');
+  const uploadedImage = document.getElementById('uploadedImage');
+  uploadedImage.src = result.location;
+  imageField.style.display = 'block';
+  console.log(result);
+
+}
+
+
+//upload sampul pdf
+
+function addEditSampulPDFButtonListeners() {
+  document.querySelectorAll(".pdfButton").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const projectId = button.getAttribute("data-project-id");
+      const projectName = button.getAttribute("data-project-name");
+      Swal.fire({
+        title: "Edit Draft Buku",
+        html: `
+         <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
+          <div class="field">
+            <label class="label">Project Name</label>
+            <div class="control">
+              <input class="input" type="text" id="name" value="${projectName}" disabled>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Docx Draft Buku</label>
+            <div class="control">
+                <input class="input" type="file" id="fileInput" name="file" required>
+            </div>
+          </div>
+          <div class="field">
+              <div class="control">
+                  <button class="button is-primary" id="uploadButton">Upload</button>
+              </div>
+          </div>
+          <div class="field" id="imageField" style="display: none;">
+              <div class="control">
+                  <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%;">
+              </div>
+          </div>
+        `,
+        didOpen: () => {
+          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
+          // onInput("phonenumber", validatePhoneNumber);
+          onClick('uploadButton',uploadSampulPDFBuku);
+        },
+        didClose: () => {
+          reloadDataTable();
+        },
+      });
+
+
+    });
+  });
+}
+
+
+
+function uploadSampulPDFBuku(){
+  const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
+  const fileInputId = 'sampulpdfbuku';
+  const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
+  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadSampulPDFBuku);
+}
+
+function runafterUploadSampulPDFBuku(result){
   //setValue('id',result.info);
   //setValue('image',result.location);
   document.getElementById('fileInput').style.display = 'none';
