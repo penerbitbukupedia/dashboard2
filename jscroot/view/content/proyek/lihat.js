@@ -209,9 +209,9 @@ document.getElementById("addButton").addEventListener("click", () => {
                 </div>
             </div>
             <div class="field">
-                <label class="label">Description</label>
+                <label class="label">Sinopsis</label>
                 <div class="control">
-                    <textarea class="textarea" id="description" placeholder="Tulis deskripsi proyek Kakak"></textarea>
+                    <textarea class="textarea" id="description" placeholder="Sinopsis buku yang akan dipublikasikan di katalog"></textarea>
                 </div>
             </div>
         `,
