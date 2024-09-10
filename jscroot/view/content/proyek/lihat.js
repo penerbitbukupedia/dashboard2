@@ -203,21 +203,9 @@ document.getElementById("addButton").addEventListener("click", () => {
                 </div>
             </div>
             <div class="field">
-                <label class="label">WhatsApp Group ID</label>
+                <label class="label">Judul Buku</label>
                 <div class="control">
-                    <input class="input" type="text" id="wagroupid" placeholder="minta group id ke bot">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Nama Repo Organisasi</label>
-                <div class="control">
-                    <input class="input" type="text" id="repoorg" placeholder="repo organisasi">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Nama Repo Log Meeting</label>
-                <div class="control">
-                    <input class="input" type="text" id="repologname" placeholder="repo log meeting">
+                    <input class="input" type="text" id="title" placeholder="Judul Buku">
                 </div>
             </div>
             <div class="field">
