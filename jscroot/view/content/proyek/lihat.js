@@ -568,43 +568,17 @@ function addEditdocumentButtonListeners() {
               </div>
           </div>
         `,
-        showCancelButton: true,
-        confirmButtonText: "Update",
-        cancelButtonText: "Cancel",
         didOpen: () => {
           // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
           // onInput("phonenumber", validatePhoneNumber);
           onClick('uploadButton',uploadCoverBuku);
         },
-        preConfirm: () => {
-          const kalimatpromosi = Swal.getPopup().querySelector("#kalimatpromosi").value;
-          const title =
-            Swal.getPopup().querySelector("#title").value;
-          const description =
-            Swal.getPopup().querySelector("#description").value;
-          if (!title || !kalimatpromosi || !description) {
-            Swal.showValidationMessage(`Please enter all fields`);
-          }
-          return { title, kalimatpromosi, description };
+        didClose: () => {
+          reloadDataTable();
         },
       });
 
-      if (formValues) {
-        const { title, kalimatpromosi, description } = formValues;
-        const updatedProject = {
-          _id: projectId,
-          title: title,
-          kalimatpromosi: kalimatpromosi,
-          description: description,
-        };
-        putJSON(
-          backend.project.data, // Assumes a POST method will handle updates as well
-          "login",
-          getCookie("login"),
-          updatedProject,
-          updateResponseFunction
-        );
-      }
+
     });
   });
 }
