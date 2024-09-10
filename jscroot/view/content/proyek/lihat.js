@@ -139,7 +139,7 @@ function addMemberButtonListeners() {
         button.getAttribute("data-project-name") ||
         button.closest("tr").querySelector("td:first-child").innerText;
       const { value: formValues } = await Swal.fire({
-        title: "Tambah Member",
+        title: "Tambah Penulis",
         html: `
           <div class="field">
             <div class="control">
@@ -149,7 +149,7 @@ function addMemberButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Nomor Telepon Calon Member</label>
+            <label class="label">Nomor Telepon Calon Penulis</label>
             <div class="control">
               <input class="input" type="tel" id="phonenumber" name="phonenumber" placeholder="628111" required>
             </div>
