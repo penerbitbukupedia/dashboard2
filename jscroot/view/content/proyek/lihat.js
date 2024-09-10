@@ -99,7 +99,7 @@ function getResponseFunction(result) {
             <button class="button is-danger removeProjectButton" data-project-name="${project.name}">
               <i class="bx bx-trash"></i>          
             </button>
-            <button class="button is-warning editProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-wagroupid="${project.wagroupid}" data-project-repoorg="${project.repoorg}" data-project-repologname="${project.repologname}" data-project-description="${project.description}">
+            <button class="button is-warning editProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-title="${project.title}" data-project-kalimatpromosi="${project.kalimatpromosi}" data-project-description="${project.description}">
               <i class="bx bx-edit"></i>
             </button>
           </td>
@@ -443,11 +443,8 @@ function addEditProjectButtonListeners() {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
-      const projectWagroupid = button.getAttribute("data-project-wagroupid");
-      const projectRepoorg = button.getAttribute("data-project-repoorg");
-      const projectRepologname = button.getAttribute(
-        "data-project-repologname"
-      );
+      const projecttitle = button.getAttribute("data-project-title");
+      const projectkalimatpromosi = button.getAttribute("data-project-kalimatpromosi");
       const projectDescription = button.getAttribute(
         "data-project-description"
       );
@@ -462,25 +459,19 @@ function addEditProjectButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">WhatsApp Group ID</label>
+            <label class="label">Judul Buku</label>
             <div class="control">
-              <input class="input" type="text" id="wagroupid" value="${projectWagroupid}" disabled>
+              <input class="input" type="text" id="title" value="${projecttitle}">
             </div>
           </div>
           <div class="field">
-            <label class="label">Nama Repo Organisasi</label>
+            <label class="label">Kalimat Promosi</label>
             <div class="control">
-              <input class="input" type="text" id="repoorg" value="${projectRepoorg}">
+              <input class="input" type="text" id="kalimatpromosi" value="${projectkalimatpromosi}">
             </div>
           </div>
           <div class="field">
-            <label class="label">Nama Repo Log Meeting</label>
-            <div class="control">
-              <input class="input" type="text" id="repologname" value="${projectRepologname}">
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Description</label>
+            <label class="label">Sinopsis</label>
             <div class="control">
               <textarea class="textarea" id="description">${projectDescription}</textarea>
             </div>
