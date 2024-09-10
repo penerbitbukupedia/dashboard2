@@ -555,7 +555,7 @@ function addEditdocumentButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Gambar Menu</label>
+            <label class="label">Gambar Cover Buku</label>
             <div class="control">
                 <input class="input" type="file" id="fileInput" name="file" required>
             </div>
