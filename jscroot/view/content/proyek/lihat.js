@@ -96,6 +96,19 @@ function getResponseFunction(result) {
             ${truncatedDescription}
             <span class="full-text" style="display:none;">${project.description}</span>
           </td>
+          <td>
+          
+            <button class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}">
+              <i class="bx bx-file"></i>
+            </button>
+            <button class="button is-success pdfButton" data-project-id="${project._id}" data-project-name="${project.name}">
+              <i class="bx bx-file"></i>
+            </button>
+            <button class="button is-success pdfsampulButton" data-project-id="${project._id}" data-project-name="${project.name}">
+              <i class="bx bx-file"></i>
+            </button>
+          
+          </td>
           <td class="has-text-centered">
             <button class="button is-danger removeProjectButton" data-project-name="${project.name}">
               <i class="bx bx-trash"></i>          
