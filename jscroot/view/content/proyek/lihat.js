@@ -555,22 +555,20 @@ function addEditdocumentButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Judul Buku</label>
+            <label class="label">Gambar Menu</label>
             <div class="control">
-              <input class="input" type="text" id="title" value="${projecttitle}">
+                <input class="input" type="file" id="fileInput" name="file" required>
             </div>
           </div>
           <div class="field">
-            <label class="label">Kalimat Promosi</label>
-            <div class="control">
-              <input class="input" type="text" id="kalimatpromosi" value="${projectkalimatpromosi}">
-            </div>
+              <div class="control">
+                  <button class="button is-primary" id="uploadButton">Upload</button>
+              </div>
           </div>
-          <div class="field">
-            <label class="label">Sinopsis</label>
-            <div class="control">
-              <textarea class="textarea" id="description">${projectDescription}</textarea>
-            </div>
+          <div class="field" id="imageField" style="display: none;">
+              <div class="control">
+                  <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%;">
+              </div>
           </div>
         `,
         showCancelButton: true,
