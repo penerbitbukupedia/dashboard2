@@ -14,10 +14,10 @@ export async function main(){
 
 function actionfunctionname(){
     let user={
-        email:getValue("email"),
-        githubusername:getValue("githubusername"),
-        gitlabusername:getValue("gitlabusername"),
-        githostusername:getValue("githostusername")
+        nik:getValue("nik"),
+        pekerjaan:getValue("pekerjaan"),
+        alamatrumah:getValue("alamatrumah"),
+        alamatkantor:getValue("alamatkantor")
     };
     if (getCookie("login")===""){
         redirect("/signin");
@@ -33,15 +33,17 @@ function responseFunction(result){
         Swal.fire({
             icon: "success",
             title: "Berhasil",
-            text: "Selamat kak "+result.data.name+" sudah terdaftar dengan ID: "+result.data._id,
+            text: "Selamat kak "+result.data.name+" sudah terupdate dengan ID: "+result.data._id,
             footer: '<a href="https://wa.me/62895601060000?text='+katakata+'" target="_blank">Verifikasi Pendaftaran</a>',
           });
           setValue("phonenumber",result.data.phonenumber);
           setValue("name",result.data.name);
           setValue("email",result.data.email);
-          setValue("githubusername",result.data.githubusername);
-          setValue("gitlabusername",result.data.gitlabusername);
-          setValue("githostusername",result.data.githostusername); 
+          setValue("nik",result.data.nik);
+          setValue("pathbio",result.data.pathbio);
+          setValue("pekerjaan",result.data.pekerjaan);
+          setValue("alamatrumah",result.data.alamatrumah); 
+          setValue("alamatkantor",result.data.alamatkantor); 
           show("buttonkirimaccount");
     }else{
         Swal.fire({
