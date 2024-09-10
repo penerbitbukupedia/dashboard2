@@ -771,7 +771,7 @@ function runafterUploadDraftPDFBuku(result){
 //upload sampul pdf
 
 function addEditSampulPDFButtonListeners() {
-  document.querySelectorAll(".pdfButton").forEach((button) => {
+  document.querySelectorAll(".pdfsampulButton").forEach((button) => {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
