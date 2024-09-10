@@ -617,3 +617,16 @@ function uploadCoverBuku(){
   const formDataName = 'coverbuku'; // Sesuaikan dengan nama form-data di backend
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadFileMenu);
 }
+
+function runafterUploadFileMenu(result){
+  //setValue('id',result.info);
+  //setValue('image',result.location);
+  document.getElementById('fileInput').style.display = 'none';
+  document.getElementById('uploadButton').style.display = 'none';
+  const imageField = document.getElementById('imageField');
+  const uploadedImage = document.getElementById('uploadedImage');
+  uploadedImage.src = result.location;
+  imageField.style.display = 'block';
+  console.log(result);
+
+}
