@@ -97,13 +97,15 @@ function getResponseFunction(result) {
             <span class="full-text" style="display:none;">${project.description}</span>
           </td>
           <td>
-          
+            1. Draft Docx
             <button class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-file-find"></i>
-            </button>
+            </button><br>
+            2. Draft PDF
             <button class="button is-success pdfButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-file-blank"></i>
-            </button>
+            </button><br>
+            3. Sampul PDF
             <button class="button is-success pdfsampulButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-file"></i>
             </button>
