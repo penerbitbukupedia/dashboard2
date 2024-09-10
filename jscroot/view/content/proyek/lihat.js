@@ -133,6 +133,7 @@ function getResponseFunction(result) {
       addRemoveProjectButtonListeners();
       addEditProjectButtonListeners(); //  event listener edit project
       addEditdocumentButtonListeners(); //  event listener edit document project
+      addEditDraftButtonListeners();//draft doc
     } else {
       Swal.fire({
         icon: "error",
@@ -555,7 +556,7 @@ function addEditdocumentButtonListeners() {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
-      const { value: formValues } = await Swal.fire({
+      Swal.fire({
         title: "Edit Cover Buku",
         html: `
          <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
@@ -603,10 +604,82 @@ function uploadCoverBuku(){
   const targetUrl = backend.project.coverbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
   const fileInputId = 'fileInput';
   const formDataName = 'coverbuku'; // Sesuaikan dengan nama form-data di backend
-  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadFileMenu);
+  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadCoverBuku);
 }
 
-function runafterUploadFileMenu(result){
+function runafterUploadCoverBuku(result){
+  //setValue('id',result.info);
+  //setValue('image',result.location);
+  document.getElementById('fileInput').style.display = 'none';
+  document.getElementById('uploadButton').style.display = 'none';
+  const imageField = document.getElementById('imageField');
+  const uploadedImage = document.getElementById('uploadedImage');
+  uploadedImage.src = result.location;
+  imageField.style.display = 'block';
+  console.log(result);
+
+}
+
+
+////upload draft doc
+
+function addEditDraftButtonListeners() {
+  document.querySelectorAll(".draftButton").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const projectId = button.getAttribute("data-project-id");
+      const projectName = button.getAttribute("data-project-name");
+      Swal.fire({
+        title: "Edit Cover Buku",
+        html: `
+         <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
+          <div class="field">
+            <label class="label">Project Name</label>
+            <div class="control">
+              <input class="input" type="text" id="name" value="${projectName}" disabled>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Gambar Cover Buku</label>
+            <div class="control">
+                <input class="input" type="file" id="fileInput" name="file" required>
+            </div>
+          </div>
+          <div class="field">
+              <div class="control">
+                  <button class="button is-primary" id="uploadButton">Upload</button>
+              </div>
+          </div>
+          <div class="field" id="imageField" style="display: none;">
+              <div class="control">
+                  <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%;">
+              </div>
+          </div>
+        `,
+        didOpen: () => {
+          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
+          // onInput("phonenumber", validatePhoneNumber);
+          onClick('uploadButton',uploadDraftBuku);
+        },
+        didClose: () => {
+          reloadDataTable();
+        },
+      });
+
+
+    });
+  });
+}
+
+
+
+function uploadDraftBuku(){
+  const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
+  const fileInputId = 'fileInput';
+  const formDataName = 'coverbuku'; // Sesuaikan dengan nama form-data di backend
+  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftBuku);
+}
+
+function runafterUploadDraftBuku(result){
   //setValue('id',result.info);
   //setValue('image',result.location);
   document.getElementById('fileInput').style.display = 'none';
