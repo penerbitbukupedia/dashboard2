@@ -60,8 +60,10 @@ function getUserFunction(result){
   setValue("name",result.data.name);
   if (result.status!==404){
     setValue("email",result.data.email);
-    setValue("githubusername",result.data.githubusername);
-    setValue("gitlabusername",result.data.gitlabusername);
-    setValue("githostusername",result.data.githostusername); 
+    setValue("nik",result.data.nik);
+    setValue("pathbio",result.data.pathbio);
+    setValue("pekerjaan",result.data.pekerjaan);
+    setValue("alamatrumah",result.data.alamatrumah); 
+    setValue("alamatkantor",result.data.alamatkantor); 
   }
 }
