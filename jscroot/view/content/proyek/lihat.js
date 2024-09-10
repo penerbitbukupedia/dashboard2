@@ -676,7 +676,7 @@ function addEditDraftButtonListeners() {
 
 function uploadDraftBuku(){
   const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
-  const fileInputId = 'draftbuku';
+  const fileInputId = 'fileInput';
   const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftBuku);
 }
@@ -749,8 +749,8 @@ function addEditDraftPDFButtonListeners() {
 
 function uploadDraftPDFBuku(){
   const targetUrl = backend.project.draftpdfbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
-  const fileInputId = 'draftpdfbuku';
-  const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
+  const fileInputId = 'fileInput';
+  const formDataName = 'draftpdfbuku'; // Sesuaikan dengan nama form-data di backend
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftPDFBuku);
 }
 
@@ -821,8 +821,8 @@ function addEditSampulPDFButtonListeners() {
 
 function uploadSampulPDFBuku(){
   const targetUrl = backend.project.sampulpdfbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
-  const fileInputId = 'sampulpdfbuku';
-  const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
+  const fileInputId = 'fileInput';
+  const formDataName = 'sampulpdfbuku'; // Sesuaikan dengan nama form-data di backend
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadSampulPDFBuku);
 }
 
