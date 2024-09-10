@@ -135,6 +135,7 @@ function getResponseFunction(result) {
       addEditdocumentButtonListeners(); //  event listener edit document project
       addEditDraftButtonListeners();//draft doc
       addEditDraftPDFButtonListeners();//draft pdf
+      addEditSampulPDFButtonListeners();//sampul buku
     } else {
       Swal.fire({
         icon: "error",
@@ -703,7 +704,7 @@ function addEditDraftPDFButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
       Swal.fire({
-        title: "Edit Draft Buku",
+        title: "Edit Draft PDF Buku",
         html: `
          <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
           <div class="field">
@@ -713,7 +714,7 @@ function addEditDraftPDFButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Docx Draft Buku</label>
+            <label class="label">PDF Draft Buku</label>
             <div class="control">
                 <input class="input" type="file" id="fileInput" name="file" required>
             </div>
@@ -775,7 +776,7 @@ function addEditSampulPDFButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
       Swal.fire({
-        title: "Edit Draft Buku",
+        title: "Edit Sampul PDF Buku",
         html: `
          <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
           <div class="field">
@@ -785,7 +786,7 @@ function addEditSampulPDFButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Docx Draft Buku</label>
+            <label class="label">PDF Sampul Buku</label>
             <div class="control">
                 <input class="input" type="file" id="fileInput" name="file" required>
             </div>
