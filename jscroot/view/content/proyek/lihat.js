@@ -99,10 +99,10 @@ function getResponseFunction(result) {
           <td>
           
             <button class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file-doc"></i>
+              <i class="bx bx-file-find"></i>
             </button>
             <button class="button is-success pdfButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file-pdf"></i>
+              <i class="bx bx-file-blank"></i>
             </button>
             <button class="button is-success pdfsampulButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-file"></i>
