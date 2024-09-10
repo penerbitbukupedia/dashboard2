@@ -89,7 +89,7 @@ function getResponseFunction(result) {
 
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${project.name}</td>
+          <td>${project.name} (${project.title})</td>
           <td>${membersHtml}</td>
           <td class="has-text-justified">
             ${truncatedDescription}
