@@ -88,7 +88,7 @@ function getResponseFunction(result) {
         row.innerHTML = `
           <td>${project.name} (${project.title})<br><img src="${project.coverbuku}">
             <button class="button is-success documentButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file"></i>
+              <i class="bx bx-image"></i>
             </button>
           </td>
           <td>${membersHtml}</td>
@@ -99,10 +99,10 @@ function getResponseFunction(result) {
           <td>
           
             <button class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file"></i>
+              <i class="bx bx-file-doc"></i>
             </button>
             <button class="button is-success pdfButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file"></i>
+              <i class="bx bx-file-pdf"></i>
             </button>
             <button class="button is-success pdfsampulButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-file"></i>
