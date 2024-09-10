@@ -97,19 +97,35 @@ function getResponseFunction(result) {
             <span class="full-text" style="display:none;">${project.description}</span>
           </td>
           <td>
-            1. Draft Docx
-            <button class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file-find"></i>
-            </button><br>
-            2. Draft PDF
-            <button class="button is-success pdfButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file-blank"></i>
-            </button><br>
-            3. Sampul PDF
-            <button class="button is-success pdfsampulButton" data-project-id="${project._id}" data-project-name="${project.name}">
-              <i class="bx bx-file"></i>
-            </button>
-          
+          <ul style="list-style-type:none; padding-left:0;">
+            <li>
+                1. Draft Docx
+                <button class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                  <i class="bx bx-file-find"></i>
+                </button>
+                <button class="button is-info downloadButton" data-file-path="${project.draftbuku}">
+                  <i class="bx bx-download"></i>
+                </button>
+            </li>
+            <li>
+                2. Draft PDF
+                <button class="button is-success pdfButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                  <i class="bx bx-file-blank"></i>
+                </button>
+                <button class="button is-info downloadButton" data-file-path="${project.draftpdfbuku}">
+                  <i class="bx bx-download"></i>
+                </button>
+            </li>
+            <li>
+                3. Sampul PDF
+                <button class="button is-success pdfsampulButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                  <i class="bx bx-file"></i>
+                </button>
+                <button class="button is-info downloadButton" data-file-path="${project.sampulpdfbuku}">
+                  <i class="bx bx-download"></i>
+                </button>
+            </li>
+          </ul>
           </td>
           <td class="has-text-centered">
             <button class="button is-danger removeProjectButton" data-project-name="${project.name}">
