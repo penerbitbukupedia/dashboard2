@@ -214,6 +214,12 @@ document.getElementById("addButton").addEventListener("click", () => {
                     <textarea class="textarea" id="description" placeholder="Sinopsis buku yang akan dipublikasikan di katalog"></textarea>
                 </div>
             </div>
+            <div class="field">
+                <label class="label">Kalimat Promosi Buku</label>
+                <div class="control">
+                    <input class="input" type="text" id="kalimatpromosi" placeholder="Kalimat yang membuat orang membeli buku ini">
+                </div>
+            </div>
         `,
     showCancelButton: true,
     confirmButtonText: "Add",
@@ -222,9 +228,10 @@ document.getElementById("addButton").addEventListener("click", () => {
       const name = Swal.getPopup().querySelector("#name").value;
       const title = Swal.getPopup().querySelector("#title").value;
       const description = Swal.getPopup().querySelector("#description").value;
+      const kalimatpromosi = Swal.getPopup().querySelector("#kalimatpromosi").value;
 
       const namePattern = /^[a-z0-9_-]+$/;
-      if (!name || !title || !description) {
+      if (!name || !title || !description || !kalimatpromosi) {
         Swal.showValidationMessage(`Please enter all fields`);
       } else if (!namePattern.test(name)) {
         Swal.showValidationMessage(
@@ -235,6 +242,7 @@ document.getElementById("addButton").addEventListener("click", () => {
           name: name,
           title: title,
           description: description,
+          kalimatpromosi:kalimatpromosi,
         };
       }
     },
@@ -244,6 +252,7 @@ document.getElementById("addButton").addEventListener("click", () => {
         name: getValue("name"),
         title: getValue("title"),
         description: getValue("description"),
+        kalimatpromosi: getValue("kalimatpromosi"),
       };
       if (getCookie("login") === "") {
         redirect("/signin");
