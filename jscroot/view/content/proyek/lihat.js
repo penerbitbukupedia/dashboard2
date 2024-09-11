@@ -863,7 +863,7 @@ function downloadDraftButtonListeners() {
   document.querySelectorAll(".downloadButton").forEach((button) => {
     button.addEventListener("click", async (event) => {
       const filePath = button.getAttribute("data-file-path");
-      getWithHeader(backend.project.downloaddraft+filePath,'login',getCookie('login'),runafterDownloadDraft);
+      getWithHeader(backend.project.downloaddraft+btoa(filePath),'login',getCookie('login'),runafterDownloadDraft);
     });
   });
 }
