@@ -1,11 +1,7 @@
-import {getValue,onInput,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.7/croot.js";
+import {getValue,onInput,onClick,addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.7/croot.js";
 import { validatePhoneNumber } from "https://cdn.jsdelivr.net/gh/jscroot/validate@0.0.2/croot.js";
-import { postJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
-import { deleteJSON,postFileWithHeader } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
-import { putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
-import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
+import { deleteJSON,postFileWithHeader,putJSON,getJSON,postJSON,getWithHeader } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.8/croot.js";
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
-import { addCSSIn } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 import { id, backend } from "/dashboard/jscroot/url/config.js";
 import { loadScript } from "../../../controller/main.js";
@@ -154,6 +150,7 @@ function getResponseFunction(result) {
       addEditDraftButtonListeners();//draft doc
       addEditDraftPDFButtonListeners();//draft pdf
       addEditSampulPDFButtonListeners();//sampul buku
+      downloadDraftButtonListeners();//download draft
     } else {
       Swal.fire({
         icon: "error",
@@ -855,4 +852,22 @@ function runafterUploadSampulPDFBuku(result){
   imageField.style.display = 'block';
   console.log(result);
 
+}
+
+
+//download file draft 
+
+//upload sampul pdf
+
+function downloadDraftButtonListeners() {
+  document.querySelectorAll(".downloadButton").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const filePath = button.getAttribute("data-file-path");
+      getWithHeader(backend.project.downloaddraft+filePath,'login',getCookie('login'),runafterDownloadDraft);
+    });
+  });
+}
+
+function runafterDownloadDraft(response){
+  console.log(response);
 }

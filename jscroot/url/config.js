@@ -24,6 +24,7 @@ export const backend={
         draftbuku:baseURL+"/upload/draftbuku/",
         draftpdfbuku:baseURL+"/upload/draftpdfbuku/",
         sampulpdfbuku:baseURL+"/upload/sampulpdfbuku/",
+        downloaddraft:baseURL+"/download/draft/",
     },
     ux:{
         feedback:baseURL+"/notif/ux/postfeedback",
