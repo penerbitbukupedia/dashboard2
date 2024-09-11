@@ -863,11 +863,45 @@ function downloadDraftButtonListeners() {
   document.querySelectorAll(".downloadButton").forEach((button) => {
     button.addEventListener("click", async (event) => {
       const filePath = button.getAttribute("data-file-path");
-      getWithHeader(backend.project.downloaddraft+btoa(filePath),'login',getCookie('login'),runafterDownloadDraft);
+      getFileWithHeader(backend.project.downloaddraft+btoa(filePath),'login',getCookie('login'),runafterDownloadDraft);
     });
   });
 }
 
 function runafterDownloadDraft(response){
   console.log(response);
+}
+
+
+export function getFileWithHeader(target_url, tokenkey, tokenvalue, responseFunction) {
+
+  let myHeaders = new Headers();
+  myHeaders.append(tokenkey, tokenvalue);
+
+  let requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: myHeaders
+  };
+
+  fetch(target_url, requestOptions)
+      .then(response => {
+          if (response.status === 200) {
+              // Jika status 200, download file
+              return response.blob().then(blob => {
+                  const url = window.URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  let base64fileurl = target_url.split('/').pop();
+                  a.download = atob(base64fileurl); // Nama file dari URL
+                  document.body.appendChild(a);
+                  a.click();
+                  a.remove();
+              });
+          } else {
+              // Jika status selain 200, parse sebagai JSON
+              return response.json().then(result => responseFunction(result));
+          }
+      })
+      .catch(error => console.log('error', error));
 }
