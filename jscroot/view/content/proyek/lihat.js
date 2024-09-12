@@ -81,6 +81,12 @@ function getResponseFunction(result) {
           </button>`;
 
         const row = document.createElement("tr");
+        //pengecekan kelengkapan draft
+        // pengecekan kelengkapan draft
+        let statusDraftBuku = project.draftbuku ? "Sudah" : "Belum";
+        let statusDraftPDFBuku = project.draftpdfbuku ? "Sudah" : "Belum";
+        let statusSampulPDFBuku = project.sampulpdfbuku ? "Sudah" : "Belum";
+        //pembuatan tabel
         row.innerHTML = `
           <td>${project.name} (${project.title})<br><img src="${project.coverbuku}">
             <button class="button is-success documentButton" data-project-id="${project._id}" data-project-name="${project.name}">
@@ -95,7 +101,7 @@ function getResponseFunction(result) {
           <td>
           <ul style="list-style-type:none; padding-left:0;">
             <li>
-                1. Draft Docx
+                1. Draft Docx[${statusDraftBuku}]
                 <button class="button is-success draftButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                   <i class="bx bx-file-find"></i>
                 </button>
@@ -104,7 +110,7 @@ function getResponseFunction(result) {
                 </button>
             </li>
             <li>
-                2. Draft PDF
+                2. Draft PDF[${statusDraftPDFBuku}]
                 <button class="button is-success pdfButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                   <i class="bx bx-file-blank"></i>
                 </button>
@@ -113,7 +119,7 @@ function getResponseFunction(result) {
                 </button>
             </li>
             <li>
-                3. Sampul PDF
+                3. Sampul PDF[${statusSampulPDFBuku}]
                 <button class="button is-success pdfsampulButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                   <i class="bx bx-file"></i>
                 </button>
