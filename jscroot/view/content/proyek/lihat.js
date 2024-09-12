@@ -96,28 +96,28 @@ function getResponseFunction(result) {
           <ul style="list-style-type:none; padding-left:0;">
             <li>
                 1. Draft Docx
-                <button class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                <button class="button is-success draftButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                   <i class="bx bx-file-find"></i>
                 </button>
-                <button class="button is-info downloadButton" data-file-path="${project.draftbuku}">
+                <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.draftbuku}">
                   <i class="bx bx-download"></i>
                 </button>
             </li>
             <li>
                 2. Draft PDF
-                <button class="button is-success pdfButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                <button class="button is-success pdfButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                   <i class="bx bx-file-blank"></i>
                 </button>
-                <button class="button is-info downloadButton" data-file-path="${project.draftpdfbuku}">
+                <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.draftpdfbuku}">
                   <i class="bx bx-download"></i>
                 </button>
             </li>
             <li>
                 3. Sampul PDF
-                <button class="button is-success pdfsampulButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                <button class="button is-success pdfsampulButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                   <i class="bx bx-file"></i>
                 </button>
-                <button class="button is-info downloadButton" data-file-path="${project.sampulpdfbuku}">
+                <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.sampulpdfbuku}">
                   <i class="bx bx-download"></i>
                 </button>
             </li>
