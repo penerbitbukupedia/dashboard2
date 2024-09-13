@@ -149,7 +149,8 @@ function getResponseFunction(result) {
       addRemoveMemberButtonListeners(); //  event listener hapus member
       addRemoveProjectButtonListeners();
       addEditProjectButtonListeners(); //  event listener edit project
-      addEditdocumentButtonListeners(); //  event listener edit document project
+      addEditdocumentButtonListeners(); //  event listener edit cover buku
+      addEditPropertyBukuButtonListeners();// edit property buku
       addEditDraftButtonListeners();//draft doc
       addEditDraftPDFButtonListeners();//draft pdf
       addEditSampulPDFButtonListeners();//sampul buku
@@ -473,6 +474,114 @@ function removeProjectResponse(result) {
   }
   console.log(result);
 }
+
+
+function addEditPropertyBukuButtonListeners() {
+  document.querySelectorAll(".editPropertyBukuButton").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const projectId = button.getAttribute("data-project-id");
+      const projectName = button.getAttribute("data-project-name");
+
+      const projecttitle = button.getAttribute("data-project-title");
+      const projectkalimatpromosi = button.getAttribute("data-project-kalimatpromosi");
+      const projectDescription = button.getAttribute(
+        "data-project-description"
+      );
+
+      const { value: formValues } = await Swal.fire({
+        title: "Edit Project",
+        html: `
+          <div class="field">
+            <label class="label">Project Name</label>
+            <div class="control">
+              <input class="input" type="text" id="name" value="${projectName}" disabled>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Nomor ISBN</label>
+            <div class="control">
+              <input class="input" type="text" id="title" value="${projecttitle}">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Tanggal Terbit ISBN</label>
+            <div class="control">
+              <input class="input" type="text" id="title" value="${projecttitle}">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Ukuran</label>
+            <div class="control">
+              <input class="input" type="text" id="title" value="${projecttitle}">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Jumlah Halaman</label>
+            <div class="control">
+              <input class="input" type="text" id="kalimatpromosi" value="${projectkalimatpromosi}">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Tebal</label>
+            <div class="control">
+              <textarea class="textarea" id="description">${projectDescription}</textarea>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">URL Gramedia</label>
+            <div class="control">
+              <textarea class="textarea" id="description">${projectDescription}</textarea>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">URL Kubuku</label>
+            <div class="control">
+              <textarea class="textarea" id="description">${projectDescription}</textarea>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">URL MyEdisi</label>
+            <div class="control">
+              <textarea class="textarea" id="description">${projectDescription}</textarea>
+            </div>
+          </div>
+        `,
+        showCancelButton: true,
+        confirmButtonText: "Update",
+        cancelButtonText: "Cancel",
+        preConfirm: () => {
+          const kalimatpromosi = Swal.getPopup().querySelector("#kalimatpromosi").value;
+          const title =
+            Swal.getPopup().querySelector("#title").value;
+          const description =
+            Swal.getPopup().querySelector("#description").value;
+          if (!title || !kalimatpromosi || !description) {
+            Swal.showValidationMessage(`Please enter all fields`);
+          }
+          return { title, kalimatpromosi, description };
+        },
+      });
+
+      if (formValues) {
+        const { title, kalimatpromosi, description } = formValues;
+        const updatedProject = {
+          _id: projectId,
+          title: title,
+          kalimatpromosi: kalimatpromosi,
+          description: description,
+        };
+        putJSON(
+          backend.project.data, // Assumes a POST method will handle updates as well
+          "login",
+          getCookie("login"),
+          updatedProject,
+          updateResponseFunction
+        );
+      }
+    });
+  });
+}
+
 
 function addEditProjectButtonListeners() {
   document.querySelectorAll(".editProjectButton").forEach((button) => {
