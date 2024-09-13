@@ -102,7 +102,7 @@ function getResponseFunction(result) {
           <ul style="list-style-type:none; padding-left:0;">
             <li>
                 1. Draft Docx[${statusDraftBuku}]
-                <button class="button is-success draftButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
+                <button class="button is-success draftButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftbuku}">
                     ${statusDraftBuku}
                 </button>
                 <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.draftbuku}">
@@ -651,6 +651,18 @@ function addEditDraftButtonListeners() {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
+      const pathURLDoc = button.getAttribute("data-file-path");
+      const projectNameField = `
+        <div class="field">
+          <label class="label">Unduh Dokumen</label>
+          <div class="control">
+            <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${pathURLDoc}">
+                  <i class="bx bx-download"></i>
+            </button>
+          </div>
+        </div>
+      `;
+      let statusDraftBuku = pathURLDoc ? projectNameField : "";
       Swal.fire({
         title: "Edit Draft Buku",
         html: `
@@ -661,6 +673,7 @@ function addEditDraftButtonListeners() {
               <input class="input" type="text" id="name" value="${projectName}" disabled>
             </div>
           </div>
+          ${statusDraftBuku}
           <div class="field">
             <label class="label">Docx Draft Buku</label>
             <div class="control">
