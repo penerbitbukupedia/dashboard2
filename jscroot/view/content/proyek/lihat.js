@@ -482,9 +482,9 @@ function addEditPropertyBukuButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
 
-      const projecttitle = button.getAttribute("data-project-title");
-      const projectkalimatpromosi = button.getAttribute("data-project-kalimatpromosi");
-      const projectDescription = button.getAttribute(
+      const ukuran = button.getAttribute("data-project-title");
+      const jumlahhalaman = button.getAttribute("data-project-kalimatpromosi");
+      const tebal = button.getAttribute(
         "data-project-description"
       );
 
