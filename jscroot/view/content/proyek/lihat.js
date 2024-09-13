@@ -98,7 +98,7 @@ function getResponseFunction(result) {
             <button class="button is-warning editPropertyBukuButton" data-project-name="${project.name}" data-project-id="${project._id}" data-project-ukuran="${project.ukuran}" data-project-jumlahhalaman="${project.jumlahhalaman}" data-project-tebal="${project.tebal}" >
               <i class="bx bx-file"></i>          
             </button>
-            <button class="button box is-primary is-small btn-flex setEditorButton" data-project-id="${project._id}" data-project-editor="${project.editor}">
+            <button class="button box is-primary is-small btn-flex setEditorButton" data-project-id="${project._id}" data-project-editor="${project.editor.name}">
             <i class="bx bx-plus"></i>
                 Set Editor
             </button>
