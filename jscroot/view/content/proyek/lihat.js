@@ -489,7 +489,7 @@ function addEditPropertyBukuButtonListeners() {
       );
 
       const { value: formValues } = await Swal.fire({
-        title: "Edit Project",
+        title: "Edit Property Buku",
         html: `
           <div class="field">
             <label class="label">Project Name</label>
