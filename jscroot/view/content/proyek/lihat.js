@@ -482,9 +482,18 @@ function addEditPropertyBukuButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
 
-      const ukuran = button.getAttribute("data-project-ukuran") || "";
-      const jumlahhalaman = button.getAttribute("data-project-jumlahhalaman") || "";
-      const tebal = button.getAttribute("data-project-tebal") || "";
+      const ukuran = button.getAttribute("data-project-ukuran") !== "undefined" && button.getAttribute("data-project-ukuran") !== "" 
+               ? button.getAttribute("data-project-ukuran") 
+               : "";
+
+      const jumlahhalaman = button.getAttribute("data-project-jumlahhalaman") !== "undefined" && button.getAttribute("data-project-jumlahhalaman") !== "" 
+                     ? button.getAttribute("data-project-jumlahhalaman") 
+                     : "";
+
+      const tebal = button.getAttribute("data-project-tebal") !== "undefined" && button.getAttribute("data-project-tebal") !== "" 
+              ? button.getAttribute("data-project-tebal") 
+              : "";
+
 
 
       const { value: formValues } = await Swal.fire({
