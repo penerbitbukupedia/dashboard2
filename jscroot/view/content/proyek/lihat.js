@@ -98,7 +98,7 @@ function getResponseFunction(result) {
             <button class="button is-warning editPropertyBukuButton" data-project-name="${project.name}" data-project-id="${project._id}" data-project-ukuran="${project.ukuran}" data-project-jumlahhalaman="${project.jumlahhalaman}" data-project-tebal="${project.tebal}" >
               <i class="bx bx-file"></i>          
             </button>
-            <button class="button box is-primary is-small btn-flex setEditorButton" data-project-id="${project._id}" data-project-name="${project.name}">
+            <button class="button box is-primary is-small btn-flex setEditorButton" data-project-id="${project._id}" data-project-editor="${project.editor}">
             <i class="bx bx-plus"></i>
                 Set Editor
             </button>
@@ -239,15 +239,15 @@ function setEditorButtonListeners() {
   document.querySelectorAll(".setEditorButton").forEach((button) => {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
-      const projectName = button.getAttribute("data-project-name");
+      const editor = button.getAttribute("data-project-editor");
       const { value: formValues } = await Swal.fire({
         title: "Set Editor",
         html: `
           <div class="field">
             <div class="control">
-              <label class="label">Nama Project</label>
+              <label class="label">Nama Editor</label>
               <input type="hidden" id="project-id" name="projectId" value="${projectId}">
-              <input class="input" type="text" value="${projectName}" disabled>
+              <input class="input" type="text" value="${editor}" disabled>
             </div>
           </div>
           <div class="field">
