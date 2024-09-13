@@ -98,6 +98,10 @@ function getResponseFunction(result) {
             <button class="button is-warning editPropertyBukuButton" data-project-name="${project.name}" data-project-id="${project._id}" data-project-ukuran="${project.ukuran}" data-project-jumlahhalaman="${project.jumlahhalaman}" data-project-tebal="${project.tebal}" >
               <i class="bx bx-file"></i>          
             </button>
+            <button class="button box is-primary is-small btn-flex setEditorButton" data-project-id="${project._id}">
+            <i class="bx bx-plus"></i>
+                Set Editor
+            </button>
           </td>
           <td>${membersHtml}</td>
           <td class="has-text-justified">
@@ -146,6 +150,7 @@ function getResponseFunction(result) {
 
       addRevealTextListeners();
       addMemberButtonListeners(); //  event listener tambah member
+      setEditorButtonListeners(); //  event listener tsetr editor
       addRemoveMemberButtonListeners(); //  event listener hapus member
       addRemoveProjectButtonListeners();
       addEditProjectButtonListeners(); //  event listener edit project
@@ -227,6 +232,68 @@ function addMemberButtonListeners() {
     });
   });
 }
+
+
+// Function to add event listeners to addMemberButtons
+function setEditorButtonListeners() {
+  document.querySelectorAll(".setEditorButton").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const projectId = button.getAttribute("data-project-id");
+      const { value: formValues } = await Swal.fire({
+        title: "Set Editor",
+        html: `
+          <div class="field">
+            <div class="control">
+              <label class="label">Nama Project</label>
+              <input type="hidden" id="project-id" name="projectId" value="${projectId}">
+              <input class="input" type="text" value="${projectName}" disabled>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Kode Editor</label>
+            <div class="control">
+              <input class="input" type="text" id="_id" name="_id" placeholder="987adusf87yhe" required>
+            </div>
+          </div>
+        `,
+        showCancelButton: true,
+        confirmButtonText: "Set Editor",
+        didOpen: () => {
+          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
+          //onInput("phonenumber", validatePhoneNumber);
+        },
+        preConfirm: () => {
+          const _id = document.getElementById("_id").value;
+          const projectId = document.getElementById("project-id").value;
+          if (!phoneNumber) {
+            Swal.showValidationMessage(`Please enter a phone number`);
+          }
+          return { _id, projectId };
+        },
+      });
+
+      if (formValues) {
+        const { _id, projectId } = formValues;
+        // Logic to add member
+        //onInput("phonenumber", validatePhoneNumber);
+        let idprjusr = {
+          _id: projectId,
+          editor: {
+            _id: _id,
+          }
+        };
+        postJSON(
+          backend.project.editor,
+          "login",
+          getCookie("login"),
+          idprjusr,
+          postResponseEditorFunction
+        );
+      }
+    });
+  });
+}
+
 
 // Add project event listener
 document.getElementById("addButton").addEventListener("click", () => {
@@ -351,6 +418,37 @@ function postResponseFunction(result) {
         " dengan ID: " +
         result.data._id +
         " sudah mendapat member baru",
+      footer:
+        '<a href="https://wa.me/62895601060000?text=' +
+        katakata +
+        '" target="_blank">Verifikasi Proyek</a>',
+      didClose: () => {
+        reloadDataTable();
+      },
+    });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: result.data.status,
+      text: result.data.response,
+    });
+  }
+  console.log(result);
+}
+
+function postResponseEditorFunction(result) {
+  if (result.status === 200) {
+    const katakata =
+      "Berhasil memasukkan editor ke project " + result.data.name;
+    Swal.fire({
+      icon: "success",
+      title: "Berhasil",
+      text:
+        "Selamat kak proyek " +
+        result.data.name +
+        " dengan ID: " +
+        result.data._id +
+        " sudah mendapat editor",
       footer:
         '<a href="https://wa.me/62895601060000?text=' +
         katakata +
