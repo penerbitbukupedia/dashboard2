@@ -101,7 +101,7 @@ function getResponseFunction(result) {
           <td>
           <ul style="list-style-type:none; padding-left:0;">
             <li>
-                1. Draft Docx[<a href="#" class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftbuku}">${statusDraftBuku}</a>]
+                1. Draft Docx[<a href="javascript:void(0);" class="button is-success draftButton" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftbuku}">${statusDraftBuku}</a>]
                 <button class="button is-success draftButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                   <i class="bx bx-file-find"></i>
                 </button>
