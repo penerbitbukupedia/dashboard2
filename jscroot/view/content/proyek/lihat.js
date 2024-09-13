@@ -84,8 +84,11 @@ function getResponseFunction(result) {
         //pengecekan kelengkapan draft
         // pengecekan kelengkapan draft
         let statusDraftBuku = project.draftbuku ? "Sudah" : "Belum";
+        let warnaTombolstatusDraftBuku = project.draftbuku ? "is-success" : "is-warning";
         let statusDraftPDFBuku = project.draftpdfbuku ? "Sudah" : "Belum";
+        let warnaTombolstatusDraftPDFBuku = project.draftpdfbuku ? "is-success" : "is-warning";
         let statusSampulPDFBuku = project.sampulpdfbuku ? "Sudah" : "Belum";
+        let warnaTombolstatusSampulPDFBuku = project.sampulpdfbuku ? "is-success" : "is-warning";
         //pembuatan tabel
         row.innerHTML = `
           <td>${project.name} (${project.title})<br><img src="${project.coverbuku}">
@@ -102,19 +105,19 @@ function getResponseFunction(result) {
           <ul style="list-style-type:none; padding-left:0;">
             <li>
                 1. Draft Docx
-                <button class="button is-success draftButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftbuku}">
+                <button class="button ${warnaTombolstatusDraftBuku} draftButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftbuku}">
                     ${statusDraftBuku}
                 </button>
             </li>
             <li>
                 2. Draft PDF
-                <button class="button is-success pdfButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftpdfbuku}">
+                <button class="button ${warnaTombolstatusDraftPDFBuku} pdfButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftpdfbuku}">
                   ${statusDraftPDFBuku}
                 </button>
             </li>
             <li>
                 3. Sampul PDF
-                <button class="button is-success pdfsampulButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.sampulpdfbuku}">
+                <button class="button ${warnaTombolstatusSampulPDFBuku} pdfsampulButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.sampulpdfbuku}">
                   ${statusSampulPDFBuku}
                 </button>
             </li>
