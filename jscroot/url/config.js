@@ -21,6 +21,7 @@ export const backend={
         data:baseURL+"/data/proyek",
         anggota:baseURL+"/data/proyek/anggota",
         coverbuku:baseURL+"/upload/coverbuku/",
+        metadatabuku:baseURL+"/upload/metadatabuku/",
         draftbuku:baseURL+"/upload/draftbuku/",
         draftpdfbuku:baseURL+"/upload/draftpdfbuku/",
         sampulpdfbuku:baseURL+"/upload/sampulpdfbuku/",

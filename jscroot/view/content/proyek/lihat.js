@@ -482,10 +482,10 @@ function addEditPropertyBukuButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
 
-      const ukuran = button.getAttribute("data-project-title");
-      const jumlahhalaman = button.getAttribute("data-project-kalimatpromosi");
+      const ukuran = button.getAttribute("data-project-ukuran");
+      const jumlahhalaman = button.getAttribute("data-project-jumlahhalaman");
       const tebal = button.getAttribute(
-        "data-project-description"
+        "data-project-tebal"
       );
 
       const { value: formValues } = await Swal.fire({
@@ -520,36 +520,56 @@ function addEditPropertyBukuButtonListeners() {
         confirmButtonText: "Update",
         cancelButtonText: "Cancel",
         preConfirm: () => {
-          const kalimatpromosi = Swal.getPopup().querySelector("#kalimatpromosi").value;
-          const title =
-            Swal.getPopup().querySelector("#title").value;
-          const description =
-            Swal.getPopup().querySelector("#description").value;
-          if (!title || !kalimatpromosi || !description) {
+          const ukuran = Swal.getPopup().querySelector("#ukuran").value;
+          const jumlahhalaman =
+            Swal.getPopup().querySelector("#jumlahhalaman").value;
+          const tebal =
+            Swal.getPopup().querySelector("#tebal").value;
+          if (!ukuran || !jumlahhalaman || !tebal) {
             Swal.showValidationMessage(`Please enter all fields`);
           }
-          return { title, kalimatpromosi, description };
+          return { ukuran, jumlahhalaman, tebal };
         },
       });
 
       if (formValues) {
-        const { title, kalimatpromosi, description } = formValues;
+        const { ukuran, jumlahhalaman, tebal } = formValues;
         const updatedProject = {
           _id: projectId,
-          title: title,
-          kalimatpromosi: kalimatpromosi,
-          description: description,
+          ukuran: ukuran,
+          jumlahhalaman: jumlahhalaman,
+          tebal: tebal,
         };
         putJSON(
-          backend.project.data, // Assumes a POST method will handle updates as well
+          backend.project.metadatabuku, // Assumes a POST method will handle updates as well
           "login",
           getCookie("login"),
           updatedProject,
-          updateResponseFunction
+          updateResponseFunctionMetaDataBuku
         );
       }
     });
   });
+}
+
+function updateResponseFunctionMetaDataBuku(result) {
+  if (result.status === 200) {
+    Swal.fire({
+      icon: "success",
+      title: "Project Updated",
+      text: `Project ${result.data.name} has been updated successfully.`,
+      didClose: () => {
+        reloadDataTable();
+      },
+    });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: result.data.status,
+      text: result.data.response,
+    });
+  }
+  console.log(result);
 }
 
 
