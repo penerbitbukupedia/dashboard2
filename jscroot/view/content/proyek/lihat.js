@@ -653,7 +653,8 @@ function addEditDraftButtonListeners() {
           </div>
         </div>
       `;
-      let statusDraftBuku = pathURLDoc ? projectNameField : "";
+      // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
+      let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
       Swal.fire({
         title: "Edit Draft Buku",
         html: `
@@ -743,7 +744,8 @@ function addEditDraftPDFButtonListeners() {
           </div>
         </div>
       `;
-      let statusDraftBuku = pathURLDoc ? projectNameField : "";
+      // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
+      let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
       Swal.fire({
         title: "Edit Draft PDF Buku",
         html: `
