@@ -482,11 +482,10 @@ function addEditPropertyBukuButtonListeners() {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
 
-      const ukuran = button.getAttribute("data-project-ukuran");
-      const jumlahhalaman = button.getAttribute("data-project-jumlahhalaman");
-      const tebal = button.getAttribute(
-        "data-project-tebal"
-      );
+      const ukuran = button.getAttribute("data-project-ukuran") || "";
+      const jumlahhalaman = button.getAttribute("data-project-jumlahhalaman") || "";
+      const tebal = button.getAttribute("data-project-tebal") || "";
+
 
       const { value: formValues } = await Swal.fire({
         title: "Edit Property Buku",
