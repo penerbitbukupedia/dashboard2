@@ -500,19 +500,19 @@ function addEditPropertyBukuButtonListeners() {
           <div class="field">
             <label class="label">Ukuran</label>
             <div class="control">
-              <input class="input" type="text" id="ukuran" value="${ukuran}">
+              <input class="input" type="text" id="ukuran" value="${ukuran}" placeholder="15,5 x 23 cm">
             </div>
           </div>
           <div class="field">
             <label class="label">Jumlah Halaman</label>
             <div class="control">
-              <input class="input" type="text" id="jumlahhalaman" value="${jumlahhalaman}">
+              <input class="input" type="text" id="jumlahhalaman" value="${jumlahhalaman}" placeholder="198">
             </div>
           </div>
           <div class="field">
             <label class="label">Tebal</label>
             <div class="control">
-              <input class="input" type="text" id="tebal" value="${tebal}">
+              <input class="input" type="text" id="tebal" value="${tebal}" placeholder="2,0592 cm">
             </div>
           </div>
         `,
