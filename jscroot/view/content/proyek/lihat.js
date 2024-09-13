@@ -498,51 +498,21 @@ function addEditPropertyBukuButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Nomor ISBN</label>
-            <div class="control">
-              <input class="input" type="text" id="title" value="${projecttitle}">
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Tanggal Terbit ISBN</label>
-            <div class="control">
-              <input class="input" type="text" id="title" value="${projecttitle}">
-            </div>
-          </div>
-          <div class="field">
             <label class="label">Ukuran</label>
             <div class="control">
-              <input class="input" type="text" id="title" value="${projecttitle}">
+              <input class="input" type="text" id="ukuran" value="${ukuran}">
             </div>
           </div>
           <div class="field">
             <label class="label">Jumlah Halaman</label>
             <div class="control">
-              <input class="input" type="text" id="kalimatpromosi" value="${projectkalimatpromosi}">
+              <input class="input" type="text" id="jumlahhalaman" value="${jumlahhalaman}">
             </div>
           </div>
           <div class="field">
             <label class="label">Tebal</label>
             <div class="control">
-              <textarea class="textarea" id="description">${projectDescription}</textarea>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">URL Gramedia</label>
-            <div class="control">
-              <textarea class="textarea" id="description">${projectDescription}</textarea>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">URL Kubuku</label>
-            <div class="control">
-              <textarea class="textarea" id="description">${projectDescription}</textarea>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">URL MyEdisi</label>
-            <div class="control">
-              <textarea class="textarea" id="description">${projectDescription}</textarea>
+              <input class="input" type="text" id="tebal" value="${tebal}">
             </div>
           </div>
         `,
