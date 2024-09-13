@@ -95,6 +95,9 @@ function getResponseFunction(result) {
             <button class="button is-success documentButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-image"></i>
             </button>
+            <button class="button is-warning editPropertyBukuButton" data-project-name="${project.name}" data-project-id="${project._id}">
+              <i class="bx bx-file"></i>          
+            </button>
           </td>
           <td>${membersHtml}</td>
           <td class="has-text-justified">
@@ -124,9 +127,6 @@ function getResponseFunction(result) {
           </ul>
           </td>
           <td class="has-text-centered">
-            <button class="button is-warning editPropertyBukuButton" data-project-name="${project.name}" data-project-id="${project._id}">
-              <i class="bx bx-file"></i>          
-            </button>
             <button class="button is-warning editProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-title="${project.title}" data-project-kalimatpromosi="${project.kalimatpromosi}" data-project-description="${project.description}">
               <i class="bx bx-edit"></i>
             </button>
