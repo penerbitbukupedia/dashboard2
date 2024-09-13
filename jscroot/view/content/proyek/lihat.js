@@ -114,11 +114,8 @@ function getResponseFunction(result) {
             </li>
             <li>
                 3. Sampul PDF[${statusSampulPDFBuku}]
-                <button class="button is-success pdfsampulButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                  <i class="bx bx-file"></i>
-                </button>
-                <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.sampulpdfbuku}">
-                  <i class="bx bx-download"></i>
+                <button class="button is-success pdfsampulButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.sampulpdfbuku}">
+                  ${statusSampulPDFBuku}
                 </button>
             </li>
           </ul>
@@ -823,6 +820,18 @@ function addEditSampulPDFButtonListeners() {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
+      const pathURLDoc = button.getAttribute("data-file-path");
+      const projectNameField = `
+        <div class="field">
+          <label class="label">Unduh Dokumen</label>
+          <div class="control">
+            <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${pathURLDoc}">
+                  <i class="bx bx-download"></i>
+            </button>
+          </div>
+        </div>
+      `;
+      let statusDraftBuku = pathURLDoc ? projectNameField : "";
       Swal.fire({
         title: "Edit Sampul PDF Buku",
         html: `
@@ -833,6 +842,7 @@ function addEditSampulPDFButtonListeners() {
               <input class="input" type="text" id="name" value="${projectName}" disabled>
             </div>
           </div>
+          ${statusDraftBuku}
           <div class="field">
             <label class="label">PDF Sampul Buku</label>
             <div class="control">
@@ -854,6 +864,9 @@ function addEditSampulPDFButtonListeners() {
           // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
           // onInput("phonenumber", validatePhoneNumber);
           onClick('uploadButton',uploadSampulPDFBuku);
+          if(pathURLDoc){
+            downloadDraftButtonListeners();
+          }
         },
         didClose: () => {
           reloadDataTable();
