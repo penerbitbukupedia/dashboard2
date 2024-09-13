@@ -102,11 +102,8 @@ function getResponseFunction(result) {
           <ul style="list-style-type:none; padding-left:0;">
             <li>
                 1. Draft Docx
-                <button class="button is-success draftButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftbuku}">
+                <button class="button is-success draftButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.draftbuku}">
                     ${statusDraftBuku}
-                </button>
-                <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.draftbuku}">
-                  <i class="bx bx-download"></i>
                 </button>
             </li>
             <li>
