@@ -695,6 +695,10 @@ function addEditDraftButtonListeners() {
           // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
           // onInput("phonenumber", validatePhoneNumber);
           onClick('uploadButton',uploadDraftBuku);
+          if(pathURLDoc){
+            downloadDraftButtonListeners();
+          }
+          
         },
         didClose: () => {
           reloadDataTable();
