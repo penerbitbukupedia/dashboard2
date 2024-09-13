@@ -113,7 +113,7 @@ function getResponseFunction(result) {
                 </button>
             </li>
             <li>
-                3. Sampul PDF[${statusSampulPDFBuku}]
+                3. Sampul PDF
                 <button class="button is-success pdfsampulButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}" data-file-path="${project.sampulpdfbuku}">
                   ${statusSampulPDFBuku}
                 </button>
