@@ -266,8 +266,8 @@ function setEditorButtonListeners() {
         preConfirm: () => {
           const _id = document.getElementById("_id").value;
           const projectId = document.getElementById("project-id").value;
-          if (!phoneNumber) {
-            Swal.showValidationMessage(`Please enter a phone number`);
+          if (!_id) {
+            Swal.showValidationMessage(`Please enter an Editor ID`);
           }
           return { _id, projectId };
         },
