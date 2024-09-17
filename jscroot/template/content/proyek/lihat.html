@@ -1,5 +1,13 @@
 <div class="container">
   <h1 class="title py-3">Project Owner</h1>
+  <div class="notification is-link box"></div>
+    <button class="delete"></button>
+    Langkah Penerbitan:
+    1. Buat Proyek Buku Baru lengkapi datanya.
+    2. Isi <code>Metadata buku</code> terdiri dari Cover Buku, Property Buku, dan Editor buku
+    3. Tambahkan Penulis sesuai dengan urutan Penulis
+    4. Upload dokumen <strong>Draft Docx, Draft PDF, Sampul PDF</strong>
+  </div>
   <button id="addButton" class="button is-primary box btn-flex">
     <i class="bx bx-plus"></i>
     Add a new project
@@ -7,7 +15,7 @@
   <table id="myTable" class="display table is-stripped">
     <thead>
       <tr>
-        <th>Nama-Judul-Cover</th>
+        <th>Metadata</th>
         <th>Penulis</th>
         <th>Sinopsis</th>
         <th>Dokumen</th>
