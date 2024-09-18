@@ -43,9 +43,9 @@ function getResponseFunction(result) {
                 </td>
                 <td class="code-box">
                   <code>                 
-                    https://api.do.my.id/webhook/[githost]/${webhook.name}
+                    {webhook.editor.name}
                   </code>
-                  <a class="tag is-link copy-btn" data-copy-text="https://api.do.my.id/webhook/[githost]/${webhook.name}">Copy</a> 
+                  <a class="tag is-link copy-btn" data-copy-text="${webhook._id}">Copy</a> 
                 </td>
                 <td>${truncatedDescription}<span class="full-text" style="display:none; ">${webhook.description}</span></td>
             `;
