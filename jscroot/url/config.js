@@ -55,6 +55,7 @@ export const url={
         rightbar:folder.template+"rightbar.html"
     },
     controller:{
+        content : folder.controller+"content/",
         main : folder.controller+"main.js",
         navbar : folder.controller+"navbar.js"
     },

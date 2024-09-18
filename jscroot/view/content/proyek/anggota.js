@@ -30,24 +30,28 @@ function getResponseFunction(result) {
   if (result.status === 200) {
     // Menambahkan baris untuk setiap webhook dalam data JSON
     console.log(result.data);
-    result.data.forEach((webhook) => {
+    result.data.forEach((project) => {
       const row = document.createElement("tr");
-      const truncatedDescription = truncateText(webhook.description, 50);
+      const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
-                <td>${webhook.name}</td>
+                <td>${project.name}
+                            <button class="button is-success publishButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                            <i class="bx bx-image"></i>
+                            </button>
+                </td>
                 <td class="code-box">
                   <code>       
-                    ${webhook.secret}
+                    ${project.secret}
                   </code>
-                  <a class="tag is-link copy-btn" data-copy-text="${webhook.secret}">Copy</a>
+                  <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
                 </td>
                 <td class="code-box">
                   <code>                 
                     {webhook.editor.name}
                   </code>
-                  <a class="tag is-link copy-btn" data-copy-text="${webhook._id}">Copy</a> 
+                  <a class="tag is-link copy-btn" data-copy-text="${project._id}">Copy</a> 
                 </td>
-                <td>${truncatedDescription}<span class="full-text" style="display:none; ">${webhook.description}</span></td>
+                <td>${truncatedDescription}<span class="full-text" style="display:none; ">${project.description}</span></td>
             `;
       document.getElementById("webhook-table-body").appendChild(row);
     });
