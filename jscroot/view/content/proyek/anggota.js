@@ -33,6 +33,12 @@ function getResponseFunction(result) {
     console.log(result.data);
     result.data.forEach((project) => {
       const row = document.createElement("tr");
+
+      let statusSPK = project.spk ? "Sudah" : "Belum";
+      let warnaTombolstatusSPK = project.spk ? "is-success" : "is-warning";
+      let statusSPI = project.spi ? "Sudah" : "Belum";
+      let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
+
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
                 <td>${project.name}
@@ -41,6 +47,22 @@ function getResponseFunction(result) {
                             </button>
                 </td>
                 <td class="code-box">
+
+                    <ul style="list-style-type:none; padding-left:0;">
+                          <li>
+                              1. Perjanjian Kerjasama
+                              <button class="button ${warnaTombolstatusSPK} spkButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
+                                  ${statusSPK}
+                              </button>
+                          </li>
+                          <li>
+                              2. Pengajuan ISBN
+                              <button class="button ${warnaTombolstatusSPI} spiButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
+                                ${statusSPI}
+                              </button>
+                          </li>
+                    </ul>
+
                   <code>       
                     ${project.secret}
                   </code>
