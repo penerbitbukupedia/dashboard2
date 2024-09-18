@@ -40,7 +40,7 @@ function postpublishFunction(result) {
           katakata +
           '" target="_blank">Verifikasi Proyek</a>',
         didClose: () => {
-          reloadDataTable();
+          //reloadDataTable();
         },
       });
     } else {
