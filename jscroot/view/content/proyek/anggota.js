@@ -29,6 +29,7 @@ export async function main() {
 function getResponseFunction(result) {
   if (result.status === 200) {
     // Menambahkan baris untuk setiap webhook dalam data JSON
+    console.log(result.data);
     result.data.forEach((webhook) => {
       const row = document.createElement("tr");
       const truncatedDescription = truncateText(webhook.description, 50);
