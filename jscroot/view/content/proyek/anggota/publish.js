@@ -1,4 +1,6 @@
 import { id, backend } from "/dashboard/jscroot/url/config.js";
+import {postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/api.js";
+import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/cookie.js";
 
 // Function to add event listeners to addMemberButtons
 export function publishButtonListeners() {
