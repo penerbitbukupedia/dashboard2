@@ -59,7 +59,7 @@ function getResponseFunction(result) {
                           </li>
                           <li>
                               2. Pengajuan ISBN
-                              <button class="button ${warnaTombolstatusSPI} spiButton" style="padding: 5px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
+                              <button class="button ${warnaTombolstatusSPI} spiButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.sampulpdfbuku}" data-project-id="${project._id}" data-project-name="${project.name}">
                                 ${statusSPI}
                               </button>
                           </li>
