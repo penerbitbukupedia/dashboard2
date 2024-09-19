@@ -11,7 +11,7 @@ export function SPKButtonListeners() {
         const pathURLDoc = button.getAttribute("data-file-path");
         const projectNameField = `
           <div class="field">
-            <label class="label">Unduh Dokumen</label>
+            <label class="label">Unduh Draft</label>
             <div class="control">
               <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-project-name="${projectName}">
                     <i class="bx bx-download"></i>
@@ -22,7 +22,7 @@ export function SPKButtonListeners() {
         // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
         //let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
         Swal.fire({
-          title: "Edit Draft Buku",
+          title: "Surat Perjanjian Kerjasama",
           html: `
            <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
             <div class="field">
@@ -33,7 +33,7 @@ export function SPKButtonListeners() {
             </div>
             ${projectNameField}
             <div class="field">
-              <label class="label">Docx Draft Buku</label>
+              <label class="label">SPK yang sudah di ttd el dan e-materai</label>
               <div class="control">
                   <input class="input" type="file" id="fileInput" name="file" required>
               </div>
