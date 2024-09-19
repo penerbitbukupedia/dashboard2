@@ -93,7 +93,11 @@ export function SPIButtonListeners() {
         const prjname = button.getAttribute("data-project-name");
         const pathURLDoc = button.getAttribute("data-file-path");
         console.log(pathURLDoc);
-        getFileWithHeader(backend.project.downloadspi+btoa(pathURLDoc),'login',getCookie('login'),runafterDownloadDraft,prjname+".pdf");
+        let urlspi=backend.project.downloadspi+btoa(pathURLDoc);
+        let urllampiran=backend.project.downloaddraft+btoa(pathURLDoc);
+        let hashview=urlspi+"&&"+urllampiran;
+        window.open("https://naskah.bukupedia.co.id/view/#"+btoa(hashview));
+        //getFileWithHeader(backend.project.downloadspi+btoa(pathURLDoc),'login',getCookie('login'),runafterDownloadDraft,prjname+".pdf");
       });
     });
   }
