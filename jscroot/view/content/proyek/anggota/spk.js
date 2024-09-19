@@ -92,7 +92,7 @@ export function SPKButtonListeners() {
     document.querySelectorAll(".downloadButton").forEach((button) => {
       button.addEventListener("click", async (event) => {
         const prjname = button.getAttribute("data-project-name");
-        getFileWithHeader(backend.project.downloadspk+btoa(prjname),'login',getCookie('login'),runafterDownloadDraft);
+        getFileWithHeader(backend.project.downloadspk+btoa(prjname),'login',getCookie('login'),runafterDownloadDraft,prjname+".pdf");
       });
     });
   }
@@ -102,7 +102,7 @@ export function SPKButtonListeners() {
   }
 
 
-  export function getFileWithHeader(target_url, tokenkey, tokenvalue, responseFunction) {
+  export function getFileWithHeader(target_url, tokenkey, tokenvalue, responseFunction, fileName) {
 
     let myHeaders = new Headers();
     myHeaders.append(tokenkey, tokenvalue);
@@ -121,8 +121,8 @@ export function SPKButtonListeners() {
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    let base64fileurl = target_url.split('/').pop();
-                    a.download = atob(base64fileurl); // Nama file dari URL
+                    //let base64fileurl = target_url.split('/').pop();
+                    a.download = fileName; // Nama file dari URL
                     document.body.appendChild(a);
                     a.click();
                     a.remove();
