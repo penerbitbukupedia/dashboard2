@@ -7,11 +7,12 @@ export function SPIButtonListeners() {
       button.addEventListener("click", async (event) => {
         const projectId = button.getAttribute("data-project-id");
         const projectName = button.getAttribute("data-project-name");
+        const pathURLDoc = button.getAttribute("data-file-path");
         const projectNameField = `
           <div class="field">
             <label class="label">Unduh Draft</label>
             <div class="control">
-              <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-project-name="${projectName}">
+              <button class="button is-info downloadButton" style="padding: 5px 10px; font-size: 12px;" data-project-name="${projectName}" data-file-path="${pathURLDoc}">
                     <i class="bx bx-download"></i>
               </button>
             </div>
