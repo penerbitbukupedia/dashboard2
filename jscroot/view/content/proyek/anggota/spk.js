@@ -92,7 +92,7 @@ export function SPKButtonListeners() {
     document.querySelectorAll(".downloadButton").forEach((button) => {
       button.addEventListener("click", async (event) => {
         const prjname = button.getAttribute("data-project-name");
-        getJSON(backend.project.downloadspk+prjname,'login',getCookie('login'),runafterDownloadDraft);
+        getJSON(backend.project.downloadspk+btoa(prjname),'login',getCookie('login'),runafterDownloadDraft);
       });
     });
   }
