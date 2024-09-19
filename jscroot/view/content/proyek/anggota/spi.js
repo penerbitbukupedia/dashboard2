@@ -91,6 +91,7 @@ export function SPIButtonListeners() {
       button.addEventListener("click", async (event) => {
         const prjname = button.getAttribute("data-project-name");
         const pathURLDoc = button.getAttribute("data-file-path");
+        console.log(pathURLDoc);
         getFileWithHeader(backend.project.downloadspi+btoa(pathURLDoc),'login',getCookie('login'),runafterDownloadDraft,prjname+".pdf");
       });
     });
