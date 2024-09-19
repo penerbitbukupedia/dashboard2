@@ -28,6 +28,8 @@ export const backend={
         sampulpdfbuku:baseURL+"/upload/sampulpdfbuku/",
         downloaddraft:baseURL+"/download/draft/",
         katalogbuku:baseURL+"/data/proyek/katalog",
+        downloadspi:baseURL+"/download/dokped/spi/",
+        downloadspk:baseURL+"/download/dokped/spk/",
     },
     ux:{
         feedback:baseURL+"/notif/ux/postfeedback",
