@@ -19,7 +19,7 @@ export function SPKButtonListeners() {
           </div>
         `;
         // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
-        let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
+        //let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
         Swal.fire({
           title: "Edit Draft Buku",
           html: `
@@ -30,7 +30,7 @@ export function SPKButtonListeners() {
                 <input class="input" type="text" id="name" value="${projectName}" disabled>
               </div>
             </div>
-            ${statusDraftBuku}
+            ${projectNameField}
             <div class="field">
               <label class="label">Docx Draft Buku</label>
               <div class="control">
@@ -70,7 +70,7 @@ export function SPKButtonListeners() {
 
 
   function uploadSPI(){
-    const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
+    const targetUrl = backend.project.downloadspk+document.getElementById("name").value; // Ganti dengan URL backend Anda
     const fileInputId = 'fileInput';
     const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
     postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadSPI);
