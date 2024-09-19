@@ -53,9 +53,7 @@ export function SPKButtonListeners() {
             // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
             // onInput("phonenumber", validatePhoneNumber);
             onClick('uploadButton',uploadSPI);
-            if(pathURLDoc){
-              downloadDokumenButtonListeners();
-            }
+            downloadDokumenButtonListeners();
             
           },
           didClose: () => {
