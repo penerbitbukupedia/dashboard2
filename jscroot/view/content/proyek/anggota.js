@@ -7,6 +7,7 @@ import { loadScript } from "../../../controller/main.js";
 import { addNotificationCloseListeners, truncateText, addCopyButtonListeners, addRevealTextListeners } from "../../utils.js";
 import {publishButtonListeners} from "./anggota/publish.js";
 import {SPKButtonListeners} from "./anggota/spk.js";
+import {SPIButtonListeners} from "./anggota/spi.js";
 
 export async function main() {
   await addCSSIn(
@@ -91,6 +92,7 @@ function getResponseFunction(result) {
      addCopyButtonListeners();
      publishButtonListeners();
      SPKButtonListeners();
+     SPIButtonListeners();
   } else {
     Swal.fire({
       icon: "error",
