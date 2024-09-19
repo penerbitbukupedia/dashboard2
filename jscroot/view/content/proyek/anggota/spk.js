@@ -3,7 +3,7 @@ import {getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/api.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/cookie.js";
 
 export function SPKButtonListeners() {
-    document.querySelectorAll(".draftButton").forEach((button) => {
+    document.querySelectorAll(".spkButton").forEach((button) => {
       button.addEventListener("click", async (event) => {
         const projectId = button.getAttribute("data-project-id");
         const projectName = button.getAttribute("data-project-name");
