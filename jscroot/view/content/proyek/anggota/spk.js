@@ -1,5 +1,5 @@
 import { backend } from "/dashboard/jscroot/url/config.js";
-import {getFileWithHeader} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/api.js";
+import {getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/api.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/cookie.js";
 
 export function SPKButtonListeners() {
@@ -93,7 +93,7 @@ export function SPKButtonListeners() {
     document.querySelectorAll(".downloadButton").forEach((button) => {
       button.addEventListener("click", async (event) => {
         const prjname = button.getAttribute("data-project-name");
-        getFileWithHeader(backend.project.downloadspk+prjname,'login',getCookie('login'),runafterDownloadDraft);
+        getJSON(backend.project.downloadspk+prjname,'login',getCookie('login'),runafterDownloadDraft);
       });
     });
   }
