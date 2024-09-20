@@ -43,11 +43,9 @@ function getResponseFunction(result) {
 
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
-                <td>${project.name}
-                            <button class="button is-success publishButton" data-project-id="${project._id}" data-project-name="${project.name}">
-                            <i class="bx bx-send"></i>
-                            </button>
-                            ${project.pathkatalog}
+                <td>${project.name}(${project.title})<br>
+                    <a href="${project.pathkatalog}">Katalog Buku</a>
+                            
                 </td>
                 <td class="code-box">
 
