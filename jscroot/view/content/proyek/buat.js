@@ -20,7 +20,7 @@ export async function main() {
   await loadScript("https://cdn.datatables.net/2.0.8/js/dataTables.min.js");
 
   getJSON(
-    backend.project.anggota,
+    backend.project.editor,
     "login",
     getCookie("login"),
     getResponseFunction
