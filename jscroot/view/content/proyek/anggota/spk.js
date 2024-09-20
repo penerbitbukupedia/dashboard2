@@ -92,7 +92,9 @@ export function SPKButtonListeners() {
     document.querySelectorAll(".downloadButton").forEach((button) => {
       button.addEventListener("click", async (event) => {
         const prjname = button.getAttribute("data-project-name");
-        getFileWithHeader(backend.project.downloadspk+btoa(prjname),'login',getCookie('login'),runafterDownloadDraft,prjname+".pdf");
+        let hashview=backend.project.downloadspk+btoa(prjname);
+        //getFileWithHeader(hashview,'login',getCookie('login'),runafterDownloadDraft,prjname+".pdf");
+        window.open("https://naskah.bukupedia.co.id/view/#"+btoa(hashview));
       });
     });
   }
