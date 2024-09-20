@@ -41,10 +41,14 @@ function getResponseFunction(result) {
       let statusSPI = project.spi ? "Ada" : "Belum";
       let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
 
+      let urldraftbuku="https://naskah.bukupedia.co.id/view/#"+btoa(project.draftpdfbuku);
+
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
                 <td>${project.name}(${project.title})<br>
-                    <a href="${project.pathkatalog}" target="_blank">Katalog Buku</a>
+                    <a href="${project.pathkatalog}" target="_blank">Katalog Buku</a><br>
+                    <a href="${urldraftbuku}" target="_blank">Draft Buku</a>
+
                             
                 </td>
                 <td class="code-box">
