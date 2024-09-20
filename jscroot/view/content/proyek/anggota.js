@@ -47,6 +47,7 @@ function getResponseFunction(result) {
                             <button class="button is-success publishButton" data-project-id="${project._id}" data-project-name="${project.name}">
                             <i class="bx bx-send"></i>
                             </button>
+                            ${project.pathkatalog}
                 </td>
                 <td class="code-box">
 
