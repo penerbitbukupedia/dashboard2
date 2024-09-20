@@ -21,7 +21,7 @@ export function SPIButtonListeners() {
         // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
         //let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
         Swal.fire({
-          title: "Surat Perjanjian Kerjasama",
+          title: "Surat Pengajuan ISBN",
           html: `
            <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
             <div class="field">
@@ -32,7 +32,7 @@ export function SPIButtonListeners() {
             </div>
             ${projectNameField}
             <div class="field">
-              <label class="label">SPK yang sudah di ttd el dan e-materai</label>
+              <label class="label">SPI yang sudah di ttd el dan e-materai</label>
               <div class="control">
                   <input class="input" type="file" id="fileInput" name="file" required>
               </div>
