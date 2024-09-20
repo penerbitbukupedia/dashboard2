@@ -36,9 +36,9 @@ function getResponseFunction(result) {
     result.data.forEach((project) => {
       const row = document.createElement("tr");
 
-      let statusSPK = project.spk ? "Sudah" : "Belum";
+      let statusDraft = project.draftpdfbuku ? "Ada" : "Belum";
       let warnaTombolstatusSPK = project.spk ? "is-success" : "is-warning";
-      let statusSPI = project.spi ? "Sudah" : "Belum";
+      let statusSPI = project.spi ? "Ada" : "Belum";
       let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
 
       const truncatedDescription = truncateText(project.description, 50);
@@ -51,9 +51,9 @@ function getResponseFunction(result) {
 
                     <ul style="list-style-type:none; padding-left:0;">
                           <li>
-                              1. Perjanjian Kerjasama
+                              1. Draft Buku
                               <button class="button ${warnaTombolstatusSPK} spkButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusSPK}
+                                  ${statusDraft}
                               </button>
                           </li>
                           <li>
