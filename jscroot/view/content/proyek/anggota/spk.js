@@ -1,5 +1,5 @@
 import { backend } from "/dashboard/jscroot/url/config.js";
-import {getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/api.js";
+import {postFileWithHeader} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/api.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/cookie.js";
 import {onClick} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.7/element.js";
 
