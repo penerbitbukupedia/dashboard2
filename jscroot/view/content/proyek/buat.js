@@ -44,7 +44,7 @@ function getResponseFunction(result) {
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
                 <td>${project.name}(${project.title})<br>
-                    <a href="${project.pathkatalog}">Katalog Buku</a>
+                    <a href="${project.pathkatalog}" target="_blank">Katalog Buku</a>
                             
                 </td>
                 <td class="code-box">
