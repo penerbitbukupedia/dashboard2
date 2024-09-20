@@ -40,7 +40,7 @@ function getResponseFunction(result) {
       let warnaTombolstatusSPK = project.spk ? "is-success" : "is-warning";
       let statusSPI = project.spi ? "Ada" : "Belum";
       let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
-      let hashview=backend.project.downloaddraft+btoa(draftpdfbuku);
+      let hashview=backend.project.downloaddraft+btoa(project.draftpdfbuku);
       let urldraftbuku="https://naskah.bukupedia.co.id/view/#"+btoa(hashview);
 
       const truncatedDescription = truncateText(project.description, 50);
