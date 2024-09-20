@@ -57,6 +57,7 @@ export function SPIButtonListeners() {
             
           },
           didClose: () => {
+            location.reload();
             reloadDataTable();
           },
         });

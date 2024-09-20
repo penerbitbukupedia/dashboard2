@@ -57,6 +57,7 @@ export function SPKButtonListeners() {
             
           },
           didClose: () => {
+            location.reload();
             reloadDataTable();
           },
         });
