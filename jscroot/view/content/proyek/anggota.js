@@ -64,10 +64,6 @@ function getResponseFunction(result) {
                               </button>
                           </li>
                     </ul>
-
-                  <code>       
-                    ${project.secret}
-                  </code>
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
                 </td>
                 <td class="code-box">
