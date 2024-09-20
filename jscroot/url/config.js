@@ -26,6 +26,8 @@ export const backend={
         draftbuku:baseURL+"/upload/draftbuku/",
         draftpdfbuku:baseURL+"/upload/draftpdfbuku/",
         sampulpdfbuku:baseURL+"/upload/sampulpdfbuku/",
+        spk:baseURL+"/upload/spk/",
+        spi:baseURL+"/upload/spi/",
         downloaddraft:baseURL+"/download/draft/",
         katalogbuku:baseURL+"/data/proyek/katalog",
         downloadspi:baseURL+"/download/dokped/spi/",

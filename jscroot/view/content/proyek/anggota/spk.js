@@ -52,7 +52,7 @@ export function SPKButtonListeners() {
           didOpen: () => {
             // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
             // onInput("phonenumber", validatePhoneNumber);
-            onClick('uploadButton',uploadSPI);
+            onClick('uploadButton',uploadSPK);
             downloadDokumenButtonListeners();
             
           },
@@ -68,10 +68,10 @@ export function SPKButtonListeners() {
 
 
 
-  function uploadSPI(){
-    const targetUrl = backend.project.downloadspk+document.getElementById("name").value; // Ganti dengan URL backend Anda
+  function uploadSPK(){
+    const targetUrl = backend.project.spk+document.getElementById("_id").value; // Ganti dengan URL backend Anda
     const fileInputId = 'fileInput';
-    const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
+    const formDataName = 'spk'; // Sesuaikan dengan nama form-data di backend
     postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadSPI);
   }
 

@@ -68,9 +68,9 @@ export function SPIButtonListeners() {
 
 
   function uploadSPI(){
-    const targetUrl = backend.project.downloadspk+document.getElementById("name").value; // Ganti dengan URL backend Anda
+    const targetUrl = backend.project.spi+document.getElementById("_id").value; // Ganti dengan URL backend Anda
     const fileInputId = 'fileInput';
-    const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
+    const formDataName = 'spi'; // Sesuaikan dengan nama form-data di backend
     postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadSPI);
   }
 
