@@ -54,9 +54,6 @@ function getResponseFunction(result) {
                 </td>
                 <td class="code-box">
                 <button class="button ${warnaTombolstatusSPK} spkButton" id="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
-                Info
-                </button>
-                <button class="button ${warnaTombolstatusSPK} spkButton" id="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
                 Update
                 </button>
                   <a class="tag is-link copy-btn" data-copy-text="${project.pathkatalog}">Copy</a>
