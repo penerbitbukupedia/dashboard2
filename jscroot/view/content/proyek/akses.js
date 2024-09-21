@@ -91,15 +91,13 @@ function getResponseFunction(result) {
 
 
 
-function generateKepengarangan(data) {
-    return data.map(item => {
-        // Dapatkan nama-nama penulis dari members
-        const penulis = item.members.map(member => member.name).join(', ');
+function generateKepengarangan(item) {
+    // Dapatkan nama-nama penulis dari members
+    const penulis = item.members?.map(member => member.name).join(', ') || '';
 
-        // Dapatkan nama editor
-        const editor = item.editor?.name ? item.editor.name : '';
+    // Dapatkan nama editor
+    const editor = item.editor?.name || '';
 
-        // Gabungkan penulis dan editor
-        return `${penulis}${editor ? '; ' + editor : ''}`;
-    }).join(', ');
+    // Gabungkan penulis dan editor
+    return `${penulis}${editor ? '; ' + editor : ''}`;
 }
