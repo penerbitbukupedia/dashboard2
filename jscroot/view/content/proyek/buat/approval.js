@@ -1,6 +1,7 @@
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 import {validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/validate.js";
 import {onInput} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/element.js";
+import {putJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/api.js";
 
 export async function approvalButton(event){
     const projectId = event.target.getAttribute("data-project-id");
@@ -41,14 +42,13 @@ export async function approvalButton(event){
       });
 
       if (formValues) {
-        const { phoneNumber, projectId } = formValues;
+        const { approve, projectId } = formValues;
         // Logic to add member
         //onInput("phonenumber", validatePhoneNumber);
         let idprjusr = {
           _id: projectId,
-          phonenumber: phoneNumber,
         };
-        postJSON(
+        putJSON(
           backend.project.anggota,
           "login",
           getCookie("login"),
@@ -71,7 +71,7 @@ function postResponseFunction(result) {
           result.data.name +
           " dengan ID: " +
           result.data._id +
-          " sudah mendapat member baru",
+          " sudah di approved",
         footer:
           '<a href="https://wa.me/62895601060000?text=' +
           katakata +
