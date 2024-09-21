@@ -8,6 +8,14 @@ import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/cookie.js
 export async function updateButton(event){
     const projectId = event.target.getAttribute("data-project-id");
     const projectName =event.target.getAttribute("data-project-name");
+    const isbn =event.target.getAttribute("data-project-isbn");
+    const terbit =event.target.getAttribute("data-project-terbit");
+    const linkplaybook =event.target.getAttribute("data-project-linkplaybook");
+    const linkgramed =event.target.getAttribute("data-project-linkgramed");
+    const linkkubuku =event.target.getAttribute("data-project-linkkubuku");
+    const linkmyedisi =event.target.getAttribute("data-project-linkmyedisi");
+    const linkdepositperpusnas =event.target.getAttribute("data-project-linkdepositperpusnas");
+    const linkdepositperpusda =event.target.getAttribute("data-project-linkdepositperpusda");
     const { value: formValues } = await Swal.fire({
     title: "Publish Draft Buku",
     html: `
@@ -21,49 +29,49 @@ export async function updateButton(event){
         <div class="field">
         <label class="label">No. ISBN</label>
         <div class="control">
-            <input class="input" type="text" id="isbn" name="isbn" placeholder="ISBN dari Perpusnas">
+            <input value="${isbn}" class="input" type="text" id="isbn" name="isbn" placeholder="ISBN dari Perpusnas">
         </div>
         </div>
         <div class="field">
         <label class="label">Tanggal Terbit</label>
         <div class="control">
-            <input class="input" type="text" id="terbit" name="terbit" placeholder="terbit">
+            <input value="${terbit}" class="input" type="text" id="terbit" name="terbit" placeholder="terbit">
         </div>
         </div>
         <div class="field">
         <label class="label">URL Google Play Book</label>
         <div class="control">
-            <input class="input" type="text" id="linkplaybook" name="linkplaybook" placeholder="linkplaybook">
+            <input value="${linkplaybook}" class="input" type="text" id="linkplaybook" name="linkplaybook" placeholder="linkplaybook">
         </div>
         </div>
         <div class="field">
         <label class="label">URL Gramedia</label>
         <div class="control">
-            <input class="input" type="text" id="linkgramed" name="linkgramed" placeholder="linkgramed">
+            <input value="${linkgramed}" class="input" type="text" id="linkgramed" name="linkgramed" placeholder="linkgramed">
         </div>
         </div>
         <div class="field">
         <label class="label">URL Kubuku</label>
         <div class="control">
-            <input class="input" type="text" id="linkkubuku" name="linkkubuku" placeholder="linkkubuku">
+            <input value="${linkkubuku}" class="input" type="text" id="linkkubuku" name="linkkubuku" placeholder="linkkubuku">
         </div>
         </div>
         <div class="field">
         <label class="label">URL MyEdisi</label>
         <div class="control">
-            <input class="input" type="text" id="linkmyedisi" name="linkmyedisi" placeholder="linkmyedisi">
+            <input value="${linkmyedisi}" class="input" type="text" id="linkmyedisi" name="linkmyedisi" placeholder="linkmyedisi">
         </div>
         </div>
         <div class="field">
         <label class="label">URL Deposit Perpusnas</label>
         <div class="control">
-            <input class="input" type="text" id="linkdepositperpusnas" name="linkdepositperpusnas" placeholder="linkdepositperpusnas">
+            <input value="${linkdepositperpusnas}" class="input" type="text" id="linkdepositperpusnas" name="linkdepositperpusnas" placeholder="linkdepositperpusnas">
         </div>
         </div>
         <div class="field">
         <label class="label">URL Deposit Perpusda</label>
         <div class="control">
-            <input class="input" type="text" id="linkdepositperpusda" name="linkdepositperpusda" placeholder="linkdepositperpusda">
+            <input value="${linkdepositperpusda}" class="input" type="text" id="linkdepositperpusda" name="linkdepositperpusda" placeholder="linkdepositperpusda">
         </div>
         </div>
     `,
