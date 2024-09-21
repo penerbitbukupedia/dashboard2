@@ -1,10 +1,10 @@
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 
-export async function approvalButton(){
-    const projectId = button.getAttribute("data-project-id");
+export async function approvalButton(event){
+    const projectId = event.target.getAttribute("data-project-id");
       const projectName =
-        button.getAttribute("data-project-name") ||
-        button.closest("tr").querySelector("td:first-child").innerText;
+        event.target.getAttribute("data-project-name") ||
+        event.target.closest("tr").querySelector("td:first-child").innerText;
       const { value: formValues } = await Swal.fire({
         title: "Approve Draft Buku",
         html: `
