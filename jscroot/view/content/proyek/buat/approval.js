@@ -56,3 +56,35 @@ export async function approvalButton(event){
         );
       }
 }
+
+
+function postResponseFunction(result) {
+    if (result.status === 200) {
+      const katakata =
+        "Berhasil approve draft buku project " + result.data.name;
+      Swal.fire({
+        icon: "success",
+        title: "Berhasil",
+        text:
+          "Selamat kak proyek " +
+          result.data.name +
+          " dengan ID: " +
+          result.data._id +
+          " sudah mendapat member baru",
+        footer:
+          '<a href="https://wa.me/62895601060000?text=' +
+          katakata +
+          '" target="_blank">Verifikasi Proyek</a>',
+        didClose: () => {
+          reloadDataTable();
+        },
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: result.data.status,
+        text: result.data.response,
+      });
+    }
+    console.log(result);
+  }
