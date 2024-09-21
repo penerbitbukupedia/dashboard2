@@ -24,18 +24,18 @@ export async function approvalButton(event){
           </div>
         `,
         showCancelButton: true,
-        confirmButtonText: "Tambah Member",
+        confirmButtonText: "Approve",
         didOpen: () => {
           // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
           onInput("phonenumber", validateUserName);
         },
         preConfirm: () => {
-          const phoneNumber = document.getElementById("phonenumber").value;
+          const approve = document.getElementById("approve").value;
           const projectId = document.getElementById("project-id").value;
-          if (!phoneNumber) {
-            Swal.showValidationMessage(`Please enter a phone number`);
+          if (!approve) {
+            Swal.showValidationMessage(`Ketik approve`);
           }
-          return { phoneNumber, projectId };
+          return { approve, projectId };
         },
       });
 
