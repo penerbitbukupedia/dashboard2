@@ -59,7 +59,13 @@ export async function updateButton(event){
           <div class="field">
             <label class="label">URL Deposit Perpusnas</label>
             <div class="control">
-              <input class="input" type="text" id="linkdepositperpusnas" name="linkdepositperpusnas" placeholder="linkmyedisi">
+              <input class="input" type="text" id="linkdepositperpusnas" name="linkdepositperpusnas" placeholder="linkdepositperpusnas">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">URL Deposit Perpusda</label>
+            <div class="control">
+              <input class="input" type="text" id="linkdepositperpusda" name="linkdepositperpusda" placeholder="linkdepositperpusda">
             </div>
           </div>
         `,
