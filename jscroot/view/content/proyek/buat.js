@@ -5,9 +5,7 @@ import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js
 import { id, backend } from "/dashboard/jscroot/url/config.js";
 import { loadScript } from "../../../controller/main.js";
 import { addNotificationCloseListeners, truncateText, addCopyButtonListeners, addRevealTextListeners } from "../../utils.js";
-import {publishButtonListeners} from "./anggota/publish.js";
-import {SPKButtonListeners} from "./anggota/spk.js";
-import {SPIButtonListeners} from "./anggota/spi.js";
+import {approvalButton} from "./buat/approval.js";
 
 export async function main() {
   await addCSSIn(
@@ -52,7 +50,7 @@ function getResponseFunction(result) {
                             
                 </td>
                 <td class="code-box">
-                <button class="button ${warnaTombolstatusSPK} spkButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                <button class="button ${warnaTombolstatusSPK} spkButton" id="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
                                   Approve
                 </button>
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
@@ -75,9 +73,7 @@ function getResponseFunction(result) {
 
      addRevealTextListeners();
      addCopyButtonListeners();
-     publishButtonListeners();
-     SPKButtonListeners();
-     SPIButtonListeners();
+     onClick("approvalbutton",approvalButton);
   } else {
     Swal.fire({
       icon: "error",
