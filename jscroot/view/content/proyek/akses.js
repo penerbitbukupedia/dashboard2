@@ -33,7 +33,7 @@ function getResponseFunction(result) {
     console.log(result.data);
     result.data.forEach((project) => {
       const row = document.createElement("tr");
-
+      const kepengarangan = generateKepengarangan(project);
       let statusDraft = project.draftpdfbuku ? "Ada" : "Belum";
       let warnaTombolstatusSPK = project.spk ? "is-success" : "is-warning";
       let statusSPI = project.spi ? "Ada" : "Belum";
@@ -59,11 +59,11 @@ function getResponseFunction(result) {
                 <button class="button ${warnaTombolstatusSPK} spkButton" id="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
                 Update
                 </button>
-                  <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
+                  <a class="tag is-link copy-btn" data-copy-text="${project.pathkatalog}">Copy</a>
                 </td>
                 <td class="code-box">
-                <a href="https://wa.me/${project.owner.phonenumber}" target="_blank">${project.owner.name}</a>
-                  <a class="tag is-link copy-btn" data-copy-text="${project._id}">Copy</a> 
+                <a href="https://wa.me/${project.owner.phonenumber}" target="_blank">${kepengarangan}</a>
+                  <a class="tag is-link copy-btn" data-copy-text="${kepengarangan}">Copy</a> 
                 </td>
                 <td>${truncatedDescription}<span class="full-text" style="display:none; ">${project.description}</span></td>
             `;
@@ -91,4 +91,15 @@ function getResponseFunction(result) {
 
 
 
+function generateKepengarangan(data) {
+    return data.map(item => {
+        // Dapatkan nama-nama penulis dari members
+        const penulis = item.members.map(member => member.name).join(', ');
 
+        // Dapatkan nama editor
+        const editor = item.editor?.name ? item.editor.name : '';
+
+        // Gabungkan penulis dan editor
+        return `${penulis}${editor ? '; ' + editor : ''}`;
+    }).join(', ');
+}
