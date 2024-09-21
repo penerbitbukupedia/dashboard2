@@ -1,4 +1,5 @@
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
+import {validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/validate.js";
 
 export async function approvalButton(event){
     const projectId = event.target.getAttribute("data-project-id");
@@ -16,9 +17,9 @@ export async function approvalButton(event){
             </div>
           </div>
           <div class="field">
-            <label class="label">Nomor Telepon Calon Penulis</label>
+            <label class="label">Ketik approve</label>
             <div class="control">
-              <input class="input" type="tel" id="phonenumber" name="phonenumber" placeholder="628111" required>
+              <input class="input" type="text" id="approve" name="approve" placeholder="approve" required>
             </div>
           </div>
         `,
@@ -26,7 +27,7 @@ export async function approvalButton(event){
         confirmButtonText: "Tambah Member",
         didOpen: () => {
           // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-          onInput("phonenumber", validatePhoneNumber);
+          onInput("phonenumber", validateUserName);
         },
         preConfirm: () => {
           const phoneNumber = document.getElementById("phonenumber").value;
