@@ -40,14 +40,17 @@ function getResponseFunction(result) {
       let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
       let hashview=backend.project.downloaddraft+btoa(project.draftpdfbuku);
       let urldraftbuku="https://naskah.bukupedia.co.id/view/#"+btoa(hashview);
+      let hashviewsampul=backend.project.downloaddraft+btoa(project.sampulpdfbuku);
+      let urlsampulbuku="https://naskah.bukupedia.co.id/view/#"+btoa(hashviewsampul);
 
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
-                <td>${project.name}(${project.title})<br>
+                <td>${project.name}<br>Judul: ${project.title}<br>
                     <a href="${project.pathkatalog}" target="_blank">Katalog Buku</a><br>
-                    <a href="${urldraftbuku}" target="_blank">Draft Buku</a>
-
-                            
+                    <a href="${urlsampulbuku}" target="_blank">SPI</a><br>
+                    <a href="${urldraftbuku}" target="_blank">Draft Buku</a><br>
+                    Jumlah Halaman: ${project.jumlahhalaman}<br>
+                    Ukuran: ${project.ukuran}<br>
                 </td>
                 <td class="code-box">
                 <button class="button ${warnaTombolstatusSPK} spkButton" id="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
