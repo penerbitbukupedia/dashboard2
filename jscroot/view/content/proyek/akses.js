@@ -52,16 +52,16 @@ function getResponseFunction(result) {
                 </td>
                 <td class="code-box">
                 <button class="button ${warnaTombolstatusISBN} spkButton" id="updatebutton" 
-                data-project-id="${project._id}" 
-                data-project-name="${project.name}"
-                data-project-isbn="${project.isbn}"
-                data-project-terbit="${project.terbit}"
-                data-project-linkplaybook="${project.linkplaybook}"
-                data-project-linkgramed="${project.linkgramed}"
-                data-project-linkkubuku="${project.linkkubuku}"
-                data-project-linkmyedisi="${project.linkmyedisi}"
-                data-project-linkdepositperpusnas="${project.linkdepositperpusnas}"
-                data-project-linkdepositperpusda="${project.linkdepositperpusda}"
+                data-project-id="${project._id ?? ''}" 
+                data-project-name="${project.name ?? ''}"
+                data-project-isbn="${project.isbn ?? ''}"
+                data-project-terbit="${project.terbit ?? ''}"
+                data-project-linkplaybook="${project.linkplaybook ?? ''}"
+                data-project-linkgramed="${project.linkgramed ?? ''}"
+                data-project-linkkubuku="${project.linkkubuku ?? ''}"
+                data-project-linkmyedisi="${project.linkmyedisi ?? ''}"
+                data-project-linkdepositperpusnas="${project.linkdepositperpusnas ?? ''}"
+                data-project-linkdepositperpusda="${project.linkdepositperpusda ?? ''}"
                 >
                 ${statusISBN}
                 </button>
