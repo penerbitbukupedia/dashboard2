@@ -34,10 +34,8 @@ function getResponseFunction(result) {
     result.data.forEach((project) => {
       const row = document.createElement("tr");
       const kepengarangan = generateKepengarangan(project);
-      let statusDraft = project.draftpdfbuku ? "Ada" : "Belum";
-      let warnaTombolstatusSPK = project.spk ? "is-success" : "is-warning";
-      let statusSPI = project.spi ? "Ada" : "Belum";
-      let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
+      let warnaTombolstatusISBN = project.isbn ? "is-success" : "is-warning";
+      let statusISBN = project.isbn ? "Publish" : "Update";
       let hashview=backend.project.downloaddraft+btoa(project.draftpdfbuku);
       let urldraftbuku="https://naskah.bukupedia.co.id/view/#"+btoa(hashview);
       let hashviewspi=backend.project.downloaddraft+btoa(project.spi);
@@ -53,8 +51,19 @@ function getResponseFunction(result) {
                     Ukuran: ${project.ukuran}<br>
                 </td>
                 <td class="code-box">
-                <button class="button ${warnaTombolstatusSPK} spkButton" id="updatebutton" data-project-id="${project._id}" data-project-name="${project.name}">
-                Update
+                <button class="button ${warnaTombolstatusISBN} spkButton" id="updatebutton" 
+                data-project-id="${project._id}" 
+                data-project-name="${project.name}"
+                data-project-isbn="${project.isbn}"
+                data-project-terbit="${project.terbit}"
+                data-project-linkplaybook="${project.linkplaybook}"
+                data-project-linkgramed="${project.linkgramed}"
+                data-project-linkkubuku="${project.linkkubuku}"
+                data-project-linkmyedisi="${project.linkmyedisi}"
+                data-project-linkdepositperpusnas="${project.linkdepositperpusnas}"
+                data-project-linkdepositperpusda="${project.linkdepositperpusda}"
+                >
+                ${statusISBN}
                 </button>
                   <a class="tag is-link copy-btn" data-copy-text="${project.pathkatalog}">Copy</a>
                 </td>
