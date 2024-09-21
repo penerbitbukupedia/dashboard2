@@ -1,6 +1,6 @@
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 import {validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/validate.js";
-import {onInput} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/element.js";
+import {getValue} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/element.js";
 import {putJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/api.js";
 import { backend } from "../../../../url/config.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/cookie.js";
@@ -79,24 +79,33 @@ export async function updateButton(event){
     confirmButtonText: "Publish",
     didOpen: () => {
         // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-        onInput("approve", validateUserName);
+        //onInput("approve", validateUserName);
     },
     preConfirm: () => {
-        const approve = document.getElementById("approve").value;
-        const projectId = document.getElementById("project-id").value;
-        if (!approve) {
-        Swal.showValidationMessage(`Ketik approve`);
+        const projectId = getValue("project-id");
+        const isbn = getValue("isbn");
+        const terbit = getValue("terbit");
+        const linkplaybook = getValue("linkplaybook");
+        const linkgramed = getValue("linkgramed");
+        const linkkubuku = getValue("linkkubuku");
+        const linkmyedisi = getValue("linkmyedisi");
+        const linkdepositperpusnas = getValue("linkdepositperpusnas");
+        const linkdepositperpusda = getValue("linkdepositperpusda");
+        if (!isbn) {
+        Swal.showValidationMessage(`ISBN Harus Ada`);
         }
-        return { approve, projectId };
+        return { projectId,isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda };
     },
     });
 
     if (formValues) {
-        const { approve, projectId } = formValues;
+        const { projectId,isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda } = formValues;
         // Logic to add member
         //onInput("phonenumber", validatePhoneNumber);
         let idprjusr = {
             _id: projectId,
+            isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda
+
         };
         putJSON(
             backend.project.publishbuku,
