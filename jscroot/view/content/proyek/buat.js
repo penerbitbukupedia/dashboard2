@@ -52,21 +52,9 @@ function getResponseFunction(result) {
                             
                 </td>
                 <td class="code-box">
-
-                    <ul style="list-style-type:none; padding-left:0;">
-                          <li>
-                              1. Draft Buku
-                              <button class="button ${warnaTombolstatusSPK} spkButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusDraft}
-                              </button>
-                          </li>
-                          <li>
-                              2. Pengajuan ISBN
-                              <button class="button ${warnaTombolstatusSPI} spiButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.sampulpdfbuku}" data-project-id="${project._id}" data-project-name="${project.name}">
-                                ${statusSPI}
-                              </button>
-                          </li>
-                    </ul>
+                <button class="button ${warnaTombolstatusSPK} spkButton" data-project-id="${project._id}" data-project-name="${project.name}">
+                                  Approve
+                </button>
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
                 </td>
                 <td class="code-box">
