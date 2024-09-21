@@ -1,70 +1,88 @@
-import { onClick,getValue,setValue,onInput,hide,show } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.7/croot.js";
-import {validatePhoneNumber} from "https://cdn.jsdelivr.net/gh/jscroot/validate@0.0.2/croot.js";
-import {postJSON,getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
-import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
-import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js';
-import { id,backend } from "/dashboard/jscroot/url/config.js";
+import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
+import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
+import { addCSSIn,onClick } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
+import { id, backend } from "/dashboard/jscroot/url/config.js";
+import { loadScript } from "../../../controller/main.js";
+import { addNotificationCloseListeners, truncateText, addCopyButtonListeners, addRevealTextListeners } from "../../utils.js";
+import {approvalButton} from "./buat/approval.js";
 
-export async function main(){    
-    onInput('phonenumber', validatePhoneNumber);
-    await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",id.content);
-    getJSON(backend.project.data,'login',getCookie('login'),getResponseFunction);
-    onClick("tombolaksesmember",actionfunctionname);
+export async function main() {
+  await addCSSIn(
+    "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",
+    id.content
+  );
+  await addCSSIn("assets/css/custom.css", id.content);
+
+  await loadScript("https://code.jquery.com/jquery-3.6.0.min.js");
+  await loadScript("https://cdn.datatables.net/2.0.8/js/dataTables.min.js");
+
+  getJSON(
+    backend.project.editor,
+    "login",
+    getCookie("login"),
+    getResponseFunction
+  );
+
+  addNotificationCloseListeners();
 }
 
-function actionfunctionname(){
-    let idprjusr={
-        _id:getValue("project-name"),
-        phonenumber:getValue("phonenumber")
-    };
-    if (getCookie("login")===""){
-        redirect("/signin");
-    }else{
-        postJSON(backend.project.anggota,"login",getCookie("login"),idprjusr,postResponseFunction);
-        hide("tombolbuatproyek");
-    }  
+function getResponseFunction(result) {
+  if (result.status === 200) {
+    // Menambahkan baris untuk setiap webhook dalam data JSON
+    console.log(result.data);
+    result.data.forEach((project) => {
+      const row = document.createElement("tr");
+
+      let statusDraft = project.draftpdfbuku ? "Ada" : "Belum";
+      let warnaTombolstatusSPK = project.spk ? "is-success" : "is-warning";
+      let statusSPI = project.spi ? "Ada" : "Belum";
+      let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
+      let hashview=backend.project.downloaddraft+btoa(project.draftpdfbuku);
+      let urldraftbuku="https://naskah.bukupedia.co.id/view/#"+btoa(hashview);
+
+      const truncatedDescription = truncateText(project.description, 50);
+      row.innerHTML = `
+                <td>${project.name}(${project.title})<br>
+                    <a href="${project.pathkatalog}" target="_blank">Katalog Buku</a><br>
+                    <a href="${urldraftbuku}" target="_blank">Draft Buku</a>
+
+                            
+                </td>
+                <td class="code-box">
+                <button class="button ${warnaTombolstatusSPK} spkButton" id="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
+                                  Approve
+                </button>
+                  <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
+                </td>
+                <td class="code-box">
+                <a href="https://wa.me/${project.owner.phonenumber}" target="_blank">${project.owner.name}</a>
+                  <a class="tag is-link copy-btn" data-copy-text="${project._id}">Copy</a> 
+                </td>
+                <td>${truncatedDescription}<span class="full-text" style="display:none; ">${project.description}</span></td>
+            `;
+      document.getElementById("webhook-table-body").appendChild(row);
+    });
+
+    $(document).ready(function () {
+      $("#myTable").DataTable({
+        responsive: true,
+        autoWidth: false,
+      });
+    });
+
+     addRevealTextListeners();
+     addCopyButtonListeners();
+     onClick("approvalbutton",approvalButton);
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: result.data.status,
+      text: result.data.response,
+    });
+  }
 }
 
-function getResponseFunction(result){
-    console.log(result);
-    if (result.status===200){
-        result.data.forEach(project => {
-            const option = document.createElement('option');
-            option.value = project._id;
-            option.textContent = project.name;
-            document.getElementById('project-name').appendChild(option);
-        });
-
-    }else{
-        Swal.fire({
-            icon: "error",
-            title: result.data.status,
-            text: result.data.response
-          });
-    }
-}
 
 
-function postResponseFunction(result){
-    if(result.status === 200){
-        const katakata = "Berhasil memasukkan member baru ke project "+result.data.name;
-        Swal.fire({
-            icon: "success",
-            title: "Berhasil",
-            text: "Selamat kak proyek "+result.data.name+" dengan ID: "+result.data._id+" sudah mendapat member baru",
-            footer: '<a href="https://wa.me/62895601060000?text='+katakata+'" target="_blank">Verifikasi Proyek</a>',
-            didClose: () => {
-                setValue("phonenumber","");
-            }
-          });
-    }else{
-        Swal.fire({
-            icon: "error",
-            title: result.data.status,
-            text: result.data.response
-          });
-          show("tombolbuatproyek");
-    }
-    console.log(result);
-}
+

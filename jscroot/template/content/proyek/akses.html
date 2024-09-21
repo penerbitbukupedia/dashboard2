@@ -1,28 +1,28 @@
-<section class="section">
-    <div class="container">
-        <h1 class="title">Tambah Member ke Proyek</h1>
-            <div class="field">
-                <label class="label">Nama Proyek</label>
-                <div class="control">
-                    <div class="select">
-                        <select id="project-name" name="projectName" required>
-                            <!-- Options akan diisi melalui JavaScript -->
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Nomor Telepon Calon Member</label>
-                <div class="control">
-                    <input class="input" type="tel" id="phonenumber" name="phonenumber" placeholder="628111" required>
-                </div>
-            </div>
-
-            <div class="field">
-                <div class="control">
-                    <button class="button is-primary" type="submit" id="tombolaksesmember">Tambah Member</button>
-                </div>
-            </div>
+<div class="container">
+    <h1 class="title py-3">Manager Bukupedia</h1>
+    <div class="notification is-link box">
+      <button class="delete"></button>
+      <p><strong>Langkah Peninjauan:</strong></p>
+      <ol>
+        <li>Cek Katalog Buku dan Draft Buku pada <code>Katalog</code> untuk di koreksi</li>
+        <li>Jika sudah benar maka klik approve pada <code>Approval</code></li>
+        <li>Kontak <code>Project Owner</code> jika ada revisi dari perpusnas</li>
+    </ol>
     </div>
-</section>
+    <div class="table-wrapper">
+      <table id="myTable" class="display table is-stripped">
+        <thead>
+          <tr>
+            <th>Katalog</th>
+            <th>Approval</th>
+            <th>Project Owner</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="webhook-table-body">
+          <!-- Rows will be populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
