@@ -91,7 +91,7 @@ export async function updateButton(event){
             _id: projectId,
         };
         putJSON(
-            backend.project.editor,
+            backend.project.publishbuku,
             "login",
             getCookie("login"),
             idprjusr,

@@ -24,6 +24,7 @@ export const backend={
         editor:baseURL+"/data/proyek/editor",
         coverbuku:baseURL+"/upload/coverbuku/",
         metadatabuku:baseURL+"/data/metadatabuku",
+        publishbuku:baseURL+"/data/proyek/publishbuku",
         draftbuku:baseURL+"/upload/draftbuku/",
         draftpdfbuku:baseURL+"/upload/draftpdfbuku/",
         sampulpdfbuku:baseURL+"/upload/sampulpdfbuku/",
