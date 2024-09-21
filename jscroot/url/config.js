@@ -19,6 +19,7 @@ export const backend={
     },
     project:{
         data:baseURL+"/data/proyek",
+        approved:baseURL+"/data/proyek/approved",
         anggota:baseURL+"/data/proyek/anggota",
         editor:baseURL+"/data/proyek/editor",
         coverbuku:baseURL+"/upload/coverbuku/",

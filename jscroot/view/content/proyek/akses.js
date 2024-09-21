@@ -2,7 +2,7 @@ import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js"
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import { addCSSIn,onClick } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
-import { id, backend } from "/dashboard/jscroot/url/config.js";
+import { id, backend } from "../../../url/config.js";
 import { loadScript } from "../../../controller/main.js";
 import { addNotificationCloseListeners, truncateText, addCopyButtonListeners, addRevealTextListeners } from "../../utils.js";
 import {approvalButton} from "./buat/approval.js";
@@ -18,7 +18,7 @@ export async function main() {
   await loadScript("https://cdn.datatables.net/2.0.8/js/dataTables.min.js");
 
   getJSON(
-    backend.project.editor,
+    backend.project.approved,
     "login",
     getCookie("login"),
     getResponseFunction
