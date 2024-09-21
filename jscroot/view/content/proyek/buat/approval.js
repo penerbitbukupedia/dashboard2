@@ -28,7 +28,7 @@ export async function approvalButton(event){
         confirmButtonText: "Approve",
         didOpen: () => {
           // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-          onInput("phonenumber", validateUserName);
+          onInput("approve", validateUserName);
         },
         preConfirm: () => {
           const approve = document.getElementById("approve").value;
