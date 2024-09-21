@@ -3,6 +3,7 @@ import {validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/va
 import {onInput} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.8/element.js";
 import {putJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/api.js";
 import { backend } from "../../../../url/config.js";
+import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/cookie.js";
 
 export async function approvalButton(event){
     const projectId = event.target.getAttribute("data-project-id");
