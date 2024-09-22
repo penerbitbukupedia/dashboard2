@@ -149,7 +149,7 @@ function getResponseFunction(result) {
           data-project-linkdepositperpusnas="${project.linkdepositperpusnas ?? ''}"
           data-project-linkdepositperpusda="${project.linkdepositperpusda ?? ''}"
           >
-              <i class="bx bx-info"></i>
+              <i class="bx bx-info-circle"></i>
             </button>
 
             <button class="button is-warning editProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-title="${project.title}" data-project-kalimatpromosi="${project.kalimatpromosi}" data-project-description="${project.description}">
