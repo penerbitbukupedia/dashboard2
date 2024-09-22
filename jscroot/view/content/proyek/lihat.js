@@ -132,7 +132,7 @@ function getResponseFunction(result) {
           </ul>
           </td>
           <td class="has-text-centered">
-          <button class="button is-warning" id="infoProjectButton" 
+          <button class="button is-info" id="infoProjectButton" 
           data-project-id="${project._id}" 
           data-project-name="${project.name}" 
           data-project-title="${project.title}" 
