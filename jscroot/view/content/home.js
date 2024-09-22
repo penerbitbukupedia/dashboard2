@@ -65,13 +65,28 @@ function isiTaskList(value) {
   addChild("list", "tr", "", content);
 }
 
+function isiDoingList(value) {
+  let content = tableTemplate
+    .replace("#TASKNAME#", value.title)
+    .replace("#TASKID#", value._id)
+    .replace("#LABEL#", value.name);
+  addChild("doing", "tr", "", content);
+}
+
+function isiDoneList(value) {
+  let content = tableTemplate
+    .replace("#TASKNAME#", value.title)
+    .replace("#TASKID#", value._id)
+    .replace("#LABEL#", value.name);
+  addChild("done", "tr", "", content);
+}
 
 function getUserDoingFunction(result) {
   setInner("doing", "");
   setInner("bigdoing", "0");
   if (result.status === 200) {
     setInner("bigdoing", result.data.length.toString());
-    result.data.forEach(isiTaskList);
+    result.data.forEach(isiDoingList);
   }
 }
 
@@ -81,6 +96,6 @@ function getUserDoneFunction(result) {
   setInner("bigdone", "0");
   if (result.status === 200) {
     setInner("bigdone", result.data.length.toString());
-    result.data.forEach(isiTaskList);
+    result.data.forEach(isiDoneList);
   }
 }
