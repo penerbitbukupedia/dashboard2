@@ -37,7 +37,7 @@ function actionfunctionname(){
         solusi:getValue("solusi")
     };
     if (getCookie("login")===""){
-        redirect("/signin");
+        redirect("/login");
     }else{
         postJSON(backend.ux.laporan,"login",getCookie("login"),lap,responseFunction);
         hide("tombolpublishtask");

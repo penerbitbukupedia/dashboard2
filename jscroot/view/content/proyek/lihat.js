@@ -360,7 +360,7 @@ document.getElementById("addButton").addEventListener("click", () => {
         kalimatpromosi: getValue("kalimatpromosi"),
       };
       if (getCookie("login") === "") {
-        redirect("/signin");
+        redirect("/login");
       } else {
         postJSON(
           backend.project.data,

@@ -20,7 +20,7 @@ function actionfunctionname(){
         alamatkantor:getValue("alamatkantor")
     };
     if (getCookie("login")===""){
-        redirect("/signin");
+        redirect("/login");
     }else{
         postJSON(backend.user.data,"login",getCookie("login"),user,responseFunction);
         hide("buttonkirimaccount");

@@ -41,7 +41,7 @@ function actionfunctionname(){
         solusi:getValue("solusi")
     };
     if (getCookie("login")===""){
-        redirect("/signin");
+        redirect("/login");
     }else{
         postJSON(backend.ux.feedback,"login",getCookie("login"),lap,responseFunction);
         hide("tombolprogramtask");

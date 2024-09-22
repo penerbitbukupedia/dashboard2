@@ -66,7 +66,7 @@ function actionfunctionname(){
         attachments:attachments
     };
     if (getCookie("login")===""){
-        redirect("/signin");
+        redirect("/login");
     }else{
         postJSON(backend.ux.meeting,"login",getCookie("login"),event,responseFunction);
         hide("tombolmeet");
