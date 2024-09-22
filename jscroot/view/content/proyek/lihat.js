@@ -92,13 +92,14 @@ function getResponseFunction(result) {
         let warnaTombolstatusSampulPDFBuku = project.sampulpdfbuku ? "is-success" : "is-warning";
         //pembuatan tabel
         row.innerHTML = `
-          <td>${project.name} (${project.title})<br><img src="${project.coverbuku}">
+          <td>${project.name} (${project.title})<br><img src="${project.coverbuku}"><br>
             <button class="button is-success documentButton" data-project-id="${project._id}" data-project-name="${project.name}">
               <i class="bx bx-image"></i>
             </button>
             <button class="button is-warning editPropertyBukuButton" data-project-name="${project.name}" data-project-id="${project._id}" data-project-ukuran="${project.ukuran}" data-project-jumlahhalaman="${project.jumlahhalaman}" data-project-tebal="${project.tebal}" >
               <i class="bx bx-file"></i>          
-            </button>
+            </button><br>
+            Editor : ${project.editor.name ?? ""}<br>
             <button class="button box is-primary is-small btn-flex setEditorButton" data-project-id="${project._id}" data-project-editor="${project.editor.name}">
             <i class="bx bx-plus"></i>
                 Set Editor
