@@ -132,7 +132,7 @@ function getResponseFunction(result) {
           </ul>
           </td>
           <td class="has-text-centered">
-          <button class="button is-info" id="infoProjectButton" 
+          <button class="button is-info infoProjectButton"
           data-project-id="${project._id}" 
           data-project-name="${project.name}" 
           data-project-title="${project.title}" 
@@ -168,8 +168,8 @@ function getResponseFunction(result) {
         responsive: true,
         autoWidth: false,
       });
-      onClick("infoProjectButton",infoButton);
-
+      
+      infoProjectButtonListeners()
       addRevealTextListeners();
       addMemberButtonListeners(); //  event listener tambah member
       setEditorButtonListeners(); //  event listener tsetr editor
@@ -192,6 +192,13 @@ function getResponseFunction(result) {
   } else {
     console.error('Element with ID "webhook-table-body" not found.');
   }
+}
+
+function infoProjectButtonListeners() {
+  document.querySelectorAll(".infoProjectButton").forEach((button) => {
+    button.addEventListener("click",infoButton);
+  });
+
 }
 
 // Function to add event listeners to addMemberButtons

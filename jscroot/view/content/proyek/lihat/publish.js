@@ -76,7 +76,7 @@ export async function infoButton(event){
         </div>
     `,
     showCancelButton: true,
-    confirmButtonText: "Publish",
+    confirmButtonText: "Ok",
     didOpen: () => {
         // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
         //onInput("approve", validateUserName);
