@@ -77,25 +77,6 @@ export async function infoButton(event){
     `,
     showCancelButton: true,
     confirmButtonText: "Ok",
-    didOpen: () => {
-        // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-        //onInput("approve", validateUserName);
-    },
-    preConfirm: () => {
-        const projectId = getValue("project-id");
-        const isbn = getValue("isbn");
-        const terbit = getValue("terbit");
-        const linkplaybook = getValue("linkplaybook");
-        const linkgramed = getValue("linkgramed");
-        const linkkubuku = getValue("linkkubuku");
-        const linkmyedisi = getValue("linkmyedisi");
-        const linkdepositperpusnas = getValue("linkdepositperpusnas");
-        const linkdepositperpusda = getValue("linkdepositperpusda");
-        if (!isbn) {
-        Swal.showValidationMessage(`ISBN Harus Ada`);
-        }
-        return { projectId,isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda };
-    },
     });
 }
 
