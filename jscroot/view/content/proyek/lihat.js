@@ -6,7 +6,7 @@ import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js
 import { id, backend } from "/dashboard/jscroot/url/config.js";
 import { loadScript } from "../../../controller/main.js";
 import { truncateText, addRevealTextListeners } from "../../utils.js";
-import {infoButton} from "../lihat/publish.js"
+import {infoButton} from "./lihat/publish.js"
 
 let dataTable;
 
