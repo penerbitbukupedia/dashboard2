@@ -41,7 +41,7 @@ function getUserFunction(result) {
       "Kode Editor Kakak " +
         result.data._id
     );
-    setInner("bigpoin", result.data._id);
+    //setInner("bigpoin", result.data._id);
   } 
   else {
     redirect("/signup");
