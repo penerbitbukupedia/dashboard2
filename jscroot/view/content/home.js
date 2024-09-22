@@ -59,112 +59,28 @@ function getUserTaskFunction(result) {
 
 function isiTaskList(value) {
   let content = tableTemplate
-    .replace("#TASKNAME#", value.name)
+    .replace("#TASKNAME#", value.title)
     .replace("#TASKID#", value._id)
-    .replace("#LABEL#", "Ambil");
+    .replace("#LABEL#", value.name);
   addChild("list", "tr", "", content);
-  // Jalankan logika tambahan setelah addChild
-  runAfterAddChild(value);
 }
 
-function runAfterAddChild(value) {
-  // Temukan elemen tr yang baru saja ditambahkan
-  const rows = document.getElementById("list").getElementsByTagName("tr");
-  const lastRow = rows[rows.length - 1];
-
-  // Contoh: Tambahkan event listener atau manipulasi DOM lainnya
-  const button = lastRow.querySelector(".button");
-  if (button) {
-    button.addEventListener("click", () => {
-      putJSON(
-        backend.user.doing,
-        "login",
-        getCookie("login"),
-        { _id: value._id },
-        putTaskFunction
-      );
-    });
-  }
-}
-
-function putTaskFunction(result) {
-  if (result.status === 200) {
-    getJSON(
-      backend.user.todo,
-      "login",
-      getCookie("login"),
-      getUserTaskFunction
-    );
-    getJSON(
-      backend.user.doing,
-      "login",
-      getCookie("login"),
-      getUserDoingFunction
-    );
-  }
-}
 
 function getUserDoingFunction(result) {
   setInner("doing", "");
   setInner("bigdoing", "0");
   if (result.status === 200) {
-    setInner("bigdoing", "OTW");
-    let content = tableTemplate
-      .replace("#TASKNAME#", result.data.name)
-      .replace("#TASKID#", result.data._id)
-      .replace("#LABEL#", "Beres");
-    addChild("doing", "tr", "", content);
-    // Jalankan logika tambahan setelah addChild
-    runAfterAddChildDoing(result.data);
+    setInner("bigdoing", result.data.length.toString());
+    result.data.forEach(isiTaskList);
   }
 }
 
-function runAfterAddChildDoing(value) {
-  // Temukan elemen tr yang baru saja ditambahkan
-  const rows = document.getElementById("doing").getElementsByTagName("tr");
-  const lastRow = rows[rows.length - 1];
-
-  // Contoh: Tambahkan event listener atau manipulasi DOM lainnya
-  const button = lastRow.querySelector(".button");
-  if (button) {
-    button.addEventListener("click", () => {
-      postJSON(
-        backend.user.done,
-        "login",
-        getCookie("login"),
-        { _id: value._id },
-        postTaskFunction
-      );
-    });
-  }
-}
-
-function postTaskFunction(result) {
-  if (result.status === 200) {
-    getJSON(
-      backend.user.done,
-      "login",
-      getCookie("login"),
-      getUserDoneFunction
-    );
-    getJSON(
-      backend.user.doing,
-      "login",
-      getCookie("login"),
-      getUserDoingFunction
-    );
-  }
-}
 
 function getUserDoneFunction(result) {
   setInner("done", "");
   setInner("bigdone", "0");
   if (result.status === 200) {
-    setInner("bigdone", "OK");
-    let content = tableTemplate
-      .replace("#TASKNAME#", result.data.name)
-      .replace("#TASKID#", result.data._id)
-      .replace("#LABEL#", "Arsip");
-    addChild("done", "tr", "", content);
+    setInner("bigdone", result.data.length.toString());
+    result.data.forEach(isiTaskList);
   }
 }
