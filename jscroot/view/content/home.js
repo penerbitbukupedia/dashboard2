@@ -59,7 +59,7 @@ function getUserTaskFunction(result) {
 
 function isiTaskList(value) {
   let content = tableTemplate
-    .replace("#TASKNAME#", value.task)
+    .replace("#TASKNAME#", value.name)
     .replace("#TASKID#", value._id)
     .replace("#LABEL#", "Ambil");
   addChild("list", "tr", "", content);
@@ -110,7 +110,7 @@ function getUserDoingFunction(result) {
   if (result.status === 200) {
     setInner("bigdoing", "OTW");
     let content = tableTemplate
-      .replace("#TASKNAME#", result.data.task)
+      .replace("#TASKNAME#", result.data.name)
       .replace("#TASKID#", result.data._id)
       .replace("#LABEL#", "Beres");
     addChild("doing", "tr", "", content);
@@ -162,7 +162,7 @@ function getUserDoneFunction(result) {
   if (result.status === 200) {
     setInner("bigdone", "OK");
     let content = tableTemplate
-      .replace("#TASKNAME#", result.data.task)
+      .replace("#TASKNAME#", result.data.name)
       .replace("#TASKID#", result.data._id)
       .replace("#LABEL#", "Arsip");
     addChild("done", "tr", "", content);
