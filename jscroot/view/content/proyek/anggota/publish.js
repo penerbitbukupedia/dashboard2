@@ -34,7 +34,7 @@ function postpublishFunction(result) {
           result.data.name +
           " dengan ID: " +
           result.data.pathkatalog +
-          " sudah mendapat member baru",
+          " sudah update konten baru",
         footer:
           '<a href="https://wa.me/62895601060000?text=' +
           katakata +
