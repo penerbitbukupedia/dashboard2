@@ -34,6 +34,7 @@ export const backend={
         katalogbuku:baseURL+"/data/proyek/katalog",
         downloadspi:baseURL+"/download/dokped/spi/",
         downloadspk:baseURL+"/download/dokped/spk/",
+        downloadspkt:baseURL+"/download/dokped/spkt/",
     },
     ux:{
         feedback:baseURL+"/notif/ux/postfeedback",

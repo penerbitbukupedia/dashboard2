@@ -2,7 +2,7 @@ import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js"
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import { addCSSIn,onClick } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
-import { id, backend } from "/dashboard/jscroot/url/config.js";
+import { id, backend } from "../../../url/config.js";
 import { loadScript } from "../../../controller/main.js";
 import { addNotificationCloseListeners, truncateText, addCopyButtonListeners, addRevealTextListeners } from "../../utils.js";
 import {publishButtonListeners} from "./anggota/publish.js";
@@ -41,6 +41,9 @@ function getResponseFunction(result) {
       let statusSPI = project.spi ? "Sudah" : "Belum";
       let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
 
+      let urlspkt=backend.project.downloadspkt+btoa(project.name);
+      let linkskt = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
+
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
                 <td>${project.name}
@@ -63,6 +66,9 @@ function getResponseFunction(result) {
                               <button class="button ${warnaTombolstatusSPI} spiButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.sampulpdfbuku}" data-project-id="${project._id}" data-project-name="${project.name}">
                                 ${statusSPI}
                               </button>
+                          </li>
+                          <li>
+                              <a href="${linkskt}" target="_blank">3. Surat Penyerahan Karya Terbitan(SKT)</a>
                           </li>
                     </ul>
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
