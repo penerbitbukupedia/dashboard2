@@ -75,7 +75,7 @@ function getResponseFunction(result) {
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
                 </td>
                 <td class="code-box">
-                <a href="https://wa.me/${project.editor.phonenumber}" target="_blank">${project.editor.name}</a>
+                <a href="https://wa.me/${project.editor.phonenumber ?? ""}" target="_blank">${project.editor.name ?? ""}</a>
                   <a class="tag is-link copy-btn" data-copy-text="${project._id}">Copy</a> 
                 </td>
                 <td>${truncatedDescription}<span class="full-text" style="display:none; ">${project.description}</span></td>
