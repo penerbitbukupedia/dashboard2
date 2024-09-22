@@ -31,6 +31,16 @@ export async function main() {
     getUserDoingFunction
   );
   getJSON(backend.project.editor, "login", getCookie("login"), getUserDoneFunction);
+  getJSON(backend.project.approved, "login", getCookie("login"), getManagerFunction);
+}
+
+
+function getManagerFunction(result) {
+  setInner("list", "");
+  setInner("bigtodo", "0");
+  if (result.status === 200) {
+    setInner("bigpoin", result.data.length.toString());
+  }
 }
 
 function getUserFunction(result) {
