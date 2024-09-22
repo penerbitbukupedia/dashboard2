@@ -6,6 +6,7 @@ import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js
 import { id, backend } from "/dashboard/jscroot/url/config.js";
 import { loadScript } from "../../../controller/main.js";
 import { truncateText, addRevealTextListeners } from "../../utils.js";
+import {infoButton} from "../lihat/publish.js"
 
 let dataTable;
 
@@ -131,6 +132,10 @@ function getResponseFunction(result) {
           </ul>
           </td>
           <td class="has-text-centered">
+          <button class="button is-warning" id="infoProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-title="${project.title}" data-project-kalimatpromosi="${project.kalimatpromosi}" data-project-description="${project.description}">
+              <i class="bx bx-info"></i>
+            </button>
+
             <button class="button is-warning editProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-title="${project.title}" data-project-kalimatpromosi="${project.kalimatpromosi}" data-project-description="${project.description}">
               <i class="bx bx-edit"></i>
             </button>
@@ -147,6 +152,7 @@ function getResponseFunction(result) {
         responsive: true,
         autoWidth: false,
       });
+      onClick("infoProjectButton",infoButton);
 
       addRevealTextListeners();
       addMemberButtonListeners(); //  event listener tambah member
