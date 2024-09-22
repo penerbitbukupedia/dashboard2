@@ -132,7 +132,23 @@ function getResponseFunction(result) {
           </ul>
           </td>
           <td class="has-text-centered">
-          <button class="button is-warning" id="infoProjectButton" data-project-id="${project._id}" data-project-name="${project.name}" data-project-title="${project.title}" data-project-kalimatpromosi="${project.kalimatpromosi}" data-project-description="${project.description}">
+          <button class="button is-warning" id="infoProjectButton" 
+          data-project-id="${project._id}" 
+          data-project-name="${project.name}" 
+          data-project-title="${project.title}" 
+          data-project-kalimatpromosi="${project.kalimatpromosi}" 
+          data-project-description="${project.description}"
+          data-project-id="${project._id ?? ''}" 
+          data-project-name="${project.name ?? ''}"
+          data-project-isbn="${project.isbn ?? ''}"
+          data-project-terbit="${project.terbit ?? ''}"
+          data-project-linkplaybook="${project.linkplaybook ?? ''}"
+          data-project-linkgramed="${project.linkgramed ?? ''}"
+          data-project-linkkubuku="${project.linkkubuku ?? ''}"
+          data-project-linkmyedisi="${project.linkmyedisi ?? ''}"
+          data-project-linkdepositperpusnas="${project.linkdepositperpusnas ?? ''}"
+          data-project-linkdepositperpusda="${project.linkdepositperpusda ?? ''}"
+          >
               <i class="bx bx-info"></i>
             </button>
 
