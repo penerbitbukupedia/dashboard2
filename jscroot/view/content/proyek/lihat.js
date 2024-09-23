@@ -281,7 +281,7 @@ function setEditorButtonListeners() {
             </div>
           </div>
           <div class="field">
-            <label class="label">Kode Editor</label>
+            <label class="label"><a href="https://www.bukupedia.co.id/#main-wrapper" target="_blank">Kode Editor</a></label>
             <div class="control">
               <input class="input" type="text" id="_id" name="_id" placeholder="987adusf87yhe" required>
             </div>
