@@ -1,14 +1,11 @@
 import { getJSON,putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js";
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
-import { addCSSIn,onInput } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import { addCSSIn,onInput } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js";
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 import { id, backend } from "/dashboard/jscroot/url/config.js";
 import { loadScript } from "../../../controller/main.js";
 import { addNotificationCloseListeners, truncateText, addCopyButtonListeners, addRevealTextListeners } from "../../utils.js";
 import {validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/validate.js";
-
-
-let dataTable;
 
 
 export async function main() {
@@ -29,18 +26,6 @@ export async function main() {
   );
 
   addNotificationCloseListeners();
-}
-
-function reloadDataTable() {
-  if (dataTable) {
-    dataTable.destroy(); // Destroy the existing DataTable
-  }
-  getJSON(
-    backend.project.editor,
-    "login",
-    getCookie("login"),
-    getResponseFunction
-  );
 }
 
 function getResponseFunction(result) {
@@ -80,11 +65,13 @@ function getResponseFunction(result) {
       document.getElementById("webhook-table-body").appendChild(row);
     });
 
-    // Initialize DataTable after populating the table body
-    dataTable = $("#myTable").DataTable({
-      responsive: true,
-      autoWidth: false,
+    $(document).ready(function () {
+      dataTable = $("#myTable").DataTable({
+        responsive: true,
+        autoWidth: false,
+      });
     });
+    
 
      addRevealTextListeners();
      addCopyButtonListeners();
@@ -180,7 +167,7 @@ function postResponseFunctionapprovalButton(result) {
         katakata +
         '" target="_blank">Verifikasi Proyek</a>',
       didClose: () => {
-        reloadDataTable();
+        location.reload();
       },
     });
   } else {
