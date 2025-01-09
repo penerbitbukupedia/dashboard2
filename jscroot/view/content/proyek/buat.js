@@ -80,11 +80,11 @@ function getResponseFunction(result) {
       document.getElementById("webhook-table-body").appendChild(row);
     });
 
-    $(document).ready(function () {
-      dataTable = $("#myTable").DataTable({
-        responsive: true,
-        autoWidth: false,
-      });
+
+    // Initialize DataTable after populating the table body
+    dataTable = $("#myTable").DataTable({
+      responsive: true,
+      autoWidth: false,
     });
 
      addRevealTextListeners();
