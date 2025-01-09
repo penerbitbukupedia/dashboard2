@@ -65,7 +65,7 @@ function getResponseFunction(result) {
     });
 
     $(document).ready(function () {
-      dataTable = $("#myTable").DataTable({
+      $("#myTable").DataTable({
         responsive: true,
         autoWidth: false,
       });
