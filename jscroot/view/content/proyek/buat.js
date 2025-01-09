@@ -30,6 +30,18 @@ export async function main() {
   addNotificationCloseListeners();
 }
 
+function reloadDataTable() {
+  if (dataTable) {
+    dataTable.destroy(); // Destroy the existing DataTable
+  }
+  getJSON(
+    backend.project.editor,
+    "login",
+    getCookie("login"),
+    getResponseFunction
+  );
+}
+
 function getResponseFunction(result) {
   if (result.status === 200) {
     // Menambahkan baris untuk setiap webhook dalam data JSON
@@ -92,17 +104,7 @@ function getResponseFunction(result) {
 }
 
 
-function reloadDataTable() {
-  if (dataTable) {
-    dataTable.destroy(); // Destroy the existing DataTable
-  }
-  getJSON(
-    backend.project.data,
-    "login",
-    getCookie("login"),
-    getResponseFunction
-  );
-}
+
 
 async function approvalButton(event){
   const projectId = event.target.getAttribute("data-project-id");
@@ -178,7 +180,7 @@ function postResponseFunctionapprovalButton(result) {
         katakata +
         '" target="_blank">Verifikasi Proyek</a>',
       didClose: () => {
-        //reloadDataTable();
+        reloadDataTable();
       },
     });
   } else {
