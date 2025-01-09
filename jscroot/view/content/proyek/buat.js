@@ -1,6 +1,6 @@
 import { getJSON,putJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js";
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
-import { addCSSIn,onInput } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js";
+import { addCSSInHead,onInput } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js";
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 import { id, backend } from "/dashboard/jscroot/url/config.js";
 import { loadScript } from "../../../controller/main.js";
@@ -9,11 +9,10 @@ import {validateUserName} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/va
 
 
 export async function main() {
-  await addCSSIn(
-    "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",
-    id.content
+  await addCSSInHead(
+    "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css"
   );
-  await addCSSIn("assets/css/custom.css", id.content);
+  await addCSSInHead("assets/css/custom.css");
 
   await loadScript("https://code.jquery.com/jquery-3.6.0.min.js");
   await loadScript("https://cdn.datatables.net/2.0.8/js/dataTables.min.js");
