@@ -50,9 +50,9 @@ function getResponseFunction(result) {
                             
                 </td>
                 <td class="code-box">
-                <button class="button ${warnaTombolstatusSPK} spkButton" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  Approve
-                </button>
+                ${project.isapproved && project.isapproved === true 
+                  ? `<button class="button is-success spkButton" disabled>Approved</button>` 
+                  : `<button class="button ${warnaTombolstatusSPK} spkButton" data-project-id="${project._id}" data-project-name="${project.name}">Approve</button>`}
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
                 </td>
                 <td class="code-box">
