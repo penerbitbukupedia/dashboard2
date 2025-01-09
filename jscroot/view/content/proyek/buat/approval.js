@@ -79,7 +79,7 @@ function postResponseFunction(result) {
           katakata +
           '" target="_blank">Verifikasi Proyek</a>',
         didClose: () => {
-          reloadDataTable();
+          //reloadDataTable();
         },
       });
     } else {
@@ -91,3 +91,4 @@ function postResponseFunction(result) {
     }
     console.log(result);
   }
+
