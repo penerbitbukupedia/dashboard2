@@ -50,7 +50,7 @@ function getResponseFunction(result) {
                             
                 </td>
                 <td class="code-box">
-                <button class="button ${warnaTombolstatusSPK} spkButton" id="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
+                <button class="button ${warnaTombolstatusSPK} spkButton" class="approvalbutton" data-project-id="${project._id}" data-project-name="${project.name}">
                                   Approve
                 </button>
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
@@ -73,7 +73,12 @@ function getResponseFunction(result) {
 
      addRevealTextListeners();
      addCopyButtonListeners();
-     onClick("approvalbutton",approvalButton);
+     const buttons = document.querySelectorAll('.approvalbutton');
+      buttons.forEach(button => {
+        button.addEventListener('click', approvalButton);
+      });
+
+     //onClick("approvalbutton",approvalButton);
   } else {
     Swal.fire({
       icon: "error",
