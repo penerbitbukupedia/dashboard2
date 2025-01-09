@@ -80,7 +80,6 @@ function getResponseFunction(result) {
       document.getElementById("webhook-table-body").appendChild(row);
     });
 
-
     // Initialize DataTable after populating the table body
     dataTable = $("#myTable").DataTable({
       responsive: true,
