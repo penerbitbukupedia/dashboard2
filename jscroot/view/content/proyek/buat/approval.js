@@ -55,13 +55,13 @@ export async function approvalButton(event){
           "login",
           getCookie("login"),
           idprjusr,
-          postResponseFunction
+          postResponseFunctionapprovalButton
         );
       }
 }
 
 
-function postResponseFunction(result) {
+function postResponseFunctionapprovalButton(result) {
     if (result.status === 200) {
       const katakata =
         "Berhasil approve draft buku project " + result.data.name;
