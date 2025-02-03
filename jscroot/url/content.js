@@ -20,6 +20,8 @@ export function getContentURL(){
             return url.template.content+"proyek/lihat.html";    
         case "proyek/anggota":
             return url.template.content+"proyek/anggota.html";   
+        case "proyek/helper":
+            return url.template.content+"proyek/helper.html";  
         case "proyek/buat":
             return url.template.content+"proyek/buat.html";
         case "proyek/akses":
