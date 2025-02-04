@@ -65,6 +65,8 @@ export function getURLContentJS(){
             return url.view.content+"proyek/lihat.js";
         case "proyek/anggota":
             return url.view.content+"proyek/anggota.js";
+        case "proyek/helper":
+            return url.view.content+"proyek/helper.js";
         case "proyek/buat":
             return url.view.content+"proyek/buat.js";
         case "proyek/akses":
