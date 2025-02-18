@@ -44,11 +44,11 @@ function getResponseFunction(result) {
       let urlspkt=backend.project.downloadspkt+btoa(project.name);
       let linkskt = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
 
-      let urlspkt=backend.project.downloadspktdc+btoa(project.name);
-      let linksktdc = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
+      let urlspktdc=backend.project.downloadspktdc+btoa(project.name);
+      let linksktdc = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspktdc);
 
-      let urlspkt=backend.project.downloadspktpc+btoa(project.name);
-      let linksktpc = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
+      let urlspktpc=backend.project.downloadspktpc+btoa(project.name);
+      let linksktpc = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspktpc);
 
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
