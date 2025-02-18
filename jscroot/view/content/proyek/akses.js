@@ -1,6 +1,6 @@
 import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
 import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
-import { addCSSIn,onClick } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import { addCSS,onClicks } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.3/element.js";
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
 import { id, backend } from "../../../url/config.js";
 import { loadScript } from "../../../controller/main.js";
@@ -8,11 +8,8 @@ import { addNotificationCloseListeners, truncateText, addCopyButtonListeners, ad
 import {updateButton} from "./akses/update.js";
 
 export async function main() {
-  await addCSSIn(
-    "https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css",
-    id.content
-  );
-  await addCSSIn("assets/css/custom.css", id.content);
+  await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
+  await addCSS("assets/css/custom.css");
 
   await loadScript("https://code.jquery.com/jquery-3.6.0.min.js");
   await loadScript("https://cdn.datatables.net/2.0.8/js/dataTables.min.js");
@@ -85,7 +82,7 @@ function getResponseFunction(result) {
 
      addRevealTextListeners();
      addCopyButtonListeners();
-     onClick("updatebutton",updateButton);
+     onClicks("spkButton",updateButton);
   } else {
     Swal.fire({
       icon: "error",
