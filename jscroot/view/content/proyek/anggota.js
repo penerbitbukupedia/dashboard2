@@ -44,6 +44,12 @@ function getResponseFunction(result) {
       let urlspkt=backend.project.downloadspkt+btoa(project.name);
       let linkskt = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
 
+      let urlspkt=backend.project.downloadspktdc+btoa(project.name);
+      let linksktdc = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
+
+      let urlspkt=backend.project.downloadspktpc+btoa(project.name);
+      let linksktpc = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
+
       const truncatedDescription = truncateText(project.description, 50);
       row.innerHTML = `
                 <td>${project.name}
@@ -69,7 +75,13 @@ function getResponseFunction(result) {
                               </button>
                           </li>
                           <li>
-                              <a href="${linkskt}" target="_blank">3. Surat Penyerahan Karya Terbitan(SKT)</a>
+                              <a href="${linkskt}" target="_blank">3. Surat Penyerahan Karya Terbitan(SKT) Elektronik</a>
+                          </li>
+                          <li>
+                              <a href="${linksktdc}" target="_blank">4. Surat Penyerahan Karya Terbitan(SKT) Cetak Daerah</a>
+                          </li>
+                          <li>
+                              <a href="${linksktpc}" target="_blank">5. Surat Penyerahan Karya Terbitan(SKT) Cetak Pusat</a>
                           </li>
                     </ul>
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>

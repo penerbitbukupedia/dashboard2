@@ -36,6 +36,8 @@ export const backend={
         downloadspi:baseURL+"/download/dokped/spi/",
         downloadspk:baseURL+"/download/dokped/spk/",
         downloadspkt:baseURL+"/download/dokped/spkt/",
+        downloadspktdc:baseURL+"/download/dokped/spkt/daerah/cetak/",
+        downloadspktpc:baseURL+"/download/dokped/spkt/nasional/cetak/",
     },
     ux:{
         feedback:baseURL+"/notif/ux/postfeedback",
