@@ -5,17 +5,17 @@ import {putJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/api.js";
 import { backend } from "../../../../url/config.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.9/cookie.js";
 
-export async function updateButton(event){
-    const projectId = event.target.getAttribute("data-project-id");
-    const projectName =event.target.getAttribute("data-project-name");
-    const isbn =event.target.getAttribute("data-project-isbn");
-    const terbit =event.target.getAttribute("data-project-terbit");
-    const linkplaybook =event.target.getAttribute("data-project-linkplaybook");
-    const linkgramed =event.target.getAttribute("data-project-linkgramed");
-    const linkkubuku =event.target.getAttribute("data-project-linkkubuku");
-    const linkmyedisi =event.target.getAttribute("data-project-linkmyedisi");
-    const linkdepositperpusnas =event.target.getAttribute("data-project-linkdepositperpusnas");
-    const linkdepositperpusda =event.target.getAttribute("data-project-linkdepositperpusda");
+export async function updateButton(target){
+    const projectId = target.getAttribute("data-project-id");
+    const projectName = target.getAttribute("data-project-name");
+    const isbn = target.getAttribute("data-project-isbn");
+    const terbit = target.getAttribute("data-project-terbit");
+    const linkplaybook = target.getAttribute("data-project-linkplaybook");
+    const linkgramed = target.getAttribute("data-project-linkgramed");
+    const linkkubuku = target.getAttribute("data-project-linkkubuku");
+    const linkmyedisi = target.getAttribute("data-project-linkmyedisi");
+    const linkdepositperpusnas = target.getAttribute("data-project-linkdepositperpusnas");
+    const linkdepositperpusda = target.getAttribute("data-project-linkdepositperpusda");
     const { value: formValues } = await Swal.fire({
     title: "Publish Draft Buku",
     html: `
