@@ -75,7 +75,7 @@ function getResponseFunction(result) {
                               </button>
                           </li>
                           <li>
-                              <a href="${linkskt}" target="_blank">3. Surat Penyerahan Karya Terbitan(SKT)</a>
+                              <a href="${linkskt}" target="_blank">3. Surat Penyerahan Karya Terbitan(SKT) Elektronik Daerah</a>
                           </li>
                           <li>
                               <a href="${linksktdc}" target="_blank">4. Surat Penyerahan Karya Terbitan(SKT) Cetak Daerah</a>
