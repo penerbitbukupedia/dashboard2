@@ -1094,9 +1094,13 @@ function addEditDraftPDFButtonListeners() {
                   <button class="button is-primary" id="uploadButton">Upload</button>
               </div>
           </div>
-          <div class="field" id="imageField" style="display: none;">
+ <div class="field" id="successField" style="display: none;">
               <div class="control">
-                  <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%;">
+                  <div class="notification is-success">
+                      <p><i class="bx bx-check-circle"></i> File PDF berhasil diunggah</p>
+                      <p id="fileNameDisplay"></p>
+                      <iframe id="pdfPreview" style="width: 100%; height: 300px; display: none;"></iframe>
+                  </div>
               </div>
           </div>
         `,
@@ -1167,17 +1171,26 @@ function uploadDraftPDFBuku(){
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftPDFBuku);
 }
 
-function runafterUploadDraftPDFBuku(result){
-  //setValue('id',result.info);
-  //setValue('image',result.location);
+function runafterUploadDraftPDFBuku(result) {
   document.getElementById('fileInput').style.display = 'none';
   document.getElementById('uploadButton').style.display = 'none';
-  const imageField = document.getElementById('imageField');
-  const uploadedImage = document.getElementById('uploadedImage');
-  uploadedImage.src = result.location;
-  imageField.style.display = 'block';
+  const successField = document.getElementById('successField');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+  const pdfPreview = document.getElementById('pdfPreview');
+  
+  // Display file name from result
+  const filePath = result.location;
+  const fileName = filePath.split('/').pop();
+  fileNameDisplay.textContent = 'Nama file: ' + fileName;
+  
+  // Try to display PDF preview if browser supports it
+  if (filePath) {
+    pdfPreview.src = filePath;
+    pdfPreview.style.display = 'block';
+  }
+  
+  successField.style.display = 'block';
   console.log(result);
-
 }
 
 
@@ -1224,11 +1237,15 @@ function addEditSampulPDFButtonListeners() {
                   <button class="button is-primary" id="uploadButton">Upload</button>
               </div>
           </div>
-          <div class="field" id="imageField" style="display: none;">
-              <div class="control">
-                  <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%;">
-              </div>
-          </div>
+          <div class="field" id="successField" style="display: none;">
+            <div class="control">
+                <div class="notification is-success">
+                    <p><i class="bx bx-check-circle"></i> File PDF Sampul berhasil diunggah</p>
+                    <p id="fileNameDisplay"></p>
+                    <iframe id="pdfPreview" style="width: 100%; height: 300px; display: none;"></iframe>
+                </div>
+            </div>
+        </div>
         `,
         didOpen: () => {
           // Add event listener for file input to validate PDF file
@@ -1263,19 +1280,27 @@ function uploadSampulPDFBuku(){
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadSampulPDFBuku);
 }
 
-function runafterUploadSampulPDFBuku(result){
-  //setValue('id',result.info);
-  //setValue('image',result.location);
+function runafterUploadSampulPDFBuku(result) {
   document.getElementById('fileInput').style.display = 'none';
   document.getElementById('uploadButton').style.display = 'none';
-  const imageField = document.getElementById('imageField');
-  const uploadedImage = document.getElementById('uploadedImage');
-  uploadedImage.src = result.location;
-  imageField.style.display = 'block';
+  const successField = document.getElementById('successField');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+  const pdfPreview = document.getElementById('pdfPreview');
+  
+  // Display file name from result
+  const filePath = result.location;
+  const fileName = filePath.split('/').pop();
+  fileNameDisplay.textContent = 'Nama file: ' + fileName;
+  
+  // Try to display PDF preview if browser supports it
+  if (filePath) {
+    pdfPreview.src = filePath;
+    pdfPreview.style.display = 'block';
+  }
+  
+  successField.style.display = 'block';
   console.log(result);
-
 }
-
 
 //download file draft 
 
