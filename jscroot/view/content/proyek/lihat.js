@@ -914,7 +914,30 @@ function runafterUploadCoverBuku(result){
 
 }
 
-
+//loading
+function toggleLoading(buttonId, isLoading) {
+  const button = document.getElementById(buttonId);
+  if (!button) return;
+  
+  if (isLoading) {
+    // Save original text
+    button.setAttribute('data-original-text', button.innerHTML);
+    // Set loading state
+    button.innerHTML = '<i class="bx bx-loader bx-spin"></i> Uploading...';
+    button.classList.add('is-loading');
+    button.disabled = true;
+  } else {
+    // Restore original text if exists
+    const originalText = button.getAttribute('data-original-text');
+    if (originalText) {
+      button.innerHTML = originalText;
+    } else {
+      button.innerHTML = 'Upload';
+    }
+    button.classList.remove('is-loading');
+    button.disabled = false;
+  }
+}
 ////upload draft doc
 
 function addEditDraftButtonListeners() {
@@ -933,7 +956,6 @@ function addEditDraftButtonListeners() {
           </div>
         </div>
       `;
-      // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
       let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
       Swal.fire({
         title: "Edit Draft Buku",
@@ -955,9 +977,15 @@ function addEditDraftButtonListeners() {
           </div>
           <div class="field">
               <div class="control">
-                  <button class="button is-primary" id="uploadButton">Upload</button>
+                  <button class="button is-primary" id="uploadButton">
+                    <span class="icon">
+                      <i class="bx bx-upload"></i>
+                    </span>
+                    <span>Upload</span>
+                  </button>
               </div>
           </div>
+          <div id="validationMessage" class="has-text-danger mt-2"></div>
           <div class="field" id="successField" style="display: none;">
               <div class="control">
                   <div class="notification is-success">
@@ -967,6 +995,9 @@ function addEditDraftButtonListeners() {
               </div>
           </div>
         `,
+        showCancelButton: true,
+        showConfirmButton: false,
+        cancelButtonText: 'Tutup',
         didOpen: () => {
           // Add event listener for file input to validate docx file
           const fileInput = document.getElementById('fileInput');
@@ -1028,10 +1059,31 @@ function validateDocxFile() {
 
 
 function uploadDraftBuku(){
-  const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
+  toggleLoading('uploadButton', true);
+  const validationMessage = document.getElementById('validationMessage');
+  validationMessage.textContent = ''; // Clear any validation messages
+  
+  const targetUrl = backend.project.draftbuku + document.getElementById("_id").value;
   const fileInputId = 'fileInput';
-  const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
-  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftBuku);
+  const formDataName = 'draftbuku';
+  
+  // Create a wrapper for the response function
+  const responseWrapper = (result) => {
+    toggleLoading('uploadButton', false);
+    if (result.status !== 200) {
+      validationMessage.textContent = 'Upload failed: ' + (result.data?.response || 'Unknown error');
+      return;
+    }
+    runafterUploadDraftBuku(result);
+  };
+  
+  try {
+    postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName, responseWrapper);
+  } catch (error) {
+    toggleLoading('uploadButton', false);
+    validationMessage.textContent = 'Upload failed: ' + error.message;
+    console.error('Error during upload:', error);
+  }
 }
 
 function runafterUploadDraftBuku(result) {
