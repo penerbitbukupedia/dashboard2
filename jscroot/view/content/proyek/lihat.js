@@ -825,7 +825,8 @@ function addEditdocumentButtonListeners() {
           <div class="field">
             <label class="label">Gambar Cover Buku</label>
             <div class="control">
-                <input class="input" type="file" id="fileInput" name="file" required>
+                <input class="input" type="file" id="fileInput" name="file" accept="image/*" required>
+                <p class="help">Format yang diterima: JPG, PNG, JPEG, GIF</p>
             </div>
           </div>
           <div class="field">
@@ -840,20 +841,57 @@ function addEditdocumentButtonListeners() {
           </div>
         `,
         didOpen: () => {
-          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-          // onInput("phonenumber", validatePhoneNumber);
-          onClick('uploadButton',uploadCoverBuku);
+          // Add event listener for file input to validate image file
+          const fileInput = document.getElementById('fileInput');
+          fileInput.addEventListener('change', validateImageFile);
+          
+          // Event listener for upload button
+          onClick('uploadButton', function() {
+            if (validateImageFile()) {
+              uploadCoverBuku();
+            }
+          });
         },
         didClose: () => {
           reloadDataTable();
         },
       });
-
-
     });
   });
 }
 
+function validateImageFile() {
+  const fileInput = document.getElementById('fileInput');
+  const uploadButton = document.getElementById('uploadButton');
+  
+  if (fileInput.files.length === 0) {
+    Swal.showValidationMessage('Silakan pilih file gambar');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  const file = fileInput.files[0];
+  const fileType = file.type;
+  const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+  
+  if (!validImageTypes.includes(fileType)) {
+    Swal.showValidationMessage('File harus berupa gambar (JPG, PNG, JPEG, atau GIF)');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  // Check file size (optional, limit to 5MB for example)
+  if (file.size > 5 * 1024 * 1024) {
+    Swal.showValidationMessage('Ukuran file terlalu besar (maksimal 5MB)');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  // Clear validation message if file is valid
+  Swal.resetValidationMessage();
+  uploadButton.disabled = false;
+  return true;
+}
 
 
 function uploadCoverBuku(){
