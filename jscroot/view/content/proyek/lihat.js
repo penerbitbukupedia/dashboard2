@@ -958,9 +958,12 @@ function addEditDraftButtonListeners() {
                   <button class="button is-primary" id="uploadButton">Upload</button>
               </div>
           </div>
-          <div class="field" id="imageField" style="display: none;">
+          <div class="field" id="successField" style="display: none;">
               <div class="control">
-                  <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 100%;">
+                  <div class="notification is-success">
+                      <p><i class="bx bx-check-circle"></i> File DOCX berhasil diunggah</p>
+                      <p id="fileNameDisplay"></p>
+                  </div>
               </div>
           </div>
         `,
@@ -1031,17 +1034,19 @@ function uploadDraftBuku(){
   postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftBuku);
 }
 
-function runafterUploadDraftBuku(result){
-  //setValue('id',result.info);
-  //setValue('image',result.location);
+function runafterUploadDraftBuku(result) {
   document.getElementById('fileInput').style.display = 'none';
   document.getElementById('uploadButton').style.display = 'none';
-  const imageField = document.getElementById('imageField');
-  const uploadedImage = document.getElementById('uploadedImage');
-  uploadedImage.src = result.location;
-  imageField.style.display = 'block';
+  const successField = document.getElementById('successField');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+  
+  // Display file name or path from result
+  const filePath = result.location;
+  const fileName = filePath.split('/').pop();
+  fileNameDisplay.textContent = 'Nama file: ' + fileName;
+  
+  successField.style.display = 'block';
   console.log(result);
-
 }
 
 
@@ -1080,7 +1085,8 @@ function addEditDraftPDFButtonListeners() {
           <div class="field">
             <label class="label">PDF Draft Buku</label>
             <div class="control">
-                <input class="input" type="file" id="fileInput" name="file" required>
+                <input class="input" type="file" id="fileInput" name="file" accept=".pdf,application/pdf" required>
+                <p class="help">Format yang diterima: hanya PDF</p>
             </div>
           </div>
           <div class="field">
@@ -1095,9 +1101,17 @@ function addEditDraftPDFButtonListeners() {
           </div>
         `,
         didOpen: () => {
-          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-          // onInput("phonenumber", validatePhoneNumber);
-          onClick('uploadButton',uploadDraftPDFBuku);
+          // Add event listener for file input to validate PDF file
+          const fileInput = document.getElementById('fileInput');
+          fileInput.addEventListener('change', validatePDFFile);
+          
+          // Event listener for upload button
+          onClick('uploadButton', function() {
+            if (validatePDFFile()) {
+              uploadDraftPDFBuku();
+            }
+          });
+          
           if(pathURLDoc){
             downloadDraftButtonListeners();
           }
@@ -1106,10 +1120,42 @@ function addEditDraftPDFButtonListeners() {
           reloadDataTable();
         },
       });
-
-
     });
   });
+}
+
+function validatePDFFile() {
+  const fileInput = document.getElementById('fileInput');
+  const uploadButton = document.getElementById('uploadButton');
+  
+  if (fileInput.files.length === 0) {
+    Swal.showValidationMessage('Silakan pilih file PDF');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  const file = fileInput.files[0];
+  const fileName = file.name.toLowerCase();
+  const fileType = file.type;
+  
+  // Check if file is PDF (by extension and MIME type)
+  if (!fileName.endsWith('.pdf') || fileType !== 'application/pdf') {
+    Swal.showValidationMessage('File harus berupa dokumen PDF');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  // Check file size (limit to 20MB)
+  if (file.size > 20 * 1024 * 1024) {
+    Swal.showValidationMessage('Ukuran file terlalu besar (maksimal 20MB)');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  // Clear validation message if file is valid
+  Swal.resetValidationMessage();
+  uploadButton.disabled = false;
+  return true;
 }
 
 
@@ -1153,8 +1199,6 @@ function addEditSampulPDFButtonListeners() {
           </div>
         </div>
       `;
-      //let statusDraftBuku = pathURLDoc ? projectNameField : "";
-      // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
       let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
 
       Swal.fire({
@@ -1171,7 +1215,8 @@ function addEditSampulPDFButtonListeners() {
           <div class="field">
             <label class="label">PDF Sampul Buku</label>
             <div class="control">
-                <input class="input" type="file" id="fileInput" name="file" required>
+                <input class="input" type="file" id="fileInput" name="file" accept=".pdf,application/pdf" required>
+                <p class="help">Format yang diterima: hanya PDF</p>
             </div>
           </div>
           <div class="field">
@@ -1186,9 +1231,17 @@ function addEditSampulPDFButtonListeners() {
           </div>
         `,
         didOpen: () => {
-          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-          // onInput("phonenumber", validatePhoneNumber);
-          onClick('uploadButton',uploadSampulPDFBuku);
+          // Add event listener for file input to validate PDF file
+          const fileInput = document.getElementById('fileInput');
+          fileInput.addEventListener('change', validatePDFFile);
+          
+          // Event listener for upload button
+          onClick('uploadButton', function() {
+            if (validatePDFFile()) {
+              uploadSampulPDFBuku();
+            }
+          });
+          
           if(pathURLDoc){
             downloadDraftButtonListeners();
           }
@@ -1197,8 +1250,6 @@ function addEditSampulPDFButtonListeners() {
           reloadDataTable();
         },
       });
-
-
     });
   });
 }
