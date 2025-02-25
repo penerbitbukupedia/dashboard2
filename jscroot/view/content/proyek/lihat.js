@@ -1060,30 +1060,12 @@ function validateDocxFile() {
 
 function uploadDraftBuku(){
   toggleLoading('uploadButton', true);
-  const validationMessage = document.getElementById('validationMessage');
-  validationMessage.textContent = ''; // Clear any validation messages
-  
-  const targetUrl = backend.project.draftbuku + document.getElementById("_id").value;
+  Swal.showValidationMessage(''); // Clear any validation messages
+
+  const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
   const fileInputId = 'fileInput';
-  const formDataName = 'draftbuku';
-  
-  // Create a wrapper for the response function
-  const responseWrapper = (result) => {
-    toggleLoading('uploadButton', false);
-    if (result.status !== 200) {
-      validationMessage.textContent = 'Upload failed: ' + (result.data?.response || 'Unknown error');
-      return;
-    }
-    runafterUploadDraftBuku(result);
-  };
-  
-  try {
-    postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName, responseWrapper);
-  } catch (error) {
-    toggleLoading('uploadButton', false);
-    validationMessage.textContent = 'Upload failed: ' + error.message;
-    console.error('Error during upload:', error);
-  }
+  const formDataName = 'draftbuku'; // Sesuaikan dengan nama form-data di backend
+  postFileWithHeader(targetUrl, "login", getCookie('login'), fileInputId, formDataName,runafterUploadDraftBuku);
 }
 
 function runafterUploadDraftBuku(result) {
