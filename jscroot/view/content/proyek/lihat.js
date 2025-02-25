@@ -1099,7 +1099,6 @@ function addEditDraftPDFButtonListeners() {
                   <div class="notification is-success">
                       <p><i class="bx bx-check-circle"></i> File PDF berhasil diunggah</p>
                       <p id="fileNameDisplay"></p>
-                      <iframe id="pdfPreview" style="width: 100%; height: 300px; display: none;"></iframe>
                   </div>
               </div>
           </div>
@@ -1176,18 +1175,11 @@ function runafterUploadDraftPDFBuku(result) {
   document.getElementById('uploadButton').style.display = 'none';
   const successField = document.getElementById('successField');
   const fileNameDisplay = document.getElementById('fileNameDisplay');
-  const pdfPreview = document.getElementById('pdfPreview');
   
-  // Display file name from result
+  // Display file name or path from result
   const filePath = result.location;
   const fileName = filePath.split('/').pop();
   fileNameDisplay.textContent = 'Nama file: ' + fileName;
-  
-  // Try to display PDF preview if browser supports it
-  if (filePath) {
-    pdfPreview.src = filePath;
-    pdfPreview.style.display = 'block';
-  }
   
   successField.style.display = 'block';
   console.log(result);
@@ -1237,15 +1229,14 @@ function addEditSampulPDFButtonListeners() {
                   <button class="button is-primary" id="uploadButton">Upload</button>
               </div>
           </div>
-          <div class="field" id="successField" style="display: none;">
-            <div class="control">
-                <div class="notification is-success">
-                    <p><i class="bx bx-check-circle"></i> File PDF Sampul berhasil diunggah</p>
-                    <p id="fileNameDisplay"></p>
-                    <iframe id="pdfPreview" style="width: 100%; height: 300px; display: none;"></iframe>
-                </div>
-            </div>
-        </div>
+ <div class="field" id="successField" style="display: none;">
+              <div class="control">
+                  <div class="notification is-success">
+                      <p><i class="bx bx-check-circle"></i> File PDF berhasil diunggah</p>
+                      <p id="fileNameDisplay"></p>
+                  </div>
+              </div>
+          </div>
         `,
         didOpen: () => {
           // Add event listener for file input to validate PDF file
@@ -1285,18 +1276,11 @@ function runafterUploadSampulPDFBuku(result) {
   document.getElementById('uploadButton').style.display = 'none';
   const successField = document.getElementById('successField');
   const fileNameDisplay = document.getElementById('fileNameDisplay');
-  const pdfPreview = document.getElementById('pdfPreview');
   
-  // Display file name from result
+  // Display file name or path from result
   const filePath = result.location;
   const fileName = filePath.split('/').pop();
   fileNameDisplay.textContent = 'Nama file: ' + fileName;
-  
-  // Try to display PDF preview if browser supports it
-  if (filePath) {
-    pdfPreview.src = filePath;
-    pdfPreview.style.display = 'block';
-  }
   
   successField.style.display = 'block';
   console.log(result);
