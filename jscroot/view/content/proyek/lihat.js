@@ -949,7 +949,8 @@ function addEditDraftButtonListeners() {
           <div class="field">
             <label class="label">Docx Draft Buku</label>
             <div class="control">
-                <input class="input" type="file" id="fileInput" name="file" required>
+                <input class="input" type="file" id="fileInput" name="file" accept=".docx" required>
+                <p class="help">Format yang diterima: hanya DOCX</p>
             </div>
           </div>
           <div class="field">
@@ -964,23 +965,62 @@ function addEditDraftButtonListeners() {
           </div>
         `,
         didOpen: () => {
-          // Memanggil fungsi onInput setelah dialog SweetAlert2 dibuka
-          // onInput("phonenumber", validatePhoneNumber);
-          onClick('uploadButton',uploadDraftBuku);
+          // Add event listener for file input to validate docx file
+          const fileInput = document.getElementById('fileInput');
+          fileInput.addEventListener('change', validateDocxFile);
+          
+          // Event listener for upload button
+          onClick('uploadButton', function() {
+            if (validateDocxFile()) {
+              uploadDraftBuku();
+            }
+          });
+          
           if(pathURLDoc){
             downloadDraftButtonListeners();
           }
-          
         },
         didClose: () => {
           reloadDataTable();
         },
       });
-
-
     });
   });
 }
+
+function validateDocxFile() {
+  const fileInput = document.getElementById('fileInput');
+  const uploadButton = document.getElementById('uploadButton');
+  
+  if (fileInput.files.length === 0) {
+    Swal.showValidationMessage('Silakan pilih file dokumen');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  const file = fileInput.files[0];
+  const fileName = file.name.toLowerCase();
+  
+  // Check if file has .docx extension
+  if (!fileName.endsWith('.docx')) {
+    Swal.showValidationMessage('File harus berupa dokumen DOCX');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  // Check file size (limit to 20MB)
+  if (file.size > 20 * 1024 * 1024) {
+    Swal.showValidationMessage('Ukuran file terlalu besar (maksimal 20MB)');
+    uploadButton.disabled = true;
+    return false;
+  }
+  
+  // Clear validation message if file is valid
+  Swal.resetValidationMessage();
+  uploadButton.disabled = false;
+  return true;
+}
+
 
 
 
