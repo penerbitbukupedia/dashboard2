@@ -1060,7 +1060,7 @@ function validateDocxFile() {
 
 function uploadDraftBuku(){
   toggleLoading('uploadButton', true);
-  Swal.showValidationMessage(''); // Clear any validation messages
+  // Swal.showValidationMessage(''); // Clear any validation messages
 
   const targetUrl = backend.project.draftbuku+document.getElementById("_id").value; // Ganti dengan URL backend Anda
   const fileInputId = 'fileInput';
