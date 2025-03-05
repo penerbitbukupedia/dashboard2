@@ -285,7 +285,7 @@ function setEditorButtonListeners() {
             <div class="control">
               <input class="input" type="text" id="_id" name="_id" placeholder="987adusf87yhe" required>
             </div>
-            <p class="help is-info">Masukkan kode unik yang ada di halaman Profile Editor. Kode ini digunakan untuk mengidentifikasi Editor pada sistem. Atau anda bisa <a href="https://www.bukupedia.co.id/#main-wrapper" target="_blank">lihat disini</a> untuk daftar para Editor nya dan klik salah satu foto profile editor nya untuk melihat halaman profile editor nya.</p>
+            <p class="help is-info">Masukkan kode unik yang ada di halaman Profile Editor. Kode ini digunakan untuk mengidentifikasi Editor pada sistem. Atau anda bisa <strong><a href="https://www.bukupedia.co.id/#main-wrapper" target="_blank">lihat disini</a></strong> untuk daftar para Editor nya dan klik salah satu foto profile editor nya untuk melihat halaman profile editor nya.</p>
           </div>
         `,
         showCancelButton: true,
