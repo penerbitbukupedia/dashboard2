@@ -285,6 +285,7 @@ function setEditorButtonListeners() {
             <div class="control">
               <input class="input" type="text" id="_id" name="_id" placeholder="987adusf87yhe" required>
             </div>
+            <p class="help is-info">Masukkan kode unik yang ada di halaman Profile Editor. Kode ini digunakan untuk mengidentifikasi Editor pada sistem.</p>
           </div>
         `,
         showCancelButton: true,
@@ -301,8 +302,7 @@ function setEditorButtonListeners() {
           }
           return { _id, projectId };
         },
-      });
-
+      });      
       if (formValues) {
         const { _id, projectId } = formValues;
         // Logic to add member
