@@ -63,13 +63,7 @@ function getResponseFunction(result) {
 
                     <ul style="list-style-type:none; padding-left:0;">
                           <li>
-                              1. Perjanjian Kerjasama(tidak wajib/opsional)
-                              <button class="button ${warnaTombolstatusSPK} spkButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusSPK}
-                              </button>
-                          </li>
-                          <li>
-                              2. Pengajuan ISBN
+                              1. Pengajuan ISBN
                               <button class="button ${warnaTombolstatusSPI} spiButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.sampulpdfbuku}" data-project-id="${project._id}" data-project-name="${project.name}">
                                 ${statusSPI}
                               </button>
