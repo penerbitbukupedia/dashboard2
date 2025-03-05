@@ -84,7 +84,7 @@ function getResponseFunction(result) {
                   <a href="https://wa.me/${project.editor.phonenumber ?? ""}" target="_blank">${project.editor.name ?? ""}</a>
                   <a class="tag is-link copy-btn" data-copy-text="${project._id}">Copy</a>
                   <br>
-                  <span class="tag ${project.isApproved ? 'is-success' : 'is-danger'}">${project.isApproved ? 'Sudah Di Approve' : 'Belum di Approve'}</span>
+                  <span class="tag ${project.isapproved ? 'is-success' : 'is-danger'}">${project.isapproved ? 'Sudah Di Approve' : 'Belum di Approve'}</span>
                 </td>
                 <td>${truncatedDescription}<span class="full-text" style="display:none; ">${project.description}</span></td>
             `;
