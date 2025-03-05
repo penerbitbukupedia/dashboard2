@@ -63,7 +63,7 @@ function getResponseFunction(result) {
 
                     <ul style="list-style-type:none; padding-left:0;">
                           <li>
-                              1. Perjanjian Kerjasama
+                              1. Perjanjian Kerjasama(tidak wajib/opsional)
                               <button class="button ${warnaTombolstatusSPK} spkButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
                                   ${statusSPK}
                               </button>
