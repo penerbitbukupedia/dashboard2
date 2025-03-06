@@ -63,19 +63,25 @@ function getResponseFunction(result) {
 
                     <ul style="list-style-type:none; padding-left:0;">
                           <li>
-                              1. Pengajuan ISBN
+                              1. Perjanjian Kerjasama(tidak wajib/opsional)
+                              <button class="button ${warnaTombolstatusSPK} spkButton" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
+                                  ${statusSPK}
+                              </button>
+                          </li>
+                          <li>
+                              2. Pengajuan ISBN
                               <button class="button ${warnaTombolstatusSPI} spiButton" style="padding: 5px 10px; font-size: 12px;" data-file-path="${project.sampulpdfbuku}" data-project-id="${project._id}" data-project-name="${project.name}">
                                 ${statusSPI}
                               </button>
                           </li>
                           <li>
-                              <a href="${linkskt}" target="_blank">2. Surat Penyerahan Karya Terbitan(SKT) Elektronik</a>
+                              <a href="${linkskt}" target="_blank">3. Surat Penyerahan Karya Terbitan(SKT) Elektronik</a>
                           </li>
                           <li>
-                              <a href="${linksktdc}" target="_blank">3. Surat Penyerahan Karya Terbitan(SKT) Cetak Daerah</a>
+                              <a href="${linksktdc}" target="_blank">4. Surat Penyerahan Karya Terbitan(SKT) Cetak Daerah</a>
                           </li>
                           <li>
-                              <a href="${linksktpc}" target="_blank">4. Surat Penyerahan Karya Terbitan(SKT) Cetak Pusat</a>
+                              <a href="${linksktpc}" target="_blank">5. Surat Penyerahan Karya Terbitan(SKT) Cetak Pusat</a>
                           </li>
                     </ul>
                   <a class="tag is-link copy-btn" data-copy-text="${project.secret}">Copy</a>
