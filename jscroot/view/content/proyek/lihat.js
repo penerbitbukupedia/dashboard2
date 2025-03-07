@@ -285,7 +285,7 @@ function setEditorButtonListeners() {
             <div class="control">
               <input class="input" type="text" id="_id" name="_id" placeholder="987adusf87yhe" required>
             </div>
-            <p class="help is-info">Masukan kode editor rekan anda yang sudah terdaftar di sistem yang ada di dashboard depan. Atau anda bisa juga memilij <strong><a href="https://www.bukupedia.co.id/#main-wrapper" target="_blank">lihat disini</a></strong> untuk daftar para Editor nya yang sudah ada dan klik salah satu foto profile editor nya untuk melihat halaman profile editor nya.</p>
+            <p class="help is-info">Masukan kode editor rekan anda yang sudah terdaftar di sistem yang ada di dashboard depan. Atau anda bisa juga memilih <strong><a href="https://www.bukupedia.co.id/#main-wrapper" target="_blank">lihat disini</a></strong> untuk daftar para Editor nya yang sudah ada dan klik salah satu foto profile editor nya untuk melihat halaman profile editor nya.</p>
           </div>
         `,
         showCancelButton: true,
