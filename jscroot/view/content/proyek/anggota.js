@@ -125,56 +125,56 @@ function getResponseFunction(result) {
                 <div>
                   <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <tr>
-                      <td style="padding: 8px; width: 50%;">1. ISBN:</td>
-                      <td style="padding: 8px;">
+                      <td style="padding: 8px; width: 50%; white-space: nowrap;">1. Nomor ISBN:</td>
+                      <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.isbn ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.isbn ? 'Sudah' : 'Belum'}
                         </button>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 8px;">2. Link Playbook:</td>
-                      <td style="padding: 8px;">
+                      <td style="padding: 8px; white-space: nowrap;">2. Link Playbook:</td>
+                      <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.linkplaybook ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.linkplaybook ? 'Sudah' : 'Belum'}
                         </button>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 8px;">3. Link Gramedia:</td>
-                      <td style="padding: 8px;">
+                      <td style="padding: 8px; white-space: nowrap;">3. Link Gramedia:</td>
+                      <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.linkgramed ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.linkgramed ? 'Sudah' : 'Belum'}
                         </button>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 8px;">4. Link MyEd:</td>
-                      <td style="padding: 8px;">
+                      <td style="padding: 8px; white-space: nowrap;">4. Link MyEd:</td>
+                      <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.linkmyedisi ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.linkmyedisi ? 'Sudah' : 'Belum'}
                         </button>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 8px;">5. Link Kubuku:</td>
-                      <td style="padding: 8px;">
+                      <td style="padding: 8px; white-space: nowrap;">5. Link Kubuku:</td>
+                      <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.linkkubuku ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.linkkubuku ? 'Sudah' : 'Belum'}
                         </button>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 8px;">6. Nomor Resi Pengiriman Perpusnas:</td>
-                      <td style="padding: 8px;">
+                      <td style="padding: 8px; white-space: nowrap;">6. Nomor Resi Pengiriman Perpusnas:</td>
+                      <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.linkdepositperpusnas ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.linkdepositperpusnas ? 'Sudah' : 'Belum'}
                         </button>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 8px;">7. Nomor Resi Pengiriman Perpusda:</td>
-                      <td style="padding: 8px;">
+                      <td style="padding: 8px; white-space: nowrap;">7. Nomor Resi Pengiriman Perpusda:</td>
+                      <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.linkdepositperpusda ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.linkdepositperpusda ? 'Sudah' : 'Belum'}
                         </button>
