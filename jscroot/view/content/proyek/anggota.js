@@ -54,10 +54,9 @@ function getResponseFunction(result) {
       row.innerHTML = `
                 <td>${project.name}
                             <button class="button is-success publishButton" data-project-id="${project._id}" data-project-name="${project.name}">
-                            <i class="bx bx-send"></i>
+                              Update Katalog
                             </button><br>
-                            <a href=" ${project.pathkatalog ?? ""}" target="_blank">Kunjungi Katalog</a>
-
+                            <a href="${project.pathkatalog ?? ""}" target="_blank">Kunjungi Katalog</a>
                 </td>
                 <td class="code-box">
 
