@@ -149,7 +149,7 @@ function getResponseFunction(result) {
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding: 8px; white-space: nowrap;">4. Link MyEd:</td>
+                      <td style="padding: 8px; white-space: nowrap;">4. Link MyEdisi:</td>
                       <td style="padding: 8px; text-align: right;">
                         <button class="button ${project.linkmyedisi ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
                           ${project.linkmyedisi ? 'Sudah' : 'Belum'}
