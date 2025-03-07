@@ -41,28 +41,6 @@ function getResponseFunction(result) {
       let statusSPI = project.spi ? "Sudah" : "Belum";
       let warnaTombolstatusSPI = project.spi ? "is-success" : "is-warning";
 
-      let statusISBN = project.isbn ? "Sudah" : "Belum";
-      let warnaTombolISBN = project.isbn ? "is-success" : "is-warning";
-
-      let statusPlaybook = project.linkplaybook ? "Sudah" : "Belum";
-      let warnaTombolPlaybook = project.linkplaybook ? "is-success" : "is-warning";
-
-      let statusGramedia = project.linkgramed ? "Sudah" : "Belum";
-      let warnaTombolGramedia = project.linkgramed ? "is-success" : "is-warning";
-
-      let statusMyEd = project.linkmyedisi ? "Sudah" : "Belum";
-      let warnaTombolMyEd = project.linkmyedisi ? "is-success" : "is-warning";
-
-      let statusKubuku = project.linkkubuku ? "Sudah" : "Belum";
-      let warnaTombolKubuku = project.linkkubuku ? "is-success" : "is-warning";
-
-      let statusDepositPerpusnas = project.linkdepositperpusnas ? "Sudah" : "Belum";
-      let warnaTombolDepositPerpusnas = project.linkdepositperpusnas ? "is-success" : "is-warning";
-
-      let statusDepositPerpusda = project.linkdepositperpusda ? "Sudah" : "Belum";
-      let warnaTombolDepositPerpusda = project.linkdepositperpusda ? "is-success" : "is-warning";
-
-
       let urlspkt=backend.project.downloadspkt+btoa(project.name);
       let linkskt = "https://naskah.bukupedia.co.id/view/#"+btoa(urlspkt);
 
@@ -83,50 +61,6 @@ function getResponseFunction(result) {
                             <button class="button is-link statusButton" data-project-id="${project._id}" data-project-name="${project.name}">
                               Status
                             </button>
-                            <ul style="list-style-type:none; padding-left:0;">
-                              <li>
-                                1. Nomor ISBN
-                                <button class="button ${warnaTombolISBN}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusISBN}
-                                </button>
-                              </li>
-                              <li>
-                                2. Link Play book
-                                <button class="button ${warnaTombolPlaybook}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusPlaybook}
-                                </button>
-                              </li>
-                              <li>
-                                3. Link Gramedia
-                                <button class="button ${warnaTombolGramedia}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusGramedia}
-                                </button>
-                              </li>
-                              <li>
-                                4. Link MyEdisi
-                                <button class="button ${warnaTombolMyEd}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusMyEd}
-                                </button>
-                              </li>
-                              <li>
-                                5. Link Kubuku
-                                <button class="button ${warnaTombolKubuku}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusKubuku}
-                                </button>
-                              </li>
-                              <li>
-                                6. Nomor Resi Pengiriman Perpusnas
-                                <button class="button ${warnaTombolDepositPerpusnas}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusDepositPerpusnas}
-                                </button>
-                              </li>
-                              <li>
-                                7. Nomor Resi Pengiriman Perpusda
-                                <button class="button ${warnaTombolDepositPerpusda}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusDepositPerpusda}
-                                </button>
-                              </li>
-                            </ul>
                 </td>
                 <td class="code-box">
 
@@ -188,50 +122,13 @@ function getResponseFunction(result) {
         Swal.fire({
           title: `Status untuk Project: ${projectName}`,
           html: `
-                            <ul style="list-style-type:none; padding-left:0;">
-                              <li>
-                                1. Nomor ISBN
-                                <button class="button ${warnaTombolISBN}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusISBN}
-                                </button>
-                              </li>
-                              <li>
-                                2. Link Play book
-                                <button class="button ${warnaTombolPlaybook}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusPlaybook}
-                                </button>
-                              </li>
-                              <li>
-                                3. Link Gramedia
-                                <button class="button ${warnaTombolGramedia}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusGramedia}
-                                </button>
-                              </li>
-                              <li>
-                                4. Link MyEdisi
-                                <button class="button ${warnaTombolMyEd}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusMyEd}
-                                </button>
-                              </li>
-                              <li>
-                                5. Link Kubuku
-                                <button class="button ${warnaTombolKubuku}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusKubuku}
-                                </button>
-                              </li>
-                              <li>
-                                6. Nomor Resi Pengiriman Perpusnas
-                                <button class="button ${warnaTombolDepositPerpusnas}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusDepositPerpusnas}
-                                </button>
-                              </li>
-                              <li>
-                                7. Nomor Resi Pengiriman Perpusda
-                                <button class="button ${warnaTombolDepositPerpusda}" style="padding: 4px 10px; font-size: 12px;" data-project-id="${project._id}" data-project-name="${project.name}">
-                                  ${statusDepositPerpusda}
-                                </button>
-                              </li>
-                            </ul>
+          <p>1. Nomor ISBN: <button class="button ${project.isbn ? 'is-success' : 'is-warning'}">${project.isbn ? 'Sudah' : 'Belum'}</button></p>
+          <p>2. Link Playbook: <button class="button ${project.linkplaybook ? 'is-success' : 'is-warning'}">${project.linkplaybook ? 'Sudah' : 'Belum'}</button></p>
+          <p>3. Link Gramedia: <button class="button ${project.linkgramed ? 'is-success' : 'is-warning'}">${project.linkgramed ? 'Sudah' : 'Belum'}</button></p>
+          <p>4. Link MyEd: <button class="button ${project.linkmyedisi ? 'is-success' : 'is-warning'}">${project.linkmyedisi ? 'Sudah' : 'Belum'}</button></p>
+          <p>5. Link Kubuku: <button class="button ${project.linkkubuku ? 'is-success' : 'is-warning'}">${project.linkkubuku ? 'Sudah' : 'Belum'}</button></p>
+          <p>6. Nomor Resi Pengiriman Perpusnas: <button class="button ${project.linkdepositperpusnas ? 'is-success' : 'is-warning'}">${project.linkdepositperpusnas ? 'Sudah' : 'Belum'}</button></p>
+          <p>7. Nomor Resi Pengiriman Perpusda: <button class="button ${project.linkdepositperpusda ? 'is-success' : 'is-warning'}">${project.linkdepositperpusda ? 'Sudah' : 'Belum'}</button></p>
           `,
           icon: 'info',
           confirmButtonText: 'Tutup'
