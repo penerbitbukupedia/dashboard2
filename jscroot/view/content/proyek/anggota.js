@@ -122,15 +122,66 @@ function getResponseFunction(result) {
         Swal.fire({
           title: `Status untuk Project: ${projectName}`,
           html: `
-          <div style="text-align: left;">
-          <p>1. Nomor ISBN: <button class="button ${project.isbn ? 'is-success' : 'is-warning'}">${project.isbn ? 'Sudah' : 'Belum'}</button></p>
-          <p>2. Link Playbook: <button class="button ${project.linkplaybook ? 'is-success' : 'is-warning'}">${project.linkplaybook ? 'Sudah' : 'Belum'}</button></p>
-          <p>3. Link Gramedia: <button class="button ${project.linkgramed ? 'is-success' : 'is-warning'}">${project.linkgramed ? 'Sudah' : 'Belum'}</button></p>
-          <p>4. Link MyEd: <button class="button ${project.linkmyedisi ? 'is-success' : 'is-warning'}">${project.linkmyedisi ? 'Sudah' : 'Belum'}</button></p>
-          <p>5. Link Kubuku: <button class="button ${project.linkkubuku ? 'is-success' : 'is-warning'}">${project.linkkubuku ? 'Sudah' : 'Belum'}</button></p>
-          <p>6. Nomor Resi Pengiriman Perpusnas: <button class="button ${project.linkdepositperpusnas ? 'is-success' : 'is-warning'}">${project.linkdepositperpusnas ? 'Sudah' : 'Belum'}</button></p>
-          <p>7. Nomor Resi Pengiriman Perpusda: <button class="button ${project.linkdepositperpusda ? 'is-success' : 'is-warning'}">${project.linkdepositperpusda ? 'Sudah' : 'Belum'}</button></p>
-          </div>
+                <div>
+                  <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <tr>
+                      <td style="padding: 8px; width: 50%;">1. ISBN:</td>
+                      <td style="padding: 8px;">
+                        <button class="button ${project.isbn ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.isbn ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px;">2. Link Playbook:</td>
+                      <td style="padding: 8px;">
+                        <button class="button ${project.linkplaybook ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.linkplaybook ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px;">3. Link Gramedia:</td>
+                      <td style="padding: 8px;">
+                        <button class="button ${project.linkgramed ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.linkgramed ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px;">4. Link MyEd:</td>
+                      <td style="padding: 8px;">
+                        <button class="button ${project.linkmyedisi ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.linkmyedisi ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px;">5. Link Kubuku:</td>
+                      <td style="padding: 8px;">
+                        <button class="button ${project.linkkubuku ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.linkkubuku ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px;">6. Nomor Resi Pengiriman Perpusnas:</td>
+                      <td style="padding: 8px;">
+                        <button class="button ${project.linkdepositperpusnas ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.linkdepositperpusnas ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px;">7. Nomor Resi Pengiriman Perpusda:</td>
+                      <td style="padding: 8px;">
+                        <button class="button ${project.linkdepositperpusda ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.linkdepositperpusda ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
           `,
           icon: 'info',
           confirmButtonText: 'Tutup'
