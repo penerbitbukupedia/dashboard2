@@ -74,6 +74,7 @@ export async function infoButton(event){
         <div class="control">
             <input value="${linkdepositperpusda}" class="input" type="text" id="linkdepositperpusda" name="linkdepositperpusda" placeholder="linkdepositperpusda" disabled>
         </div>
+        </div>
         <div class="field">
         <label class="label">Nomor Resi ISBN</label>
         <div class="control">
