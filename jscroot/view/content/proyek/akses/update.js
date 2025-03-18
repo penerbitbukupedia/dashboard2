@@ -74,6 +74,7 @@ export async function updateButton(target){
         <div class="control">
             <input value="${linkdepositperpusda}" class="input" type="text" id="linkdepositperpusda" name="linkdepositperpusda" placeholder="linkdepositperpusda">
         </div>
+        </div>
         <div class="field">
         <label class="label">Nomor Resi ISBN</label>
         <div class="control">
