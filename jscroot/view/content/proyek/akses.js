@@ -59,6 +59,7 @@ function getResponseFunction(result) {
                 data-project-linkmyedisi="${project.linkmyedisi ?? ''}"
                 data-project-linkdepositperpusnas="${project.linkdepositperpusnas ?? ''}"
                 data-project-linkdepositperpusda="${project.linkdepositperpusda ?? ''}"
+                data-project-noresiisbn="${project.noresiisbn ?? ''}"
                 >
                 ${statusISBN}
                 </button>
