@@ -16,6 +16,7 @@ export async function infoButton(event){
     const linkmyedisi =event.target.getAttribute("data-project-linkmyedisi");
     const linkdepositperpusnas =event.target.getAttribute("data-project-linkdepositperpusnas");
     const linkdepositperpusda =event.target.getAttribute("data-project-linkdepositperpusda");
+    const noresiisbn =event.target.getAttribute("data-project-noresiisbn");
     Swal.fire({
     title: "Info Publish Buku",
     html: `
@@ -72,6 +73,11 @@ export async function infoButton(event){
         <label class="label">URL Deposit Perpusda</label>
         <div class="control">
             <input value="${linkdepositperpusda}" class="input" type="text" id="linkdepositperpusda" name="linkdepositperpusda" placeholder="linkdepositperpusda" disabled>
+        </div>
+        <div class="field">
+        <label class="label">Nomor Resi ISBN</label>
+        <div class="control">
+            <input value="${noresiisbn}" class="input" type="text" id="noresiisbn" name="noresiisbn" placeholder="noresiisbn" disabled>
         </div>
         </div>
     `,

@@ -180,6 +180,14 @@ function getResponseFunction(result) {
                         </button>
                       </td>
                     </tr>
+                    <tr>
+                      <td style="padding: 8px; white-space: nowrap;">7. Nomor Resi ISBN:</td>
+                      <td style="padding: 8px; text-align: right;">
+                        <button class="button ${project.noresiisbn ? 'is-success' : 'is-warning'}" style="padding: 5px 10px;">
+                          ${project.noresiisbn ? 'Sudah' : 'Belum'}
+                        </button>
+                      </td>
+                    </tr>
                   </table>
                 </div>
           `,

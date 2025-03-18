@@ -16,6 +16,7 @@ export async function updateButton(target){
     const linkmyedisi = target.getAttribute("data-project-linkmyedisi");
     const linkdepositperpusnas = target.getAttribute("data-project-linkdepositperpusnas");
     const linkdepositperpusda = target.getAttribute("data-project-linkdepositperpusda");
+    const noresiisbn = target.getAttribute("data-project-noresiisbn");
     const { value: formValues } = await Swal.fire({
     title: "Publish Draft Buku",
     html: `
@@ -73,6 +74,11 @@ export async function updateButton(target){
         <div class="control">
             <input value="${linkdepositperpusda}" class="input" type="text" id="linkdepositperpusda" name="linkdepositperpusda" placeholder="linkdepositperpusda">
         </div>
+        <div class="field">
+        <label class="label">Nomor Resi ISBN</label>
+        <div class="control">
+            <input value="${noresiisbn}" class="input" type="text" id="noresiisbn" name="noresiisbn" placeholder="noresiisbn">
+        </div>
         </div>
     `,
     showCancelButton: true,
@@ -91,20 +97,21 @@ export async function updateButton(target){
         const linkmyedisi = getValue("linkmyedisi");
         const linkdepositperpusnas = getValue("linkdepositperpusnas");
         const linkdepositperpusda = getValue("linkdepositperpusda");
+        const noresiisbn = getValue("noresiisbn");
         if (!isbn) {
         Swal.showValidationMessage(`ISBN Harus Ada`);
         }
-        return { projectId,isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda };
+        return { projectId,isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda,noresiisbn };
     },
     });
 
     if (formValues) {
-        const { projectId,isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda } = formValues;
+        const { projectId,isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda,noresiisbn } = formValues;
         // Logic to add member
         //onInput("phonenumber", validatePhoneNumber);
         let idprjusr = {
             _id: projectId,
-            isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda
+            isbn,terbit,linkplaybook,linkgramed,linkkubuku,linkmyedisi,linkdepositperpusnas,linkdepositperpusda,noresiisbn
 
         };
         putJSON(
