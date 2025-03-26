@@ -1093,7 +1093,7 @@ function addEditDraftPDFButtonListeners() {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
-      const pathURLDoc = button.getAttribute("data-file-path");
+      const pathURLDoc = buttonTOD.getAttribute("data-file-path");
       const projectNameField = `
         <div class="field">
           <label class="label">Unduh Dokumen</label>
@@ -1104,12 +1104,11 @@ function addEditDraftPDFButtonListeners() {
           </div>
         </div>
       `;
-      // Mengecek apakah pathURLDoc benar-benar ada dan bukan "undefined" atau "null"
       let statusDraftBuku = pathURLDoc && pathURLDoc !== "undefined" && pathURLDoc !== "null" ? projectNameField : "";
       Swal.fire({
         title: "Edit Draft PDF Buku",
         html: `
-         <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
+          <input class="input" type="hidden" id="_id" value="${projectId}" disabled>
           <div class="field">
             <label class="label">Project Name</label>
             <div class="control">
@@ -1120,37 +1119,34 @@ function addEditDraftPDFButtonListeners() {
           <div class="field">
             <label class="label">PDF Draft Buku</label>
             <div class="control">
-                <input class="input" type="file" id="fileInput" name="file" accept=".pdf,application/pdf" required>
-                <p class="help">Format yang diterima: hanya PDF</p>
+              <input class="input" type="file" id="fileInput" name="file" accept=".pdf,application/pdf" required>
+              <p class="help">Format yang diterima: hanya PDF</p>
             </div>
           </div>
           <div class="field">
-              <div class="control">
-                  <button class="button is-primary" id="uploadButton">Upload</button>
-              </div>
+            <div class="control">
+              <button class="button is-primary" id="uploadButton">Upload</button>
+            </div>
           </div>
- <div class="field" id="successField" style="display: none;">
-              <div class="control">
-                  <div class="notification is-success">
-                      <p><i class="bx bx-check-circle"></i> File PDF berhasil diunggah</p>
-                      <p id="fileNameDisplay"></p>
-                  </div>
+          <div class="field" id="successField" style="display: none;">
+            <div class="control">
+              <div class="notification is-success">
+                <p><i class="bx bx-check-circle"></i> File PDF berhasil diunggah</p>
+                <p id="fileNameDisplay"></p>
               </div>
+            </div>
           </div>
         `,
         didOpen: () => {
-          // Add event listener for file input to validate PDF file
           const fileInput = document.getElementById('fileInput');
           fileInput.addEventListener('change', validatePDFFile);
-          
-          // Event listener for upload button
           onClick('uploadButton', function() {
             if (validatePDFFile()) {
+              toggleLoading('uploadButton', true); // Aktifkan loading
               uploadDraftPDFBuku();
             }
           });
-          
-          if(pathURLDoc){
+          if (pathURLDoc) {
             downloadDraftButtonListeners();
           }
         },
@@ -1206,17 +1202,25 @@ function uploadDraftPDFBuku(){
 }
 
 function runafterUploadDraftPDFBuku(result) {
-  document.getElementById('fileInput').style.display = 'none';
-  document.getElementById('uploadButton').style.display = 'none';
-  const successField = document.getElementById('successField');
-  const fileNameDisplay = document.getElementById('fileNameDisplay');
-  
-  // Display file name or path from result
-  const filePath = result.location;
-  const fileName = filePath.split('/').pop();
-  fileNameDisplay.textContent = 'Nama file: ' + fileName;
-  
-  successField.style.display = 'block';
+  toggleLoading('uploadButton', false); // Matikan loading
+  if (result.location) {
+    // Kasus sukses
+    document.getElementById('fileInput').style.display = 'none';
+    document.getElementById('uploadButton').style.display = 'none';
+    const successField = document.getElementById('successField');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    const filePath = result.location;
+    const fileName = filePath.split('/').pop();
+    fileNameDisplay.textContent = 'Nama file: ' + fileName;
+    successField.style.display = 'block';
+  } else {
+    // Kasus gagal
+    Swal.fire({
+      icon: 'error',
+      title: 'Upload Gagal',
+      text: 'Terjadi kesalahan saat mengunggah file.',
+    });
+  }
   console.log(result);
 }
 
