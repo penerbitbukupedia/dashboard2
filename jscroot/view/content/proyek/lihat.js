@@ -1120,7 +1120,7 @@ function addEditDraftPDFButtonListeners() {
     button.addEventListener("click", async (event) => {
       const projectId = button.getAttribute("data-project-id");
       const projectName = button.getAttribute("data-project-name");
-      const pathURLDoc = buttonTOD.getAttribute("data-file-path");
+      const pathURLDoc = button.getAttribute("data-file-path");
       const projectNameField = `
         <div class="field">
           <label class="label">Unduh Dokumen</label>
