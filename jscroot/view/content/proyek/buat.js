@@ -162,7 +162,7 @@ function postResponseFunctionapprovalButton(result) {
         result.data._id +
         " sudah di approved",
       footer:
-        '<a href="https://wa.me/62895601060000?text=' +
+        '<a href="https://wa.me/628999710040?text=' +
         katakata +
         '" target="_blank">Verifikasi Proyek</a>',
       didClose: () => {

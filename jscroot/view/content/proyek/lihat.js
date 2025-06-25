@@ -420,7 +420,7 @@ function responseFunction(result) {
         " dan Secret: " +
         result.data.secret,
       footer:
-        '<a href="https://wa.me/6287752000300?text=' +
+        '<a href="https://wa.me/628999710040?text=' +
         katakata +
         '" target="_blank">Verifikasi Proyek</a>',
       didClose: () => {
@@ -451,7 +451,7 @@ function postResponseFunction(result) {
         result.data._id +
         " sudah mendapat member baru",
       footer:
-        '<a href="https://wa.me/62895601060000?text=' +
+        '<a href="https://wa.me/628999710040?text=' +
         katakata +
         '" target="_blank">Verifikasi Proyek</a>',
       didClose: () => {
@@ -482,7 +482,7 @@ function postResponseEditorFunction(result) {
         result.data._id +
         " sudah mendapat editor",
       footer:
-        '<a href="https://wa.me/62895601060000?text=' +
+        '<a href="https://wa.me/628999710040?text=' +
         katakata +
         '" target="_blank">Verifikasi Proyek</a>',
       didClose: () => {

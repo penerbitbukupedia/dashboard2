@@ -36,7 +36,7 @@ function postpublishFunction(result) {
           result.data.pathkatalog +
           " sudah update konten baru",
         footer:
-          '<a href="https://wa.me/62895601060000?text=' +
+          '<a href="https://wa.me/628999710040?text=' +
           katakata +
           '" target="_blank">Verifikasi Proyek</a>',
         didClose: () => {
