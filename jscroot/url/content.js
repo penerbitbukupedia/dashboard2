@@ -28,6 +28,8 @@ export function getContentURL(){
             return url.template.content+"proyek/akses.html";
             case "notifications/blocked":
             return url.template.content+"notifications/blocked.html";
+        case "proyek/penulis":
+            return url.template.content+"proyek/penulis.html";
         case "notifications/silenced":
             return url.template.content+"notifications/silenced.html";
         case "notifications/publish":

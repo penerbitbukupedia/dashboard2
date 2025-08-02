@@ -1,5 +1,6 @@
 /*========== GOOGLE FONTS ==========*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*========== VARIABLES CSS ==========*/
 :root {
@@ -16,7 +17,7 @@
   --container-color: #ffffff;
 
   /*========== Font and typography ==========*/
-  --body-font: "Poppins", sans-serif;
+  --body-font: "Work Sans", sans-serif;
   --normal-font-size: 0.938rem;
   --small-font-size: 0.75rem;
   --smaller-font-size: 0.75rem;

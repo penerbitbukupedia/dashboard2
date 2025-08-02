@@ -11,9 +11,9 @@ import {runAfterHeader,runAfterContent,runAfterHashChange} from "./controller/ma
 
 
 //check cookie login
-if (getCookie("login")===""){
-    redirect("/login");
-}
+// if (getCookie("login")===""){
+//     redirect("/login");
+// }
 
 //adding CSS
 addCSS("https://unpkg.com/bulma@0.9.4/css/bulma.min.css");
@@ -21,6 +21,7 @@ addCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.
 addCSS("https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css");
 addCSS("https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css");
 addCSS("assets/css/styles.css");
+addCSS("assets/css/penulis.css");
 
 //rendering HTML
 insertHTML(url.template.header,id.header,runAfterHeader);
