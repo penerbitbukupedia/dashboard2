@@ -31,3 +31,6 @@ To use existing template, steps are:
 ## Template
 
 1. Boxicons: https://themesbrand.com/skote/layouts/icons-boxicons.html
+
+## GitHub Pages
+http://naskah.bukupedia.co.id/dashboard2/
